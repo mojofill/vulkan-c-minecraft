@@ -1,0 +1,68 @@
+[
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\main.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\main.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/main.c",
+  "output": "CMakeFiles/vk_app.dir/src/main.c.obj"
+},
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\renderer.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\renderer.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/renderer.c",
+  "output": "CMakeFiles/vk_app.dir/src/renderer.c.obj"
+},
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\camera.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\camera.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/camera.c",
+  "output": "CMakeFiles/vk_app.dir/src/camera.c.obj"
+},
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\game.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\game.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/game.c",
+  "output": "CMakeFiles/vk_app.dir/src/game.c.obj"
+},
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\swapchain.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\swapchain.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/swapchain.c",
+  "output": "CMakeFiles/vk_app.dir/src/swapchain.c.obj"
+},
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\graphics_pipeline.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\graphics_pipeline.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/graphics_pipeline.c",
+  "output": "CMakeFiles/vk_app.dir/src/graphics_pipeline.c.obj"
+},
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\commands.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\commands.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/commands.c",
+  "output": "CMakeFiles/vk_app.dir/src/commands.c.obj"
+},
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\buffer.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\buffer.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/buffer.c",
+  "output": "CMakeFiles/vk_app.dir/src/buffer.c.obj"
+},
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\depth_buffer.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\depth_buffer.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/depth_buffer.c",
+  "output": "CMakeFiles/vk_app.dir/src/depth_buffer.c.obj"
+},
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\image.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\image.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/image.c",
+  "output": "CMakeFiles/vk_app.dir/src/image.c.obj"
+},
+{
+  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\stb_image_impl.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\stb_image_impl.c",
+  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/stb_image_impl.c",
+  "output": "CMakeFiles/vk_app.dir/src/stb_image_impl.c.obj"
+}
+]

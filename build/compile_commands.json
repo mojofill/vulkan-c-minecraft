@@ -1,68 +1,98 @@
 [
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\main.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\main.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/main.c",
-  "output": "CMakeFiles/vk_app.dir/src/main.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/main.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/main.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/main.c",
+  "output": "CMakeFiles/vk_app.dir/src/main.c.o"
 },
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\renderer.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\renderer.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/renderer.c",
-  "output": "CMakeFiles/vk_app.dir/src/renderer.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/renderer/renderer.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/renderer.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/renderer.c",
+  "output": "CMakeFiles/vk_app.dir/src/renderer/renderer.c.o"
 },
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\camera.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\camera.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/camera.c",
-  "output": "CMakeFiles/vk_app.dir/src/camera.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/renderer/swapchain.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/swapchain.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/swapchain.c",
+  "output": "CMakeFiles/vk_app.dir/src/renderer/swapchain.c.o"
 },
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\game.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\game.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/game.c",
-  "output": "CMakeFiles/vk_app.dir/src/game.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/renderer/graphics_pipeline.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/graphics_pipeline.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/graphics_pipeline.c",
+  "output": "CMakeFiles/vk_app.dir/src/renderer/graphics_pipeline.c.o"
 },
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\swapchain.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\swapchain.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/swapchain.c",
-  "output": "CMakeFiles/vk_app.dir/src/swapchain.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/renderer/commands.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/commands.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/commands.c",
+  "output": "CMakeFiles/vk_app.dir/src/renderer/commands.c.o"
 },
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\graphics_pipeline.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\graphics_pipeline.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/graphics_pipeline.c",
-  "output": "CMakeFiles/vk_app.dir/src/graphics_pipeline.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/renderer/buffer.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.c",
+  "output": "CMakeFiles/vk_app.dir/src/renderer/buffer.c.o"
 },
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\commands.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\commands.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/commands.c",
-  "output": "CMakeFiles/vk_app.dir/src/commands.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/renderer/depth_buffer.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.c",
+  "output": "CMakeFiles/vk_app.dir/src/renderer/depth_buffer.c.o"
 },
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\buffer.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\buffer.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/buffer.c",
-  "output": "CMakeFiles/vk_app.dir/src/buffer.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/renderer/image.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.c",
+  "output": "CMakeFiles/vk_app.dir/src/renderer/image.c.o"
 },
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\depth_buffer.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\depth_buffer.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/depth_buffer.c",
-  "output": "CMakeFiles/vk_app.dir/src/depth_buffer.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/renderer/stb_image_impl.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image_impl.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image_impl.c",
+  "output": "CMakeFiles/vk_app.dir/src/renderer/stb_image_impl.c.o"
 },
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\image.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\image.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/image.c",
-  "output": "CMakeFiles/vk_app.dir/src/image.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.c",
+  "output": "CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o"
 },
 {
-  "directory": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/build",
-  "command": "C:\\MinGW\\bin\\gcc.exe  @CMakeFiles/vk_app.dir/includes_C.rsp -O3 -DNDEBUG -std=gnu11 -o CMakeFiles\\vk_app.dir\\src\\stb_image_impl.c.obj -c C:\\Users\\henry\\Desktop\\vulkan-projects\\vulkan-c-minecraft\\src\\stb_image_impl.c",
-  "file": "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/stb_image_impl.c",
-  "output": "CMakeFiles/vk_app.dir/src/stb_image_impl.c.obj"
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.c",
+  "output": "CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o"
+},
+{
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/world/camera.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.c",
+  "output": "CMakeFiles/vk_app.dir/src/world/camera.c.o"
+},
+{
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/world/world.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.c",
+  "output": "CMakeFiles/vk_app.dir/src/world/world.c.o"
+},
+{
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/world/chunk.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.c",
+  "output": "CMakeFiles/vk_app.dir/src/world/chunk.c.o"
+},
+{
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/world/chunk_map.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.c",
+  "output": "CMakeFiles/vk_app.dir/src/world/chunk_map.c.o"
+},
+{
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/streamer/streamer.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.c",
+  "output": "CMakeFiles/vk_app.dir/src/streamer/streamer.c.o"
 }
 ]

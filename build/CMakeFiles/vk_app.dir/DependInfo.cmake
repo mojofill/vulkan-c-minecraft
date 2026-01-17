@@ -8,17 +8,22 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/buffer.c" "CMakeFiles/vk_app.dir/src/buffer.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/buffer.c.obj.d"
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/camera.c" "CMakeFiles/vk_app.dir/src/camera.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/camera.c.obj.d"
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/commands.c" "CMakeFiles/vk_app.dir/src/commands.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/commands.c.obj.d"
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/depth_buffer.c" "CMakeFiles/vk_app.dir/src/depth_buffer.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/depth_buffer.c.obj.d"
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/game.c" "CMakeFiles/vk_app.dir/src/game.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/game.c.obj.d"
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/graphics_pipeline.c" "CMakeFiles/vk_app.dir/src/graphics_pipeline.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/graphics_pipeline.c.obj.d"
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/image.c" "CMakeFiles/vk_app.dir/src/image.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/image.c.obj.d"
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/main.c" "CMakeFiles/vk_app.dir/src/main.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/main.c.obj.d"
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/renderer.c" "CMakeFiles/vk_app.dir/src/renderer.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/renderer.c.obj.d"
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/stb_image_impl.c" "CMakeFiles/vk_app.dir/src/stb_image_impl.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/stb_image_impl.c.obj.d"
-  "C:/Users/henry/Desktop/vulkan-projects/vulkan-c-minecraft/src/swapchain.c" "CMakeFiles/vk_app.dir/src/swapchain.c.obj" "gcc" "CMakeFiles/vk_app.dir/src/swapchain.c.obj.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/main.c" "CMakeFiles/vk_app.dir/src/main.c.o" "gcc" "CMakeFiles/vk_app.dir/src/main.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.c" "CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o" "gcc" "CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.c" "CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o" "gcc" "CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.c" "CMakeFiles/vk_app.dir/src/renderer/buffer.c.o" "gcc" "CMakeFiles/vk_app.dir/src/renderer/buffer.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/commands.c" "CMakeFiles/vk_app.dir/src/renderer/commands.c.o" "gcc" "CMakeFiles/vk_app.dir/src/renderer/commands.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.c" "CMakeFiles/vk_app.dir/src/renderer/depth_buffer.c.o" "gcc" "CMakeFiles/vk_app.dir/src/renderer/depth_buffer.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/graphics_pipeline.c" "CMakeFiles/vk_app.dir/src/renderer/graphics_pipeline.c.o" "gcc" "CMakeFiles/vk_app.dir/src/renderer/graphics_pipeline.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.c" "CMakeFiles/vk_app.dir/src/renderer/image.c.o" "gcc" "CMakeFiles/vk_app.dir/src/renderer/image.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/renderer.c" "CMakeFiles/vk_app.dir/src/renderer/renderer.c.o" "gcc" "CMakeFiles/vk_app.dir/src/renderer/renderer.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image_impl.c" "CMakeFiles/vk_app.dir/src/renderer/stb_image_impl.c.o" "gcc" "CMakeFiles/vk_app.dir/src/renderer/stb_image_impl.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/swapchain.c" "CMakeFiles/vk_app.dir/src/renderer/swapchain.c.o" "gcc" "CMakeFiles/vk_app.dir/src/renderer/swapchain.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.c" "CMakeFiles/vk_app.dir/src/streamer/streamer.c.o" "gcc" "CMakeFiles/vk_app.dir/src/streamer/streamer.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.c" "CMakeFiles/vk_app.dir/src/world/camera.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/camera.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.c" "CMakeFiles/vk_app.dir/src/world/chunk.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/chunk.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.c" "CMakeFiles/vk_app.dir/src/world/chunk_map.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/chunk_map.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.c" "CMakeFiles/vk_app.dir/src/world/world.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/world.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

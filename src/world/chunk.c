@@ -1,10 +1,10 @@
 #include "chunk.h"
 #include <stdlib.h>
 
-Chunk createChunk(int dirty, int handle) {
+Chunk createChunk(int dirty, MeshHandle handle) {
     Chunk chunk = {0};
     chunk.dirty = dirty;
-    chunk.handle = handle;
+    chunk.meshHandle = handle;
     return chunk;
 }
 

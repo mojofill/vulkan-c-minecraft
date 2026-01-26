@@ -48,7 +48,7 @@ static void createInstance(vk_context *vko) {
     appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
     appInfo.pEngineName = "No Engine";
     appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
-    appInfo.apiVersion = VK_API_VERSION_1_1;
+    appInfo.apiVersion = VK_API_VERSION_1_2;
     
     VkInstanceCreateInfo createInfo = {0};
     createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
@@ -69,7 +69,7 @@ static void createInstance(vk_context *vko) {
     #ifdef __APPLE__
         extensions[glfwExtensionCount] = VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME;
     #endif
-    
+
     const char* layers[] = {"VK_LAYER_KHRONOS_validation"};
     
     createInfo.enabledExtensionCount = extensionCount;
@@ -81,9 +81,11 @@ static void createInstance(vk_context *vko) {
         createInfo.flags = VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR;
     #endif
 
-    if (vkCreateInstance(&createInfo, NULL, &vko->instance) != VK_SUCCESS) {
-        fprintf(stderr, "Failed to create Vulkan instance.\n"); exit(1);
-    } 
+    VkResult res = vkCreateInstance(&createInfo, NULL, &vko->instance);
+    if (res != VK_SUCCESS) {
+        fprintf(stderr, "vkCreateInstance failed: %d\n", res);
+        exit(1);
+    }
 
     // initializations
     vko->framebufferResized = 0;
@@ -150,9 +152,15 @@ static void createLogicalDevice(vk_context *vko) {
     VkPhysicalDeviceFeatures deviceFeatures = {0};
     deviceFeatures.samplerAnisotropy = VK_TRUE; // must add device feature sampler anisotropy
 
+    VkPhysicalDeviceVulkan12Features v12Features = {0};
+    v12Features.sType =
+        VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES;
+    v12Features.separateDepthStencilLayouts = VK_TRUE;
+
     // create logical device
     VkDeviceCreateInfo deviceCreateInfo = {0};
     deviceCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+    deviceCreateInfo.pNext = &v12Features;
     deviceCreateInfo.queueCreateInfoCount = 1;
     deviceCreateInfo.pQueueCreateInfos = queueCreateInfos;
     deviceCreateInfo.enabledExtensionCount = 2;
@@ -189,24 +197,42 @@ static void createRenderpass(vk_context *vko) {
     colorAttachmentRef.attachment = 0; // pAttachments[0] - there is an array of attachments, our attachment index is 0 b/c we only have one attachment right now
     colorAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
+    // depth buffer attachments
+    VkAttachmentDescription depthAttachment = {0};
+    depthAttachment.format = VK_FORMAT_D32_SFLOAT;
+    depthAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
+    depthAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
+    depthAttachment.storeOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
+    depthAttachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
+    depthAttachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
+    depthAttachment.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+    depthAttachment.finalLayout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
+
+    VkAttachmentReference depthAttachmentRef = {0};
+    depthAttachmentRef.attachment = 1;
+    depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_OPTIMAL;
+
     // create the subpass. right now, we just have one subpass. this is the vertex -> fragment stuff
     VkSubpassDescription subpass = {0};
     subpass.pipelineBindPoint = VK_PIPELINE_BIND_POINT_GRAPHICS; // running GRAPHICS pipeline - not a compute pipeline
     subpass.colorAttachmentCount = 1; // one SINGULAR color output, which is attachment #0. attachment = "logical" i
     subpass.pColorAttachments = &colorAttachmentRef; // array decay, for single length array just pointer to first
+    subpass.pDepthStencilAttachment = &depthAttachmentRef;
 
     VkSubpassDependency dependency = {0};
     dependency.srcSubpass = VK_SUBPASS_EXTERNAL; // think negative 1 when srcSubpass is VK_SUBPASS_EXTERNAL, and max+1 when it is dstSubpass (dst = destination)
     dependency.dstSubpass = 0; // this is for the first implicit subpass from initial layout to render pass layout
-    dependency.srcStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+    dependency.srcStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT | VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT;
     dependency.srcAccessMask = 0;
-    dependency.dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT; // only when subpass 0 finished can pipeline move onto this stage
-    dependency.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT; // tells last implicit subpass to wait for subpass 0 t finish before writing to color attachment
+    dependency.dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT | VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT; // only when subpass 0 finished can pipeline move onto this stage
+    dependency.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT; // tells last implicit subpass to wait for subpass 0 t finish before writing to color attachment
+
+    VkAttachmentDescription attachments[2] = {colorAttachment, depthAttachment};
 
     VkRenderPassCreateInfo renderPassInfo = {0};
     renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO;
-    renderPassInfo.attachmentCount = 1;
-    renderPassInfo.pAttachments = &colorAttachment;
+    renderPassInfo.attachmentCount = 2;
+    renderPassInfo.pAttachments = attachments;
     renderPassInfo.subpassCount = 1;
     renderPassInfo.pSubpasses = &subpass;
     renderPassInfo.dependencyCount = 1;
@@ -380,9 +406,11 @@ static void initVulkan(vk_context *vko, VertexBufferContext *vbo) {
     createImageViews(vko); // image view = how render pipeline accesses swapchain images
 
     createCommandPool(vko); // because of staging to vertex buffer copy command, must create command pool before creating vertex buffer context
-    createTextureImage(vko, "./src/renderer/king_trump_cropped.png");
+    createTextureImage(vko, "./src/assets/smooth_stone.png");
     createTextureImageView(vko);
     createTextureSampler(vko);
+    // create depth buffers
+    createDepthResources(vko);
     createVertexBufferContext(vko, vbo);
 
     // fixed function stages = can tweak behavior via parameters, but the way they work is predefined (ie vulkan does the dirty work for us)
@@ -477,6 +505,9 @@ void cleanupRenderer(vk_context *vko) {
     // printf("starting time diagnostic...\n");
     // start = clock();
     vkDestroySampler(vko->device, vko->textureSampler, NULL);
+    vkDestroyImage(vko->device, vko->depthImage, NULL);
+    vkDestroyImageView(vko->device, vko->depthImageView, NULL);
+    vkFreeMemory(vko->device, vko->depthImageMemory, NULL);
     vkDestroyImage(vko->device, vko->textureImage, NULL);
     vkDestroyImageView(vko->device, vko->textureImageView, NULL);
     vkFreeMemory(vko->device, vko->textureImageMemory, NULL);

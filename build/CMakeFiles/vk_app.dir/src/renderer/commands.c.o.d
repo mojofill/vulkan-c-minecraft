@@ -192,4 +192,6 @@ CMakeFiles/vk_app.dir/src/renderer/commands.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h

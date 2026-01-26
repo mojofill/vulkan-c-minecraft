@@ -39,26 +39,30 @@ void createTextureImage(vk_context *vko, const char* imagePath) {
     vkFreeMemory(vko->device, stagingBufferMemory, NULL);
 }
 
-void createTextureImageView(vk_context *vko) {
+void createImageView(vk_context *vko, VkImage image, VkFormat format, VkImageAspectFlags aspectFlags, VkImageView *imageView) {
     VkImageViewCreateInfo viewInfo = {0};
     viewInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
-    viewInfo.image = vko->textureImage;
+    viewInfo.image = image;
     viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
-    viewInfo.format = VK_FORMAT_R8G8B8A8_SRGB;
+    viewInfo.format = format;
     viewInfo.components.r = VK_COMPONENT_SWIZZLE_IDENTITY; // rgba -> rgba. pure identity, no alteration
     viewInfo.components.g = VK_COMPONENT_SWIZZLE_IDENTITY;
     viewInfo.components.b = VK_COMPONENT_SWIZZLE_IDENTITY;
     viewInfo.components.a = VK_COMPONENT_SWIZZLE_IDENTITY;
-    viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+    viewInfo.subresourceRange.aspectMask = aspectFlags;
     viewInfo.subresourceRange.baseArrayLayer = 0;
     viewInfo.subresourceRange.layerCount = 1;
     viewInfo.subresourceRange.levelCount = 1;
     viewInfo.subresourceRange.baseMipLevel = 0;
 
-    if (vkCreateImageView(vko->device, &viewInfo, NULL, &vko->textureImageView) != VK_SUCCESS) {
-        fprintf(stderr, "Failed to create texture image view\n");
+    if (vkCreateImageView(vko->device, &viewInfo, NULL, imageView) != VK_SUCCESS) {
+        fprintf(stderr, "Failed to create image view\n");
         exit(1);
     }
+}
+
+void createTextureImageView(vk_context *vko) {
+    createImageView(vko, vko->textureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT, &vko->textureImageView);
 }
 
 void createTextureSampler(vk_context *vko) {
@@ -113,13 +117,13 @@ void createImage(vk_context *vko, uint32_t width, uint32_t height, VkFormat form
     imageInfo.flags = 0; // Optional
 
     if (vkCreateImage(vko->device, &imageInfo, NULL, image) != VK_SUCCESS) {
-        fprintf(stderr, "Failed to create texture image\n");
+        fprintf(stderr, "Failed to create image\n");
         exit(1);
     }
 
     // allocate space for image
     VkMemoryRequirements memRequirements;
-    vkGetImageMemoryRequirements(vko->device, vko->textureImage, &memRequirements);
+    vkGetImageMemoryRequirements(vko->device, *image, &memRequirements);
 
     VkMemoryAllocateInfo allocInfo = {0};
     allocInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;

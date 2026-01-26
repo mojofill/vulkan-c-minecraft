@@ -31,7 +31,7 @@ void updateCameraUniforms(vk_context *vko, uint32_t currentImage, Camera cam) {
     memcpy(vko->cameraUniformBufferMapped[currentImage], &ubo, sizeof(ubo));
 }
 
-void mainLoop(vk_context *vko, World *world, MeshPool *pool) {
+void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *pool) {
     uint32_t currentFrame = 0;
     while (!glfwWindowShouldClose(vko->window)) {
         glfwPollEvents();
@@ -40,8 +40,9 @@ void mainLoop(vk_context *vko, World *world, MeshPool *pool) {
         // update chunk (cpu) data into streamer (only updates, doesnt do unnecessary work)
         // this is already uploaded with a simple test function, but later obviously should upload from a chunk_map
         // after streamer has cpu chunk data, streamer needs to be connected to mesh pool to reallocation
+
+        syncStreamerWithMeshPool(streamer, pool);
         
-        remeshChunks(*pool);
         drawFrame(vko, &currentFrame, *pool);
     }
 
@@ -67,13 +68,19 @@ int main() {
 
     Streamer streamer = createStreamer();
 
-    // DEBUG PURPOSES: will create temporary chunk in main process (in future should be in a chunk_map), upload to streamer, will be processed every frame to remesh (!! how do i stop pipeline until buffer gets fully copied over? should create a pipeline barrier?)
-
+    // for testing purposes, will create a single chunk with meshHandle 0
     Chunk chunk = createChunk(1, 0);
-    bindChunk(&streamer, &chunk); // only for debugging purposes
+    streamer.activeHandles[0] = chunk.meshHandle;
+
+    // for now i will manually allocate and free mesh pool with chunk data
+
+    mesh_alloc(&meshPool, 0);
+    syncStreamerWithMeshPool(&streamer, &meshPool);
+
+    // what i need to do right now: write out the system a way that uses handles to transport data
 
     init_renderer(&vko);
-    mainLoop(&vko, &world, &meshPool);
+    mainLoop(&vko, &streamer, &world, &meshPool);
     cleanup(&vko, world, streamer, meshPool);
     
     return 0;

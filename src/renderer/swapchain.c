@@ -120,13 +120,12 @@ void createFramebuffers(vk_context *vko) {
     vko->swapchainFramebuffers = malloc(sizeof(VkFramebuffer) * vko->swapchainImageCount);
     
     for (uint32_t i = 0; i < vko->swapchainImageCount; i++) {
-        VkImageView attachments[] = { vko->swapchainImageViews[i] }; // try manual array decay after
+        VkImageView attachments[2] = { vko->swapchainImageViews[i], vko->depthImageView }; // try manual array decay after
         VkFramebufferCreateInfo framebufferInfo = {0};
         framebufferInfo.sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
         framebufferInfo.renderPass = vko->renderPass;
-        framebufferInfo.attachmentCount = 1;
-        // framebufferInfo.pAttachments = attachments;
-        framebufferInfo.pAttachments = &vko->swapchainImageViews[i];
+        framebufferInfo.attachmentCount = 2;
+        framebufferInfo.pAttachments = attachments;
         framebufferInfo.width = vko->surfaceCapabilities.currentExtent.width;
         framebufferInfo.height = vko->surfaceCapabilities.currentExtent.height;
         framebufferInfo.layers = 1;

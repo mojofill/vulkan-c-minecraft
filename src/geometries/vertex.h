@@ -6,7 +6,7 @@
 #include <cglm/cglm.h>
 
 typedef struct Vertex {
-    vec4 pos;
+    vec3 pos;
     vec3 color;
     vec2 texCoord;
 } Vertex;

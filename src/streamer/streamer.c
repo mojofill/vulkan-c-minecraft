@@ -4,22 +4,19 @@
 Streamer createStreamer() {
     Streamer self = {0};
     self.size = NUM_VISIBLE_CHUNKS;
-    self.activeChunks = malloc(sizeof(Chunk*) * self.size);
+    self.activeHandles = malloc(sizeof(MeshHandle) * self.size);
     for (int i = 0; i < self.size; i++) {
-        self.activeChunks[i] = malloc(sizeof(Chunk));
+        self.activeHandles[i] = MESH_HANDLE_INVALID;
     }
     return self;
 }
 
-// will probably not stay, but only used now for simple prototyping
-void bindChunk(Streamer *streamer, Chunk *chunk) {
-    streamer->activeChunks[chunk->handle] = chunk;
+// finds difference between streamer handles vs mesh pool handles
+// this function only *adds* meshes. i have to manually free the chunks that are out of sight
+void syncStreamerWithMeshPool(Streamer *streamer, MeshPool *pool) {
+    // will do this later
 }
 
-// if i recieve a seg fault here, most likely streamer chunks have not been allocated
 void destroyStreamer(Streamer streamer) {
-    for (int i = 0; i < streamer.size; i++) {
-        destroyChunk(&(streamer.activeChunks[i]));
-    }
-    free(streamer.activeChunks);
+    free(streamer.activeHandles);
 }

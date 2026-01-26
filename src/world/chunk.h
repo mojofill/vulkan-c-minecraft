@@ -5,17 +5,18 @@
 #define NUM_VISIBLE_CHUNKS ((2 * RENDER_DISTANCE + 1) * (2 * RENDER_DISTANCE + 1))
 
 #include "mesh/chunk_mesh.h"
+#include <stdint.h>
 
 typedef struct Chunk {
     int dirty;
-    MeshHandle handle;
+    MeshHandle meshHandle;
 } Chunk;
 
 typedef struct ChunkMap {
     
 } ChunkMap;
 
-Chunk createChunk(int dirty, int handle);
+Chunk createChunk(int dirty, MeshHandle handle);
 void destroyChunk(Chunk **chunk);
 
 #endif

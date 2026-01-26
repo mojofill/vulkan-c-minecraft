@@ -8,9 +8,6 @@ void camera_move(Camera *cam, vec3 dir, float dt) {
 
 void camera_process_inputs(Camera *cam, GLFWwindow *window)
 {
-    const float moveSpeed = 0.005f;
-    const float rotSpeed  = 0.005f;
-
     // --- UPDATE ROTATION (yaw + pitch) ---
     if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
         cam->yaw -= rotSpeed;

@@ -46,10 +46,12 @@ void recordCommands(vk_context *vko, uint32_t currentFrame, MeshPool pool) {
         renderPassInfoCmd.renderArea.offset = (VkOffset2D){0,0};
         renderPassInfoCmd.renderArea.extent = vko->surfaceCapabilities.currentExtent;
 
-        // VkClearValue clearColor = {{{0.0f, 0.0f, 0.0f, 1.0f}}};
-        VkClearValue clearColor = {0.0f, 0.0f, 0.0f, 1.0f};
-        renderPassInfoCmd.clearValueCount = 1;
-        renderPassInfoCmd.pClearValues = &clearColor;
+        VkClearValue clearColors[2] = {{0}, {0}};
+        clearColors[0].color = (VkClearColorValue) {0.0f, 0.7f, 0.75f, 1.0f};
+        clearColors[1].depthStencil = (VkClearDepthStencilValue) {1.0f, 0};
+    
+        renderPassInfoCmd.clearValueCount = 2;
+        renderPassInfoCmd.pClearValues = clearColors;
 
         // render pass = the "plan" that says what it will do after it gets the image data. its currently working with a color attachment as a placeholder. needs pipeline to actually supply the data to the color attachment
 
@@ -74,9 +76,6 @@ void recordCommands(vk_context *vko, uint32_t currentFrame, MeshPool pool) {
 
         // draw triangle
         // must bind vertex buffer before draw (like opengl)
-
-        // here i have to include mesh
-        remeshChunks(pool);
 
         vkCmdBindVertexBuffers(vko->commandBuffers[i], 0, 1, &vko->vbo->vertexBuffer, (VkDeviceSize[]){0});
         // must bind descriptor sets as well

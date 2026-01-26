@@ -1,6 +1,7 @@
 CMakeFiles/vk_app.dir/src/renderer/depth_buffer.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.c \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -190,4 +191,5 @@ CMakeFiles/vk_app.dir/src/renderer/depth_buffer.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/bezier.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ray.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h

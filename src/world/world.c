@@ -1,8 +1,16 @@
 #include "world.h"
 
-World createWorld() {
-    World world = {0};
+void createChunk(World *world, vec2 pos) {
+    Chunk chunk = {0};
+    glm_vec2_copy(pos, chunk.pos);
+    chunk.dirty = 1; // always dirty
+    chunk.chunkHandle = world->chunkCount;
 
+    world->chunks[chunk.chunkHandle] = chunk;
+    world->chunkCount++;
+}
+
+void createWorld(World *world) {
     Camera cam = {
         .pos   = {0.0f, 2.0f, 2.0f},
         .pitch = -GLM_PI_4f,        // looking level
@@ -15,10 +23,12 @@ World createWorld() {
     cam.dir[2] = sinf(cam.pitch);
     glm_normalize(cam.dir);
 
-    world.cam = cam;
-    return world;
+    world->cam = cam;
+
+    world->chunks = malloc(sizeof(Chunk) * MAX_LOADED_CHUNKS);
+    world->chunkCount = 0;
 }
 
 void destroyWorld(World world) {
-
+    free(world.chunks);
 }

@@ -1,10 +1,6 @@
 CMakeFiles/vk_app.dir/src/world/chunk.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.c \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
- /usr/local/include/vulkan/vulkan.h \
- /usr/local/include/vulkan/vk_platform.h \
- /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdint.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int8_t.h \
@@ -32,26 +28,9 @@ CMakeFiles/vk_app.dir/src/world/chunk.c.o: \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uintptr_t.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_intmax_t.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uintmax_t.h \
- /usr/local/include/vulkan/vulkan_core.h \
- /usr/local/include/vk_video/vulkan_video_codec_h264std.h \
- /usr/local/include/vk_video/vulkan_video_codecs_common.h \
- /usr/local/include/vk_video/vulkan_video_codec_h264std_encode.h \
- /usr/local/include/vk_video/vulkan_video_codec_h264std.h \
- /usr/local/include/vk_video/vulkan_video_codec_h265std.h \
- /usr/local/include/vk_video/vulkan_video_codec_h265std_encode.h \
- /usr/local/include/vk_video/vulkan_video_codec_h265std.h \
- /usr/local/include/vk_video/vulkan_video_codec_h264std_decode.h \
- /usr/local/include/vk_video/vulkan_video_codec_h265std_decode.h \
- /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
- /usr/local/include/vk_video/vulkan_video_codec_av1std_decode.h \
- /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
- /usr/local/include/vk_video/vulkan_video_codec_av1std_encode.h \
- /usr/local/include/vk_video/vulkan_video_codec_vp9std.h \
- /usr/local/include/vk_video/vulkan_video_codec_vp9std_decode.h \
- /usr/local/include/vk_video/vulkan_video_codec_vp9std.h \
- /usr/local/include/vulkan/vulkan_macos.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/cglm.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h \
+ /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdlib.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/Availability.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityVersions.h \

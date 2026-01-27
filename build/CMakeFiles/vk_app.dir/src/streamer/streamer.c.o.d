@@ -69,30 +69,9 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_dev_t.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_mode_t.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
- /usr/local/include/vulkan/vulkan.h \
- /usr/local/include/vulkan/vk_platform.h \
- /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
- /usr/local/include/vulkan/vulkan_core.h \
- /usr/local/include/vk_video/vulkan_video_codec_h264std.h \
- /usr/local/include/vk_video/vulkan_video_codecs_common.h \
- /usr/local/include/vk_video/vulkan_video_codec_h264std_encode.h \
- /usr/local/include/vk_video/vulkan_video_codec_h264std.h \
- /usr/local/include/vk_video/vulkan_video_codec_h265std.h \
- /usr/local/include/vk_video/vulkan_video_codec_h265std_encode.h \
- /usr/local/include/vk_video/vulkan_video_codec_h265std.h \
- /usr/local/include/vk_video/vulkan_video_codec_h264std_decode.h \
- /usr/local/include/vk_video/vulkan_video_codec_h265std_decode.h \
- /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
- /usr/local/include/vk_video/vulkan_video_codec_av1std_decode.h \
- /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
- /usr/local/include/vk_video/vulkan_video_codec_av1std_encode.h \
- /usr/local/include/vk_video/vulkan_video_codec_vp9std.h \
- /usr/local/include/vk_video/vulkan_video_codec_vp9std_decode.h \
- /usr/local/include/vk_video/vulkan_video_codec_vp9std.h \
- /usr/local/include/vulkan/vulkan_macos.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/cglm.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h \
+ /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/float.h \
  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdbool.h \
@@ -184,4 +163,40 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
+ /usr/local/include/GLFW/glfw3.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
+ /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/assert.h \
+ /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/string.h \
+ /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rsize_t.h \
+ /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/strings.h \
+ /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_strings.h \
+ /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_string.h \
+ /usr/local/include/vulkan/vulkan.h \
+ /usr/local/include/vulkan/vk_platform.h \
+ /usr/local/include/vulkan/vulkan_core.h \
+ /usr/local/include/vk_video/vulkan_video_codec_h264std.h \
+ /usr/local/include/vk_video/vulkan_video_codecs_common.h \
+ /usr/local/include/vk_video/vulkan_video_codec_h264std_encode.h \
+ /usr/local/include/vk_video/vulkan_video_codec_h264std.h \
+ /usr/local/include/vk_video/vulkan_video_codec_h265std.h \
+ /usr/local/include/vk_video/vulkan_video_codec_h265std_encode.h \
+ /usr/local/include/vk_video/vulkan_video_codec_h265std.h \
+ /usr/local/include/vk_video/vulkan_video_codec_h264std_decode.h \
+ /usr/local/include/vk_video/vulkan_video_codec_h265std_decode.h \
+ /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
+ /usr/local/include/vk_video/vulkan_video_codec_av1std_decode.h \
+ /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
+ /usr/local/include/vk_video/vulkan_video_codec_av1std_encode.h \
+ /usr/local/include/vk_video/vulkan_video_codec_vp9std.h \
+ /usr/local/include/vk_video/vulkan_video_codec_vp9std_decode.h \
+ /usr/local/include/vk_video/vulkan_video_codec_vp9std.h \
+ /usr/local/include/vulkan/vulkan_macos.h \
+ /usr/local/include/vulkan/vulkan_beta.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h

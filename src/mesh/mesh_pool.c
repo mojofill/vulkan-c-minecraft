@@ -3,8 +3,8 @@
 void createMeshPool(MeshPool *outMeshPool, uint32_t capacity) {
     outMeshPool->capacity = capacity;
     outMeshPool->meshes = malloc(sizeof(ChunkMesh*) * capacity);
-    outMeshPool->handleToSlot = malloc(sizeof(MeshHandle) * NUM_VISIBLE_CHUNKS);
-    outMeshPool->slotsUsed = malloc(sizeof(MeshHandle) * capacity);
+    outMeshPool->handleToSlot = malloc(sizeof(ChunkHandle) * NUM_VISIBLE_CHUNKS);
+    outMeshPool->slotsUsed = malloc(sizeof(ChunkHandle) * capacity);
     outMeshPool->count = 0;
     
     for (int i = 0; i < capacity; i++) {
@@ -14,11 +14,11 @@ void createMeshPool(MeshPool *outMeshPool, uint32_t capacity) {
     }
 
     for (int i = 0; i < NUM_VISIBLE_CHUNKS; i++) {
-        outMeshPool->handleToSlot[i] = MESH_HANDLE_INVALID;
+        outMeshPool->handleToSlot[i] = CHUNK_HANDLE_INVALID;
     }
 }
 
-void mesh_alloc(MeshPool *pool, MeshHandle handle) {
+void mesh_alloc(MeshPool *pool, ChunkHandle handle) {
     // 1. find a free slot
     uint32_t slot = -1;
     for (uint32_t i = 0; i < pool->capacity; i++) {
@@ -46,16 +46,37 @@ void mesh_alloc(MeshPool *pool, MeshHandle handle) {
     pool->count++;
 }
 
-void mesh_free(MeshPool *pool, MeshHandle handle) {
+void mesh_free(MeshPool *pool, ChunkHandle handle) {
     uint32_t slot = pool->handleToSlot[handle];
     pool->slotsUsed[slot] = 0;
-    pool->handleToSlot[handle] = MESH_HANDLE_INVALID; // important: must invalidate mesh handle
+    pool->handleToSlot[handle] = CHUNK_HANDLE_INVALID; // important: must invalidate mesh handle
 
     pool->count--;
     if (pool->count < 0) {
         fprintf(stderr, "fatal: count is less than 0\n");
         exit(1);
     }
+}
+
+// handle -> slot -> return slot == 0 (free)
+int meshPoolIsHandleUsed(MeshPool pool, ChunkHandle handle) {
+    if (handle == CHUNK_HANDLE_INVALID) return 0;
+    return pool.slotsUsed[pool.handleToSlot[handle]] == 0;
+}
+
+void meshChunk(ChunkHandle handle, World *world, MeshPool *pool, vk_context *vko) {
+    int slot = pool->handleToSlot[handle];
+    Chunk chunk = world->chunks[handle];
+    
+    ChunkMesh mesh = {0};
+    createChunkMesh(chunk, &mesh, vko);
+
+    printf("finished working on create chunk mesh\n");
+
+    pool->meshes[slot] = mesh;
+    chunk.dirty = 0; // after remeshing mark not dirty
+
+    world->chunks[handle] = chunk;
 }
 
 void destroyMeshPool(MeshPool meshPool) {

@@ -31,17 +31,53 @@ void updateCameraUniforms(vk_context *vko, uint32_t currentImage, Camera cam) {
     memcpy(vko->cameraUniformBufferMapped[currentImage], &ubo, sizeof(ubo));
 }
 
+void synchronizeStreamerAndMeshPoolWithRenderer(World *world, Streamer *streamer, MeshPool *meshPool, vk_context *vko) {
+    // invariant: streamer is aligned with mesh pool (not necessarily other way around)
+
+    // streamer + mesh pool <-> renderer synchronization:
+    // a. for each mesh handle in streamer
+    //    if chunk is dirty then // (find chunk from chunk handle via world.chunks)
+    //        remesh chunk (connects to mapped memory pointers)
+    // b. renderer will see all chunk data, including those remeshed, and will render those
+    //    for each mesh in mesh pool do
+    //        vk draw chunk vertex buffer + global index buffer (same index buffer for each chunk)
+
+    for (int i = 0; i < streamer->size; i++) {
+        ChunkHandle c_handle = streamer->activeHandles[i];
+        if (c_handle == CHUNK_HANDLE_INVALID) continue;
+        Chunk chunk = world->chunks[c_handle];
+        assert(chunk.chunkHandle == c_handle); // why not, just in case
+        if (chunk.dirty) {
+            meshChunk(c_handle, world, meshPool, vko);
+        }
+    }
+}
+
+// unless implementing multi threading, must synchronize all cpu/gpu data here
 void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *pool) {
     uint32_t currentFrame = 0;
     while (!glfwWindowShouldClose(vko->window)) {
         glfwPollEvents();
         processInput(vko->window, &world->cam);
         updateCameraUniforms(vko, currentFrame, world->cam);
-        // update chunk (cpu) data into streamer (only updates, doesnt do unnecessary work)
-        // this is already uploaded with a simple test function, but later obviously should upload from a chunk_map
-        // after streamer has cpu chunk data, streamer needs to be connected to mesh pool to reallocation
 
-        syncStreamerWithMeshPool(streamer, pool);
+        // invariant: streamer is aligned with mesh pool (must keep this in mind)
+        //     ie any changes made to streamer must reflect mesh pool
+        //     (not *necessarily* the other way around)
+
+        // 1. synchronize player with streamer + mesh pool
+        // 2. synchronize streamer + mesh pool with renderer
+        
+        // player <-> streamer synchronization: 
+        // a. if player moved chunks, move render borders by removing/adding to streamer + mesh_free/mesh_alloc meshes
+        // b. for each chunk, if chunk dirty, remesh data with updated chunk data
+
+        // check synchronizeStreamerAndMeshPoolWithRenderer for description of streamer + mesh pool synchronization with renderer
+
+        // todo: need to create a player in order to synchronize player with streamer + mesh pool
+
+        // 2. synchronize streamer + mesh pool with renderer
+        synchronizeStreamerAndMeshPoolWithRenderer(world, streamer, pool, vko);
         
         drawFrame(vko, &currentFrame, *pool);
     }
@@ -56,30 +92,44 @@ void cleanup(vk_context *vko, World world, Streamer streamer, MeshPool pool) {
     cleanupRenderer(vko);
 }
 
-int main() {
+int main() {    
     vk_context vko = {0};
     VertexBufferContext vbo = {0};
     vko.vbo = &vbo;
 
-    World world = createWorld();
+    World world = {0};
+    createWorld(&world);
 
     MeshPool meshPool = {0};
     createMeshPool(&meshPool, NUM_VISIBLE_CHUNKS);
 
-    Streamer streamer = createStreamer();
+    Streamer streamer = {0};
+    createStreamer(&streamer);
 
-    // for testing purposes, will create a single chunk with meshHandle 0
-    Chunk chunk = createChunk(1, 0);
-    streamer.activeHandles[0] = chunk.meshHandle;
+    // for testing purposes, will create a single chunk with chunkHandle 0
+    createChunk(&world, (vec2) {0.0f, 0.0f});
+    Chunk chunk = world.chunks[0];
+
+    streamer.activeHandles[0] = chunk.chunkHandle;
 
     // for now i will manually allocate and free mesh pool with chunk data
 
     mesh_alloc(&meshPool, 0);
-    syncStreamerWithMeshPool(&streamer, &meshPool);
 
-    // what i need to do right now: write out the system a way that uses handles to transport data
+    printf("current mesh pool: \n");
+    for (int i = 0; i < meshPool.count; i++) {
+        printf("pool %d\n", i);
+    }
 
-    init_renderer(&vko);
+    // must mesh chunk
+    // todo: put this in mesh_pool.c
+
+    init_renderer(&vko); // needs to be initialized for chunk meshing
+
+    for (int i = 0; i < meshPool.count; i++) {
+        meshChunk(chunk.chunkHandle, &world, &meshPool, &vko);
+    }
+
     mainLoop(&vko, &streamer, &world, &meshPool);
     cleanup(&vko, world, streamer, meshPool);
     

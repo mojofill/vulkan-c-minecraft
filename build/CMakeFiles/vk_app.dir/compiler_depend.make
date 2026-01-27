@@ -216,6 +216,7 @@ CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o: /Users/henryzhang/Documents/vulka
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint8_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uintmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/alloca.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/errno.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_mcontext.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_types.h \
@@ -236,8 +237,12 @@ CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o: /Users/henryzhang/Documents/vulka
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_ptrcheck.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdlib.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_posix_availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_attr_t.h \
@@ -257,6 +262,7 @@ CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o: /Users/henryzhang/Documents/vulka
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_null.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_off_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_pid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rsize_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rune_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_seek_set.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigaltstack.h \
@@ -346,7 +352,12 @@ CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o: /Users/henryzhang/Documents/vulka
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h \
@@ -361,6 +372,7 @@ CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o: /Users/henryzhang/Documents/vulka
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h \
+  /usr/local/include/GLFW/glfw3.h \
   /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
   /usr/local/include/vk_video/vulkan_video_codec_av1std_decode.h \
   /usr/local/include/vk_video/vulkan_video_codec_av1std_encode.h \
@@ -375,6 +387,7 @@ CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o: /Users/henryzhang/Documents/vulka
   /usr/local/include/vk_video/vulkan_video_codecs_common.h \
   /usr/local/include/vulkan/vk_platform.h \
   /usr/local/include/vulkan/vulkan.h \
+  /usr/local/include/vulkan/vulkan_beta.h \
   /usr/local/include/vulkan/vulkan_core.h \
   /usr/local/include/vulkan/vulkan_macos.h
 
@@ -393,6 +406,7 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: /Users/henryzhang/Documents/vulkan
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint8_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uintmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/alloca.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/errno.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_mcontext.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_types.h \
@@ -413,8 +427,12 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: /Users/henryzhang/Documents/vulkan
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_ptrcheck.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdlib.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_posix_availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_attr_t.h \
@@ -434,6 +452,7 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: /Users/henryzhang/Documents/vulkan
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_null.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_off_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_pid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rsize_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rune_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_seek_set.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigaltstack.h \
@@ -523,9 +542,15 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: /Users/henryzhang/Documents/vulkan
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h \
@@ -540,6 +565,7 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: /Users/henryzhang/Documents/vulkan
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h \
+  /usr/local/include/GLFW/glfw3.h \
   /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
   /usr/local/include/vk_video/vulkan_video_codec_av1std_decode.h \
   /usr/local/include/vk_video/vulkan_video_codec_av1std_encode.h \
@@ -554,6 +580,7 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: /Users/henryzhang/Documents/vulkan
   /usr/local/include/vk_video/vulkan_video_codecs_common.h \
   /usr/local/include/vulkan/vk_platform.h \
   /usr/local/include/vulkan/vulkan.h \
+  /usr/local/include/vulkan/vulkan_beta.h \
   /usr/local/include/vulkan/vulkan_core.h \
   /usr/local/include/vulkan/vulkan_macos.h
 
@@ -899,10 +926,13 @@ CMakeFiles/vk_app.dir/src/renderer/commands.c.o: /Users/henryzhang/Documents/vul
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/commands.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h \
@@ -1670,7 +1700,9 @@ CMakeFiles/vk_app.dir/src/renderer/renderer.c.o: /Users/henryzhang/Documents/vul
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/swapchain.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h \
@@ -2010,6 +2042,7 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: /Users/henryzhang/Documents/vul
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint8_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uintmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/alloca.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/errno.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_mcontext.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_types.h \
@@ -2030,8 +2063,12 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: /Users/henryzhang/Documents/vul
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_ptrcheck.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_common.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdlib.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/string.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/strings.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_posix_availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_attr_t.h \
@@ -2051,6 +2088,7 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: /Users/henryzhang/Documents/vul
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_null.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_off_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_pid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rsize_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rune_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_seek_set.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigaltstack.h \
@@ -2140,10 +2178,16 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: /Users/henryzhang/Documents/vul
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h \
@@ -2158,6 +2202,7 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: /Users/henryzhang/Documents/vul
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h \
+  /usr/local/include/GLFW/glfw3.h \
   /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
   /usr/local/include/vk_video/vulkan_video_codec_av1std_decode.h \
   /usr/local/include/vk_video/vulkan_video_codec_av1std_encode.h \
@@ -2172,6 +2217,7 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: /Users/henryzhang/Documents/vul
   /usr/local/include/vk_video/vulkan_video_codecs_common.h \
   /usr/local/include/vulkan/vk_platform.h \
   /usr/local/include/vulkan/vulkan.h \
+  /usr/local/include/vulkan/vulkan_beta.h \
   /usr/local/include/vulkan/vulkan_core.h \
   /usr/local/include/vulkan/vulkan_macos.h
 
@@ -2482,7 +2528,6 @@ CMakeFiles/vk_app.dir/src/world/chunk.c.o: /Users/henryzhang/Documents/vulkan-pr
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
-  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -2497,23 +2542,7 @@ CMakeFiles/vk_app.dir/src/world/chunk.c.o: /Users/henryzhang/Documents/vulkan-pr
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdbool.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h \
-  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h \
-  /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
-  /usr/local/include/vk_video/vulkan_video_codec_av1std_decode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_av1std_encode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h264std.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h264std_decode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h264std_encode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h265std.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h265std_decode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h265std_encode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_vp9std.h \
-  /usr/local/include/vk_video/vulkan_video_codec_vp9std_decode.h \
-  /usr/local/include/vk_video/vulkan_video_codecs_common.h \
-  /usr/local/include/vulkan/vk_platform.h \
-  /usr/local/include/vulkan/vulkan.h \
-  /usr/local/include/vulkan/vulkan_core.h \
-  /usr/local/include/vulkan/vulkan_macos.h
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h
 
 CMakeFiles/vk_app.dir/src/world/chunk_map.c.o: /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.c
 
@@ -2662,7 +2691,6 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
-  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
@@ -2680,23 +2708,7 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h \
-  /usr/local/include/GLFW/glfw3.h \
-  /usr/local/include/vk_video/vulkan_video_codec_av1std.h \
-  /usr/local/include/vk_video/vulkan_video_codec_av1std_decode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_av1std_encode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h264std.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h264std_decode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h264std_encode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h265std.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h265std_decode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_h265std_encode.h \
-  /usr/local/include/vk_video/vulkan_video_codec_vp9std.h \
-  /usr/local/include/vk_video/vulkan_video_codec_vp9std_decode.h \
-  /usr/local/include/vk_video/vulkan_video_codecs_common.h \
-  /usr/local/include/vulkan/vk_platform.h \
-  /usr/local/include/vulkan/vulkan.h \
-  /usr/local/include/vulkan/vulkan_core.h \
-  /usr/local/include/vulkan/vulkan_macos.h
+  /usr/local/include/GLFW/glfw3.h
 
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.c:

@@ -195,14 +195,16 @@ CMakeFiles/vk_app.dir/src/main.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/graphics_pipeline.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/commands.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.h

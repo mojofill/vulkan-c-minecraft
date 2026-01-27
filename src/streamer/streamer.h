@@ -5,13 +5,15 @@
 #include "world/chunk.h"
 #include "mesh/mesh_pool.h"
 
+// streamer interaction with chunk handles
+// * streamer.activeChunks = dynamic array of chunk handles that are to be drawn
+
 typedef struct Streamer {
-    MeshHandle *activeHandles;
+    ChunkHandle *activeHandles;
     int size;
 } Streamer;
 
-Streamer createStreamer();
+void createStreamer(Streamer *streamer);
 void destroyStreamer(Streamer streamer);
-void syncStreamerWithMeshPool(Streamer *streamer, MeshPool *pool);
 
 #endif

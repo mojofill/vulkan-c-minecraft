@@ -1,18 +1,19 @@
 #ifndef CHUNK_MESH_H
 #define CHUNK_MESH_H
 
-#include <vulkan/vulkan.h>
+#include "renderer/vk_types.h" // im a little bit scared of this...
+#include "renderer/buffer.h"
 #include <stdint.h>
 #include <cglm/cglm.h>
+#include "world/chunk.h"
 
-typedef uint32_t MeshHandle;
-#define MESH_HANDLE_INVALID UINT32_MAX
-
+// for now, each chunk has own buffers. in future need to have chunk buffer allocator, each chunk mesh has subranges and offsets
 typedef struct ChunkMesh {
     VkBuffer vertexBuffer;
     VkDeviceMemory vertexBufferMemory;
+    void *mappedData;
 } ChunkMesh;
 
-void remesh(ChunkMesh *mesh, vec3 pos);
+void createChunkMesh(Chunk chunk, ChunkMesh *mesh, vk_context *vko);
 
 #endif

@@ -6,6 +6,8 @@ void createChunk(World *world, vec2 pos) {
     chunk.dirty = 1; // always dirty
     chunk.chunkHandle = world->chunkCount;
 
+    // create vertex buffer for 
+
     world->chunks[chunk.chunkHandle] = chunk;
     world->chunkCount++;
 }

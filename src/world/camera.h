@@ -5,8 +5,8 @@
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
-#define moveSpeed 0.02f
-#define rotSpeed 0.015f
+#define moveSpeed 0.05f
+#define rotSpeed 0.02f
 
 typedef struct Camera {
     vec3 pos;

@@ -91,6 +91,12 @@
 },
 {
   "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
+  "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/world/block.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.c",
+  "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.c",
+  "output": "CMakeFiles/vk_app.dir/src/world/block.c.o"
+},
+{
+  "directory": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build",
   "command": "/usr/local/bin/gcc-15 -DVK_USE_PLATFORM_MACOS_MVK -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include -O3 -DNDEBUG -std=gnu11 -o CMakeFiles/vk_app.dir/src/streamer/streamer.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.c",
   "file": "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.c",
   "output": "CMakeFiles/vk_app.dir/src/streamer/streamer.c.o"

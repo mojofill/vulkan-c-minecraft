@@ -86,7 +86,7 @@ void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *pool)
 }
 
 void cleanup(vk_context *vko, World world, Streamer streamer, MeshPool pool) {
-    destroyMeshPool(pool);
+    destroyMeshPool(pool, vko);
     destroyWorld(world);
     destroyStreamer(streamer);
     cleanupRenderer(vko);
@@ -107,7 +107,7 @@ int main() {
     createStreamer(&streamer);
 
     // for testing purposes, will create a single chunk with chunkHandle 0
-    createChunk(&world, (vec2) {0.0f, 0.0f});
+    createChunk(&world, (vec2) {1.0f, 0.0f});
     Chunk chunk = world.chunks[0];
 
     streamer.activeHandles[0] = chunk.chunkHandle;

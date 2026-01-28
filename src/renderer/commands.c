@@ -81,8 +81,20 @@ void recordCommands(vk_context *vko, uint32_t currentFrame, MeshPool pool) {
         // must bind descriptor sets as well
         vkCmdBindDescriptorSets(vko->commandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, vko->pipelineLayout, 0, 1, &vko->descriptorSets[currentFrame], 0, NULL);
         vkCmdBindIndexBuffer(vko->commandBuffers[i], vko->vbo->indexBuffer, 0, VK_INDEX_TYPE_UINT16);
-        // vkCmdDraw(vko->commandBuffers[i], 3, 1, 0, 0);
         vkCmdDrawIndexed(vko->commandBuffers[i], vko->vbo->indexCount, 1, 0, 0, 0);
+
+        // OMG - i can FINALLY start working on the mesh pool...
+        for (int j = 0; j < pool.count; j++) {
+            // printf("drawing mesh %d\n", j);
+            ChunkMesh *mesh = &pool.meshes[j];
+            
+            if (mesh->vertexBuffer == VK_NULL_HANDLE) continue;
+            
+            vkCmdBindVertexBuffers(vko->commandBuffers[i], 0, 1, &mesh->vertexBuffer, (VkDeviceSize[]){0});
+            vkCmdBindDescriptorSets(vko->commandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, vko->pipelineLayout, 0, 1, &vko->descriptorSets[currentFrame], 0, NULL);
+            vkCmdBindIndexBuffer(vko->commandBuffers[i], vko->vbo->indexBuffer, 0, VK_INDEX_TYPE_UINT16);
+            vkCmdDrawIndexed(vko->commandBuffers[i], vko->vbo->indexCount, 1, 0, 0, 0);
+        }
 
         vkCmdEndRenderPass(vko->commandBuffers[i]);
         vkEndCommandBuffer(vko->commandBuffers[i]);

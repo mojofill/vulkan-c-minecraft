@@ -26,6 +26,7 @@ add_executable(vk_app
     src/world/world.c
     src/world/chunk.c
     src/world/chunk_map.c
+    src/world/block.c
     
     src/streamer/streamer.c
 )

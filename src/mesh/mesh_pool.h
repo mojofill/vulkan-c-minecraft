@@ -3,6 +3,7 @@
 
 #include "world/world.h"
 #include "chunk_mesh.h"
+#include "geometries/vertex.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -17,6 +18,8 @@
 //  * marks slot as free in slot register, leaves trash data in meshes register,
 //    and frees handle/slot binding in handleToSlot (via MESH_INVALID_HANDLE)
 
+#define MESH_SLOT_INVALID UINT32_MAX
+
 typedef struct MeshPool {
     ChunkMesh *meshes; // size = capacity
     uint32_t capacity;
@@ -28,7 +31,7 @@ typedef struct MeshPool {
 } MeshPool;
 
 void createMeshPool(MeshPool *outMeshPool, uint32_t capacity);
-void destroyMeshPool(MeshPool meshPool);
+void destroyMeshPool(MeshPool meshPool, vk_context *vko);
 void mesh_alloc(MeshPool *pool, ChunkHandle handle);
 void mesh_free(MeshPool *pool, ChunkHandle handle);
 int meshPoolIsHandleUsed(MeshPool pool, ChunkHandle handle);

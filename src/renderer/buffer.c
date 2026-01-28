@@ -128,19 +128,7 @@ void createVertexBuffer(vk_context *vko) { // set and allocate vertex buffer
     // create a temporary staging buffer to make gpu memory visible to host (cpu)
     // then transfer staging buffer data to gpu local memory buffer to make a more efficient vertex buffer (stored entirely in gpu, not visible from cpu)
 
-    Vertex vertices[] = {
-        {{-0.5f, -0.5f, 0.25f}, {1.0f, 0.0f, 0.0f}, {1.0f, 0.0f}},
-        {{0.5f, -0.5f, 0.25f}, {0.0f, 1.0f, 0.0f}, {0.0f, 0.0f}},
-        {{0.5f, 0.5f, 0.25f}, {0.0f, 0.0f, 1.0f}, {0.0f, 1.0f}},
-        {{-0.5f, 0.5f, 0.25f}, {1.0f, 1.0f, 1.0f}, {1.0f, 1.0f}},
-
-        {{-0.5f, -0.5f, 0.5f}, {1.0f, 0.0f, 0.0f}, {1.0f, 0.0f}},
-        {{0.5f, -0.5f, 0.5f}, {0.0f, 1.0f, 0.0f}, {0.0f, 0.0f}},
-        {{0.5f, 0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}, {0.0f, 1.0f}},
-        {{-0.5f, 0.5f, 0.5f}, {1.0f, 1.0f, 1.0f}, {1.0f, 1.0f}},
-    };
-
-    VkDeviceSize bufferSize = sizeof(vertices);
+    VkDeviceSize bufferSize = sizeof(cube_vertices);
 
     VkBuffer stagingBuffer;
     VkDeviceMemory stagingBufferMemory;
@@ -151,7 +139,7 @@ void createVertexBuffer(vk_context *vko) { // set and allocate vertex buffer
     // map data (to staging buffer)
     void* data;
     vkMapMemory(vko->device, stagingBufferMemory, 0, bufferSize, 0, &data);
-    memcpy(data, vertices, sizeof(vertices));
+    memcpy(data, cube_vertices, bufferSize);
     vkUnmapMemory(vko->device, stagingBufferMemory);
 
     // create a vertex (transfer) buffer. we are transfering from staging TO vertex, thus this should be DST BIT
@@ -168,15 +156,25 @@ void createVertexBuffer(vk_context *vko) { // set and allocate vertex buffer
 
 void createIndexBuffer(vk_context *vko) {
     uint16_t indices[] = {
-        0, 1, 2, 2, 3, 0,
-        4, 5, 6, 6, 7, 4 // need something better than this bruh...
+        // back
+        0,  1,  2,  2,  3,  0,
+        // front
+        4,  5,  6,  6,  7,  4,
+        // left
+        8,  9, 10, 10, 11,  8,
+        // right
+        12, 13, 14, 14, 15, 12,
+        // bottom
+        16, 17, 18, 18, 19, 16,
+        // top
+        20, 21, 22, 22, 23, 20
     };
 
     VertexBufferContext *vbo = vko->vbo;
     
     VkDeviceSize bufferSize = sizeof(indices);
 
-    vbo->indexCount = 12;
+    vbo->indexCount = 36;
 
     VkBuffer stagingBuffer;
     VkDeviceMemory stagingBufferMemory;

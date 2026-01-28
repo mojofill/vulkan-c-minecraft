@@ -11,9 +11,10 @@
 typedef struct ChunkMesh {
     VkBuffer vertexBuffer;
     VkDeviceMemory vertexBufferMemory;
-    void *mappedData;
-} ChunkMesh;
 
-void createChunkMesh(Chunk chunk, ChunkMesh *mesh, vk_context *vko);
+    VkBuffer stagingBuffer;
+    VkDeviceMemory stagingBufferMemory;
+    Vertex *mappedData;
+} ChunkMesh;
 
 #endif

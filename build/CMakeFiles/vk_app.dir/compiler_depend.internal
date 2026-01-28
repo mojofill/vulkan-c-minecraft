@@ -2233,6 +2233,9 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o
  /usr/local/include/vulkan/vulkan_core.h
  /usr/local/include/vulkan/vulkan_macos.h
 
+CMakeFiles/vk_app.dir/src/world/block.c.o
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.c
+
 CMakeFiles/vk_app.dir/src/world/camera.c.o
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.c
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/Availability.h

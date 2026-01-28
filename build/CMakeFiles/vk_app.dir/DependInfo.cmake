@@ -20,6 +20,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image_impl.c" "CMakeFiles/vk_app.dir/src/renderer/stb_image_impl.c.o" "gcc" "CMakeFiles/vk_app.dir/src/renderer/stb_image_impl.c.o.d"
   "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/swapchain.c" "CMakeFiles/vk_app.dir/src/renderer/swapchain.c.o" "gcc" "CMakeFiles/vk_app.dir/src/renderer/swapchain.c.o.d"
   "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.c" "CMakeFiles/vk_app.dir/src/streamer/streamer.c.o" "gcc" "CMakeFiles/vk_app.dir/src/streamer/streamer.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.c" "CMakeFiles/vk_app.dir/src/world/block.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/block.c.o.d"
   "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.c" "CMakeFiles/vk_app.dir/src/world/camera.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/camera.c.o.d"
   "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.c" "CMakeFiles/vk_app.dir/src/world/chunk.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/chunk.c.o.d"
   "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.c" "CMakeFiles/vk_app.dir/src/world/chunk_map.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/chunk_map.c.o.d"

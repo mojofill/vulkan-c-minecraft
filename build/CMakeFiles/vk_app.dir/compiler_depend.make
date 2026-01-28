@@ -2221,6 +2221,8 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: /Users/henryzhang/Documents/vul
   /usr/local/include/vulkan/vulkan_core.h \
   /usr/local/include/vulkan/vulkan_macos.h
 
+CMakeFiles/vk_app.dir/src/world/block.c.o: /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.c
+
 CMakeFiles/vk_app.dir/src/world/camera.c.o: /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/Availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityInternal.h \
@@ -2896,6 +2898,8 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/project_no.h:
 
 /usr/local/include/vk_video/vulkan_video_codecs_common.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.c:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h:
 

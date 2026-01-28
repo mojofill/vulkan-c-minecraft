@@ -23,6 +23,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/vk_app.dir/src/renderer/swapchain.c.o.d"
   "CMakeFiles/vk_app.dir/src/streamer/streamer.c.o"
   "CMakeFiles/vk_app.dir/src/streamer/streamer.c.o.d"
+  "CMakeFiles/vk_app.dir/src/world/block.c.o"
+  "CMakeFiles/vk_app.dir/src/world/block.c.o.d"
   "CMakeFiles/vk_app.dir/src/world/camera.c.o"
   "CMakeFiles/vk_app.dir/src/world/camera.c.o.d"
   "CMakeFiles/vk_app.dir/src/world/chunk.c.o"

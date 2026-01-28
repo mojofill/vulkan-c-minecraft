@@ -417,6 +417,30 @@ src/streamer/streamer.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vk_app.dir/build.make CMakeFiles/vk_app.dir/src/streamer/streamer.c.s
 .PHONY : src/streamer/streamer.c.s
 
+src/world/block.o: src/world/block.c.o
+.PHONY : src/world/block.o
+
+# target to build an object file
+src/world/block.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vk_app.dir/build.make CMakeFiles/vk_app.dir/src/world/block.c.o
+.PHONY : src/world/block.c.o
+
+src/world/block.i: src/world/block.c.i
+.PHONY : src/world/block.i
+
+# target to preprocess a source file
+src/world/block.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vk_app.dir/build.make CMakeFiles/vk_app.dir/src/world/block.c.i
+.PHONY : src/world/block.c.i
+
+src/world/block.s: src/world/block.c.s
+.PHONY : src/world/block.s
+
+# target to generate assembly for a file
+src/world/block.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vk_app.dir/build.make CMakeFiles/vk_app.dir/src/world/block.c.s
+.PHONY : src/world/block.c.s
+
 src/world/camera.o: src/world/camera.c.o
 .PHONY : src/world/camera.o
 
@@ -558,6 +582,9 @@ help:
 	@echo "... src/streamer/streamer.o"
 	@echo "... src/streamer/streamer.i"
 	@echo "... src/streamer/streamer.s"
+	@echo "... src/world/block.o"
+	@echo "... src/world/block.i"
+	@echo "... src/world/block.s"
 	@echo "... src/world/camera.o"
 	@echo "... src/world/camera.i"
 	@echo "... src/world/camera.s"

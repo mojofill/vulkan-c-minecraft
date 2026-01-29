@@ -6,7 +6,13 @@ void createChunk(World *world, vec2 pos) {
     chunk.dirty = 1; // always dirty
     chunk.chunkHandle = world->chunkCount;
 
-    // create vertex buffer for 
+    chunk.blocks = malloc(MAX_BLOCKS_PER_CHUNK * sizeof(BlockType));
+
+    // add block data
+    for (int i = 0; i < MAX_BLOCKS_PER_CHUNK; i++) {
+        // row major
+        chunk.blocks[i] = SMOOTH_STONE;
+    }
 
     world->chunks[chunk.chunkHandle] = chunk;
     world->chunkCount++;
@@ -14,9 +20,9 @@ void createChunk(World *world, vec2 pos) {
 
 void createWorld(World *world) {
     Camera cam = {
-        .pos   = {0.0f, 2.0f, 2.0f},
+        .pos   = {0.0f, 2.0f, 10.0f},
         .pitch = -GLM_PI_4f,        // looking level
-        .yaw   = -GLM_PI_2    // look towards -Y axis
+        .yaw   = 0    // look towards -Y axis
     };
 
     // Build initial dir from yaw+pitch

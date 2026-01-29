@@ -396,7 +396,7 @@ static void createSyncObjects(vk_context *vko) {
     }
 }
 
-static void initVulkan(vk_context *vko, VertexBufferContext *vbo) {
+static void initVulkan(vk_context *vko) {
     createInstance(vko);
     pickPhysicalDevice(vko);
     createSurface(vko);
@@ -411,7 +411,7 @@ static void initVulkan(vk_context *vko, VertexBufferContext *vbo) {
     createTextureSampler(vko);
     // create depth buffers
     createDepthResources(vko);
-    createVertexBufferContext(vko, vbo);
+    createVertexBufferContext(vko);
 
     // fixed function stages = can tweak behavior via parameters, but the way they work is predefined (ie vulkan does the dirty work for us)
     // 3 fixed function stages we will make = input assembler, rasterization, and color blending
@@ -430,7 +430,7 @@ static void initVulkan(vk_context *vko, VertexBufferContext *vbo) {
     createSyncObjects(vko);
 }
 
-void drawFrame(vk_context *vko, uint32_t *currentFrame, MeshPool pool) {
+void drawFrame(vk_context *vko, uint32_t *currentFrame, Streamer streamer, MeshPool pool) {
     // wait for previous frame to finish
     vkWaitForFences(vko->device, 1, &vko->inFlightFences[*currentFrame], VK_TRUE, UINT64_MAX);
 
@@ -451,7 +451,7 @@ void drawFrame(vk_context *vko, uint32_t *currentFrame, MeshPool pool) {
     // if i were recording every frame, i would need to 1. vkResetCommandBuffer(commandBuffer, 0); to clear command buffer and 2. recordCommandBuffer(commandBuffer, imageIndex);
     // but since everything is pre recorded, i dont need to
 
-    recordCommands(vko, *currentFrame, pool);
+    recordCommands(vko, *currentFrame, streamer, pool);
 
     // submit commands to queue
     VkSubmitInfo submitInfo = {0};
@@ -488,7 +488,7 @@ void drawFrame(vk_context *vko, uint32_t *currentFrame, MeshPool pool) {
         recreateSwapchain(vko);
         // rerecord command buffers
         resetCommands(vko);
-        recordCommands(vko, *currentFrame, pool);
+        recordCommands(vko, *currentFrame, streamer, pool);
     } else if (result != VK_SUCCESS) {
         printf("Failed to present swapchain image!\n");
         exit(1);
@@ -520,10 +520,8 @@ void cleanupRenderer(vk_context *vko) {
     free(vko->cameraUniformBufferMapped); // might not need this - actually yes i do, b/c this memory will be reused every frame
     vkDestroyDescriptorPool(vko->device, vko->descriptorPool, NULL);
     vkDestroyDescriptorSetLayout(vko->device, vko->descriptorSetLayout, NULL);
-    vkDestroyBuffer(vko->device, vko->vbo->vertexBuffer, NULL);
-    vkFreeMemory(vko->device, vko->vbo->vertexBufferMemory, NULL);
-    vkDestroyBuffer(vko->device, vko->vbo->indexBuffer, NULL);
-    vkFreeMemory(vko->device, vko->vbo->indexBufferMemory, NULL);
+    vkDestroyBuffer(vko->device, vko->indexBuffer, NULL);
+    vkFreeMemory(vko->device, vko->indexBufferMemory, NULL);
     for (uint32_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++) {
         vkDestroySemaphore(vko->device, vko->imageAvailableSemaphores[i], NULL);
         vkDestroySemaphore(vko->device, vko->renderFinishedSemaphores[i], NULL);
@@ -549,5 +547,5 @@ void cleanupRenderer(vk_context *vko) {
 
 void init_renderer(vk_context *vko) {
     initWindow(vko);
-    initVulkan(vko, vko->vbo);
+    initVulkan(vko);
 }

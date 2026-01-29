@@ -1,8 +1,11 @@
 #ifndef BLOCK_H
 #define BLOCK_H
 
-typedef struct Block {
-
-} Block;
+typedef enum BlockType {
+    AIR,
+    SMOOTH_STONE,
+    COBBLE_STONE,
+    WOOD
+} BlockType;
 
 #endif

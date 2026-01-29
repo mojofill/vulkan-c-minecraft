@@ -27,8 +27,8 @@ static void createcameraUniformBuffer(vk_context *vko);
 static void createDescriptorPool(vk_context *vko);
 static void createDescriptorSets(vk_context *vko);
 static void createSyncObjects(vk_context *vko);
-static void initVulkan(vk_context *vko, VertexBufferContext *vbo);
-void drawFrame(vk_context *vko, uint32_t *currentFrame, MeshPool pool);
+static void initVulkan(vk_context *vko);
+void drawFrame(vk_context *vko, uint32_t *currentFrame, Streamer streamer, MeshPool pool);
 void cleanupRenderer(vk_context *vko);
 void init_renderer(vk_context *vko);
 

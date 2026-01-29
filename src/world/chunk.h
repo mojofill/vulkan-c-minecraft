@@ -3,12 +3,14 @@
 
 #include <stdint.h>
 #include <cglm/cglm.h>
+#include "block.h"
 
-#define RENDER_DISTANCE 5
-#define NUM_VISIBLE_CHUNKS ((2 * RENDER_DISTANCE + 1) * (2 * RENDER_DISTANCE + 1))
+#define RENDER_DISTANCE 1
+#define NUM_VISIBLE_CHUNKS ((2 * RENDER_DISTANCE + 1) * (2 * RENDER_DISTANCE + 1) + 1)
 // CHUNK_BLOCK_WIDTH number of blocks on width of chunk
 #define CHUNK_BLOCK_WIDTH 5
-#define MAX_BLOCKS_PER_CHUNK (CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_WIDTH)
+#define CHUNK_BLOCK_HEIGHT 5
+#define MAX_BLOCKS_PER_CHUNK (CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_HEIGHT)
 
 typedef uint32_t ChunkHandle;
 #define CHUNK_HANDLE_INVALID UINT32_MAX
@@ -17,10 +19,12 @@ typedef uint32_t ChunkHandle;
 // 1. each chunk has unique handle
 // 2. once chunk is instantiated, handle remains binded with it until termination
 
+// note: there is no "chunk coordinate space" - everything is in block coordinate space, block scales, etc
 typedef struct Chunk {
     vec2 pos;
     int dirty;
     ChunkHandle chunkHandle;
+    BlockType *blocks; // size = MAX_BLOCKS_PER_CHUNK
 } Chunk;
 
 typedef struct ChunkMap {

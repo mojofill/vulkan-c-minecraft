@@ -25,7 +25,7 @@ void updateCameraUniforms(vk_context *vko, uint32_t currentImage, Camera cam) {
 
     float width = (float) vko->surfaceCapabilities.currentExtent.width;
     float height = (float) vko->surfaceCapabilities.currentExtent.height;
-    glm_perspective(GLM_PI_4, width / height, 0.1f, 10.0f, ubo.proj);
+    glm_perspective(GLM_PI_4, width / height, 0.1f, 50.0f, ubo.proj);
 
     ubo.proj[1][1] *= -1; // flip image upside down bc vulkan and opengl y axes are flipped
     memcpy(vko->cameraUniformBufferMapped[currentImage], &ubo, sizeof(ubo));
@@ -79,7 +79,7 @@ void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *pool)
         // 2. synchronize streamer + mesh pool with renderer
         synchronizeStreamerAndMeshPoolWithRenderer(world, streamer, pool, vko);
         
-        drawFrame(vko, &currentFrame, *pool);
+        drawFrame(vko, &currentFrame, *streamer, *pool);
     }
 
     vkDeviceWaitIdle(vko->device);
@@ -94,8 +94,6 @@ void cleanup(vk_context *vko, World world, Streamer streamer, MeshPool pool) {
 
 int main() {    
     vk_context vko = {0};
-    VertexBufferContext vbo = {0};
-    vko.vbo = &vbo;
 
     World world = {0};
     createWorld(&world);
@@ -107,27 +105,24 @@ int main() {
     createStreamer(&streamer);
 
     // for testing purposes, will create a single chunk with chunkHandle 0
-    createChunk(&world, (vec2) {1.0f, 0.0f});
-    Chunk chunk = world.chunks[0];
-
-    streamer.activeHandles[0] = chunk.chunkHandle;
-
-    // for now i will manually allocate and free mesh pool with chunk data
-
-    mesh_alloc(&meshPool, 0);
-
-    printf("current mesh pool: \n");
-    for (int i = 0; i < meshPool.count; i++) {
-        printf("pool %d\n", i);
+    int handle = 0;
+    for (int y = -RENDER_DISTANCE; y <= RENDER_DISTANCE; y++) {
+        for (int x = -RENDER_DISTANCE; x <= RENDER_DISTANCE; x++) {
+            printf("creating chunk at %d, %d\n", x * CHUNK_BLOCK_WIDTH, y * CHUNK_BLOCK_WIDTH);
+            // note: there is no "chunk coordinate space" - everything is in block coordinate space, block scales, etc
+            createChunk(&world, (vec2) {(float) (x * CHUNK_BLOCK_WIDTH), (float) (y * CHUNK_BLOCK_WIDTH)});
+            // check chunk blocks
+            Chunk chunk = world.chunks[handle];
+            handle++;
+            streamer.activeHandles[handle] = chunk.chunkHandle; // this should not go past the max
+        }
     }
-
-    // must mesh chunk
-    // todo: put this in mesh_pool.c
 
     init_renderer(&vko); // needs to be initialized for chunk meshing
 
-    for (int i = 0; i < meshPool.count; i++) {
-        meshChunk(chunk.chunkHandle, &world, &meshPool, &vko);
+    for (int i = 0; i < handle; i++) {
+        mesh_alloc(&meshPool, i);
+        meshChunk(i, &world, &meshPool, &vko);
     }
 
     mainLoop(&vko, &streamer, &world, &meshPool);

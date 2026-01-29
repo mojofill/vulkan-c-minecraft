@@ -19,18 +19,6 @@ typedef struct UniformBufferObject {
     mat4 proj;
 } UniformBufferObject;
 
-typedef struct VertexBufferContext {
-    VkBuffer vertexBuffer;
-    VkDeviceMemory vertexBufferMemory;
-    VkBuffer indexBuffer;
-    VkDeviceMemory indexBufferMemory;
-    uint32_t indexCount;
-    int vertexCount;
-    VkVertexInputBindingDescription bindingDesc; // for now this is good enough. in the future with more vertices i need a better system
-    VkVertexInputAttributeDescription attrDescs[3]; // for now only two attributes
-    char *test;
-} VertexBufferContext;
-
 typedef struct vk_context {
     uint64_t start_time;
 
@@ -57,8 +45,12 @@ typedef struct vk_context {
     VkImage *swapchainImages;
     VkImageView *swapchainImageViews;
 
-    // vertex buffer context
-    VertexBufferContext *vbo;
+    VkBuffer indexBuffer;
+    VkDeviceMemory indexBufferMemory;
+    uint32_t indexCount;
+    int vertexCount;
+    VkVertexInputBindingDescription bindingDesc; // for now this is good enough. in the future with more vertices i need a better system
+    VkVertexInputAttributeDescription attrDescs[3]; // for now only two attributes
 
     // render pass + graphics pipeline
     VkRenderPass renderPass;

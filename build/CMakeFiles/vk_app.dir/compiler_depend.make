@@ -165,6 +165,7 @@ CMakeFiles/vk_app.dir/src/main.c.o: /Users/henryzhang/Documents/vulkan-projects/
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/swapchain.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
@@ -357,6 +358,7 @@ CMakeFiles/vk_app.dir/src/mesh/chunk_mesh.c.o: /Users/henryzhang/Documents/vulka
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -548,6 +550,7 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: /Users/henryzhang/Documents/vulkan
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
@@ -739,6 +742,8 @@ CMakeFiles/vk_app.dir/src/renderer/buffer.c.o: /Users/henryzhang/Documents/vulka
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h \
@@ -930,6 +935,8 @@ CMakeFiles/vk_app.dir/src/renderer/commands.c.o: /Users/henryzhang/Documents/vul
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/commands.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
@@ -1123,6 +1130,8 @@ CMakeFiles/vk_app.dir/src/renderer/depth_buffer.c.o: /Users/henryzhang/Documents
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h \
@@ -1500,6 +1509,8 @@ CMakeFiles/vk_app.dir/src/renderer/image.c.o: /Users/henryzhang/Documents/vulkan
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h \
@@ -1700,6 +1711,8 @@ CMakeFiles/vk_app.dir/src/renderer/renderer.c.o: /Users/henryzhang/Documents/vul
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/swapchain.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
@@ -2185,6 +2198,7 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: /Users/henryzhang/Documents/vul
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
@@ -2530,6 +2544,7 @@ CMakeFiles/vk_app.dir/src/world/chunk.c.o: /Users/henryzhang/Documents/vulkan-pr
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -2693,6 +2708,7 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
@@ -2745,8 +2761,6 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/graphics_pipeline.c:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.c:
-
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/commands.c:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.c:
@@ -2792,6 +2806,10 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
 /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.c:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h:
 
 /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdbool.h:
 

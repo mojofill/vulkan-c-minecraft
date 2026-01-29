@@ -30,9 +30,9 @@ void createGraphicsPipeline(vk_context *vko) {
     VkPipelineVertexInputStateCreateInfo vertexInputInfo = {0};
     vertexInputInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
     vertexInputInfo.vertexBindingDescriptionCount = 1;
-    vertexInputInfo.pVertexBindingDescriptions = &vko->vbo->bindingDesc;
+    vertexInputInfo.pVertexBindingDescriptions = &vko->bindingDesc;
     vertexInputInfo.vertexAttributeDescriptionCount = 3;
-    vertexInputInfo.pVertexAttributeDescriptions = vko->vbo->attrDescs;
+    vertexInputInfo.pVertexAttributeDescriptions = vko->attrDescs;
 
     // input assembly = describes how to assemble vertices (triangles, lines, points, etc)
     VkPipelineInputAssemblyStateCreateInfo inputAssembly = {0};
@@ -53,8 +53,8 @@ void createGraphicsPipeline(vk_context *vko) {
     rasterizer.polygonMode = VK_POLYGON_MODE_FILL;
     rasterizer.lineWidth = 1.0f;
     rasterizer.cullMode = VK_CULL_MODE_BACK_BIT;
-    rasterizer.cullMode = VK_CULL_MODE_NONE;
-    // rasterizer.frontFace = VK_FRONT_FACE_CLOCKWISE;
+    // rasterizer.cullMode = VK_CULL_MODE_NONE;
+    rasterizer.frontFace = VK_FRONT_FACE_CLOCKWISE;
     rasterizer.depthBiasEnable = VK_FALSE;
 
     // depth buffering

@@ -18,6 +18,7 @@
 //  * marks slot as free in slot register, leaves trash data in meshes register,
 //    and frees handle/slot binding in handleToSlot (via MESH_INVALID_HANDLE)
 
+typedef uint32_t MeshHandle;
 #define MESH_SLOT_INVALID UINT32_MAX
 
 typedef struct MeshPool {

@@ -7,7 +7,7 @@ void createMeshPool(MeshPool *outMeshPool, uint32_t capacity) {
     outMeshPool->slotsUsed = malloc(sizeof(ChunkHandle) * capacity);
     outMeshPool->count = 0;
     
-    for (int i = 0; i < capacity; i++) {
+    for (uint32_t i = 0; i < capacity; i++) {
         ChunkMesh mesh = {0};
         outMeshPool->meshes[i] = mesh;
         outMeshPool->slotsUsed[i] = 0;
@@ -20,7 +20,7 @@ void createMeshPool(MeshPool *outMeshPool, uint32_t capacity) {
 
 void mesh_alloc(MeshPool *pool, ChunkHandle handle) {
     // 1. find a free slot
-    uint32_t slot = -1;
+    MeshHandle slot = -1;
     for (uint32_t i = 0; i < pool->capacity; i++) {
         if (pool->slotsUsed[i] == 0) {
             slot = i;
@@ -65,11 +65,10 @@ int meshPoolIsHandleUsed(MeshPool pool, ChunkHandle handle) {
 }
 
 static void genChunkMeshVkBuffers(Chunk chunk, ChunkMesh *mesh, vk_context *vko) {
-    VkDeviceSize          size = (VkDeviceSize) (sizeof(cube_vertices)); // NEED TO COME BACK HERE WHEN MAKING MORE BLOCKS
+    VkDeviceSize          size = (VkDeviceSize) (sizeof(cube_vertices) * MAX_BLOCKS_PER_CHUNK);
     VkBufferUsageFlags    usage;
     VkMemoryPropertyFlags properties;
     if (mesh->mappedData == NULL) { // need to create transfer and vertex buffers
-        printf("creating transfer buffer for chunk %d...\n", chunk.chunkHandle);
         usage = VK_BUFFER_USAGE_TRANSFER_SRC_BIT;
         properties = VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT;
         createBuffer(vko, size, usage, properties, &mesh->stagingBuffer, &mesh->stagingBufferMemory);
@@ -77,7 +76,6 @@ static void genChunkMeshVkBuffers(Chunk chunk, ChunkMesh *mesh, vk_context *vko)
         // map staging buffer to host mapped pointer
         vkMapMemory(vko->device, mesh->stagingBufferMemory, 0, size, 0, (void**) &mesh->mappedData);
 
-        printf("creating vertex buffer for chunk %d...\n", chunk.chunkHandle);
         usage = VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT;
         properties = VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT;
         createBuffer(vko, size, usage, properties, &mesh->vertexBuffer, &mesh->vertexBufferMemory);
@@ -86,16 +84,9 @@ static void genChunkMeshVkBuffers(Chunk chunk, ChunkMesh *mesh, vk_context *vko)
     // upload block data to mapped pointer
     // for now just add chunk position onto cube vertices
 
-    printf("%f, %f\n", chunk.pos[0], chunk.pos[1]);
-    vec3 chunkPos = {chunk.pos[0], chunk.pos[1], 0};
+    writeChunkMeshToMappedPointer(chunk, &mesh->mappedData);
 
-    for (int i = 0; i < CUBE_SIZE; i++) {
-        Vertex vert = cube_vertices[i];
-        glm_vec3_add(vert.pos, chunkPos, vert.pos);
-        mesh->mappedData[i] = vert;
-    }
-
-    // BRUH!! OBVIOUSLY
+    // transfer from staging to vertex buffer
     copyBuffer(vko, mesh->stagingBuffer, mesh->vertexBuffer, size);
 }
 
@@ -113,9 +104,8 @@ void meshChunk(ChunkHandle handle, World *world, MeshPool *pool, vk_context *vko
 
     genChunkMeshVkBuffers(chunk, mesh, vko);
 
-    printf("finished generating mesh for chunk %d\n", handle);
-
     chunk.dirty = 0; // after remeshing mark not dirty
+    printf("meshing chunk %d\n", chunk.chunkHandle);
     
     // update arrays
     world->chunks[handle] = chunk;

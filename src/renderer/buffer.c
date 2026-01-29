@@ -1,32 +1,30 @@
 #include "buffer.h"
 
 void setVertexBindingDescription(vk_context *vko) {
-    VertexBufferContext *vbo = vko->vbo;
-    vbo->bindingDesc = (VkVertexInputBindingDescription) {0};
+    vko->bindingDesc = (VkVertexInputBindingDescription) {0};
     
-    vbo->bindingDesc.binding = 0; // vertex buffer binding
-    vbo->bindingDesc.stride = sizeof(Vertex);
-    vbo->bindingDesc.inputRate = VK_VERTEX_INPUT_RATE_VERTEX; // other option = instance
+    vko->bindingDesc.binding = 0; // vertex buffer binding
+    vko->bindingDesc.stride = sizeof(Vertex);
+    vko->bindingDesc.inputRate = VK_VERTEX_INPUT_RATE_VERTEX; // other option = instance
 }
 
 void setVertexAttributeDescriptions(vk_context *vko) {
-    VertexBufferContext *vbo = vko->vbo;
     // attr 0: vec3 inPosition
-    vbo->attrDescs[0].binding = 0; // 0th vertex buffer
-    vbo->attrDescs[0].location = 0;
-    vbo->attrDescs[0].format = VK_FORMAT_R32G32B32_SFLOAT; // s stands for signed
-    vbo->attrDescs[0].offset = offsetof(Vertex, pos);
+    vko->attrDescs[0].binding = 0; // 0th vertex buffer
+    vko->attrDescs[0].location = 0;
+    vko->attrDescs[0].format = VK_FORMAT_R32G32B32_SFLOAT; // s stands for signed
+    vko->attrDescs[0].offset = offsetof(Vertex, pos);
 
     // attr 1: vec3 inColor
-    vbo->attrDescs[1].binding = 0;
-    vbo->attrDescs[1].location = 1;
-    vbo->attrDescs[1].format = VK_FORMAT_R32G32B32_SFLOAT;
-    vbo->attrDescs[1].offset = offsetof(Vertex, color);
+    vko->attrDescs[1].binding = 0;
+    vko->attrDescs[1].location = 1;
+    vko->attrDescs[1].format = VK_FORMAT_R32G32B32_SFLOAT;
+    vko->attrDescs[1].offset = offsetof(Vertex, color);
 
-    vbo->attrDescs[2].binding = 0;
-    vbo->attrDescs[2].location = 2;
-    vbo->attrDescs[2].format = VK_FORMAT_R32G32_SFLOAT;
-    vbo->attrDescs[2].offset = offsetof(Vertex, texCoord);
+    vko->attrDescs[2].binding = 0;
+    vko->attrDescs[2].location = 2;
+    vko->attrDescs[2].format = VK_FORMAT_R32G32_SFLOAT;
+    vko->attrDescs[2].offset = offsetof(Vertex, texCoord);
 }
 
 uint32_t findMemoryType(vk_context *vko, uint32_t typeFilter, VkMemoryPropertyFlags properties) {
@@ -44,7 +42,6 @@ uint32_t findMemoryType(vk_context *vko, uint32_t typeFilter, VkMemoryPropertyFl
 
 // create buffer + allocates memory, does not map/upload data
 void createBuffer(vk_context *vko, VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer *pBuffer, VkDeviceMemory *pBufferMemory) {
-    VertexBufferContext *vbo = vko->vbo;
     VkBufferCreateInfo bufferInfo = {0};
     bufferInfo.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
     bufferInfo.size = size; // for now, 3 vertices
@@ -121,60 +118,27 @@ void copyBuffer(vk_context *vko, VkBuffer srcBuffer, VkBuffer dstBuffer, VkDevic
     endSingleTimeCommands(vko, commandBuffer);
 }
 
-// uploads vertex data
-void createVertexBuffer(vk_context *vko) { // set and allocate vertex buffer
-    VertexBufferContext *vbo = vko->vbo;
+void generateChunkIndices(uint32_t* outIndices, uint32_t cubeCount) {
+    uint32_t indexOffset = 0;
 
-    // create a temporary staging buffer to make gpu memory visible to host (cpu)
-    // then transfer staging buffer data to gpu local memory buffer to make a more efficient vertex buffer (stored entirely in gpu, not visible from cpu)
+    for (uint32_t cube = 0; cube < cubeCount; cube++) {
+        uint32_t baseVertex = cube * CUBE_SIZE;
 
-    VkDeviceSize bufferSize = sizeof(cube_vertices);
-
-    VkBuffer stagingBuffer;
-    VkDeviceMemory stagingBufferMemory;
-
-    // staging buffer creation. will transfer from staging to vertex buffer, thus staging is SRC BIT
-    createBuffer(vko, bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, &stagingBuffer, &stagingBufferMemory);
-    
-    // map data (to staging buffer)
-    void* data;
-    vkMapMemory(vko->device, stagingBufferMemory, 0, bufferSize, 0, &data);
-    memcpy(data, cube_vertices, bufferSize);
-    vkUnmapMemory(vko->device, stagingBufferMemory);
-
-    // create a vertex (transfer) buffer. we are transfering from staging TO vertex, thus this should be DST BIT
-    createBuffer(vko, bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, &vbo->vertexBuffer, &vbo->vertexBufferMemory);
-
-    // cannot map data to buffer because this buffer does not have VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT
-    // however can map/copy buffer to buffer
-    copyBuffer(vko, stagingBuffer, vbo->vertexBuffer, bufferSize);
-
-    // must destroy temporary staging buffer before exiting function
-    vkDestroyBuffer(vko->device, stagingBuffer, NULL);
-    vkFreeMemory(vko->device, stagingBufferMemory, NULL);
+        for (uint32_t i = 0; i < CUBE_INDEX_COUNT; i++) {
+            outIndices[indexOffset++] = baseVertex + cube_indices[i];
+        }
+    }
 }
 
 void createIndexBuffer(vk_context *vko) {
-    uint16_t indices[] = {
-        // back
-        0,  1,  2,  2,  3,  0,
-        // front
-        4,  5,  6,  6,  7,  4,
-        // left
-        8,  9, 10, 10, 11,  8,
-        // right
-        12, 13, 14, 14, 15, 12,
-        // bottom
-        16, 17, 18, 18, 19, 16,
-        // top
-        20, 21, 22, 22, 23, 20
-    };
+    uint32_t totalIndexCount = MAX_BLOCKS_PER_CHUNK * INDICES_PER_CUBE;
 
-    VertexBufferContext *vbo = vko->vbo;
+    uint32_t *indices = malloc(totalIndexCount * sizeof(uint32_t));
+    generateChunkIndices(indices, MAX_BLOCKS_PER_CHUNK);
     
-    VkDeviceSize bufferSize = sizeof(indices);
+    VkDeviceSize bufferSize = totalIndexCount * sizeof(uint32_t);
 
-    vbo->indexCount = 36;
+    vko->indexCount = totalIndexCount;
 
     VkBuffer stagingBuffer;
     VkDeviceMemory stagingBufferMemory;
@@ -185,21 +149,17 @@ void createIndexBuffer(vk_context *vko) {
     memcpy(data, indices, (size_t) bufferSize);
     vkUnmapMemory(vko->device, stagingBufferMemory);
 
-    createBuffer(vko, bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, &vbo->indexBuffer, &vbo->indexBufferMemory);
+    createBuffer(vko, bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, &vko->indexBuffer, &vko->indexBufferMemory);
 
-    copyBuffer(vko, stagingBuffer, vbo->indexBuffer, bufferSize);
+    copyBuffer(vko, stagingBuffer, vko->indexBuffer, bufferSize);
 
     vkDestroyBuffer(vko->device, stagingBuffer, NULL);
     vkFreeMemory(vko->device, stagingBufferMemory, NULL);
 }
 
-void createVertexBufferContext(vk_context *vko, VertexBufferContext *vbo) {
-    // first bind vbo to vko
-    vko->vbo = vbo;
-
+void createVertexBufferContext(vk_context *vko) {
     setVertexBindingDescription(vko);
     setVertexAttributeDescriptions(vko);
-    createVertexBuffer(vko);
     createIndexBuffer(vko);
 }
 

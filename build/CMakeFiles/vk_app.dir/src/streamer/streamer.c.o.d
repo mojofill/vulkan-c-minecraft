@@ -162,6 +162,7 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ray.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \

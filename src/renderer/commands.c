@@ -32,7 +32,7 @@ void resetCommands(vk_context *vko) {
     }
 }
 
-void recordCommands(vk_context *vko, uint32_t currentFrame, MeshPool pool) {
+void recordCommands(vk_context *vko, uint32_t currentFrame, Streamer streamer, MeshPool pool) {
     // record commands (per swapchain image)
     for (uint32_t i = 0; i < vko->swapchainImageCount; i++) {
         VkCommandBufferBeginInfo beginInfo = {0};
@@ -74,26 +74,20 @@ void recordCommands(vk_context *vko, uint32_t currentFrame, MeshPool pool) {
         vko->scissor.extent = vko->surfaceCapabilities.currentExtent;
         vkCmdSetScissor(vko->commandBuffers[i], 0, 1, &vko->scissor);
 
-        // draw triangle
-        // must bind vertex buffer before draw (like opengl)
+        // draw meshes from active streamer chunks
+        for (int j = 0; j < streamer.size; j++) {
+            ChunkHandle handle = streamer.activeHandles[j];
+            if (handle == CHUNK_HANDLE_INVALID) continue;
 
-        vkCmdBindVertexBuffers(vko->commandBuffers[i], 0, 1, &vko->vbo->vertexBuffer, (VkDeviceSize[]){0});
-        // must bind descriptor sets as well
-        vkCmdBindDescriptorSets(vko->commandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, vko->pipelineLayout, 0, 1, &vko->descriptorSets[currentFrame], 0, NULL);
-        vkCmdBindIndexBuffer(vko->commandBuffers[i], vko->vbo->indexBuffer, 0, VK_INDEX_TYPE_UINT16);
-        vkCmdDrawIndexed(vko->commandBuffers[i], vko->vbo->indexCount, 1, 0, 0, 0);
-
-        // OMG - i can FINALLY start working on the mesh pool...
-        for (int j = 0; j < pool.count; j++) {
-            // printf("drawing mesh %d\n", j);
-            ChunkMesh *mesh = &pool.meshes[j];
+            MeshHandle slot = pool.handleToSlot[handle];
+            ChunkMesh *mesh = &pool.meshes[slot];
             
             if (mesh->vertexBuffer == VK_NULL_HANDLE) continue;
             
             vkCmdBindVertexBuffers(vko->commandBuffers[i], 0, 1, &mesh->vertexBuffer, (VkDeviceSize[]){0});
             vkCmdBindDescriptorSets(vko->commandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, vko->pipelineLayout, 0, 1, &vko->descriptorSets[currentFrame], 0, NULL);
-            vkCmdBindIndexBuffer(vko->commandBuffers[i], vko->vbo->indexBuffer, 0, VK_INDEX_TYPE_UINT16);
-            vkCmdDrawIndexed(vko->commandBuffers[i], vko->vbo->indexCount, 1, 0, 0, 0);
+            vkCmdBindIndexBuffer(vko->commandBuffers[i], vko->indexBuffer, 0, VK_INDEX_TYPE_UINT32);
+            vkCmdDrawIndexed(vko->commandBuffers[i], vko->indexCount, 1, 0, 0, 0);
         }
 
         vkCmdEndRenderPass(vko->commandBuffers[i]);

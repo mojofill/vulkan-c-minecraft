@@ -24,6 +24,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.c" "CMakeFiles/vk_app.dir/src/world/camera.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/camera.c.o.d"
   "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.c" "CMakeFiles/vk_app.dir/src/world/chunk.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/chunk.c.o.d"
   "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.c" "CMakeFiles/vk_app.dir/src/world/chunk_map.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/chunk_map.c.o.d"
+  "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.c" "CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o.d"
   "/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.c" "CMakeFiles/vk_app.dir/src/world/world.c.o" "gcc" "CMakeFiles/vk_app.dir/src/world/world.c.o.d"
   )
 

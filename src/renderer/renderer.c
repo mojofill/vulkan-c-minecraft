@@ -151,6 +151,7 @@ static void createLogicalDevice(vk_context *vko) {
 
     VkPhysicalDeviceFeatures deviceFeatures = {0};
     deviceFeatures.samplerAnisotropy = VK_TRUE; // must add device feature sampler anisotropy
+    deviceFeatures.fillModeNonSolid = VK_TRUE;
 
     VkPhysicalDeviceVulkan12Features v12Features = {0};
     v12Features.sType =

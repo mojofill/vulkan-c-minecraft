@@ -2,6 +2,7 @@
 #include "mesh/mesh_pool.h"
 #include "world/world.h"
 #include "streamer/streamer.h"
+#include "mach/mach_time.h"
 
 void processInput(GLFWwindow *window, Camera *cam) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -25,7 +26,7 @@ void updateCameraUniforms(vk_context *vko, uint32_t currentImage, Camera cam) {
 
     float width = (float) vko->surfaceCapabilities.currentExtent.width;
     float height = (float) vko->surfaceCapabilities.currentExtent.height;
-    glm_perspective(GLM_PI_4, width / height, 0.1f, 50.0f, ubo.proj);
+    glm_perspective(GLM_PI_4, width / height, 0.1f, 100.0f, ubo.proj);
 
     ubo.proj[1][1] *= -1; // flip image upside down bc vulkan and opengl y axes are flipped
     memcpy(vko->cameraUniformBufferMapped[currentImage], &ubo, sizeof(ubo));
@@ -42,13 +43,15 @@ void synchronizeStreamerAndMeshPoolWithRenderer(World *world, Streamer *streamer
     //    for each mesh in mesh pool do
     //        vk draw chunk vertex buffer + global index buffer (same index buffer for each chunk)
 
+    ChunkPool *chunkPool = &(world->chunkPool);
+
     for (int i = 0; i < streamer->size; i++) {
         ChunkHandle c_handle = streamer->activeHandles[i];
         if (c_handle == CHUNK_HANDLE_INVALID) continue;
-        Chunk chunk = world->chunks[c_handle];
+        Chunk chunk = chunkPool->chunks[c_handle];
         assert(chunk.chunkHandle == c_handle); // why not, just in case
         if (chunk.dirty) {
-            meshChunk(c_handle, world, meshPool, vko);
+            meshChunk(c_handle, chunkPool, meshPool, vko);
         }
     }
 }
@@ -56,7 +59,12 @@ void synchronizeStreamerAndMeshPoolWithRenderer(World *world, Streamer *streamer
 // unless implementing multi threading, must synchronize all cpu/gpu data here
 void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *pool) {
     uint32_t currentFrame = 0;
+
+    mach_timebase_info_data_t info;
+    mach_timebase_info(&info);
+
     while (!glfwWindowShouldClose(vko->window)) {
+        // uint64_t start_time = mach_absolute_time();
         glfwPollEvents();
         processInput(vko->window, &world->cam);
         updateCameraUniforms(vko, currentFrame, world->cam);
@@ -80,12 +88,17 @@ void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *pool)
         synchronizeStreamerAndMeshPoolWithRenderer(world, streamer, pool, vko);
         
         drawFrame(vko, &currentFrame, *streamer, *pool);
+        // uint64_t end_time = mach_absolute_time();
+        // uint64_t duration = end_time - start_time;
+        // uint64_t duration_ns = duration * info.numer / info.denom;
+        // double fps = 1000000000 / (double) duration_ns;
+        // printf("fps: %f\n", fps);
     }
 
     vkDeviceWaitIdle(vko->device);
 }
 
-void cleanup(vk_context *vko, World world, Streamer streamer, MeshPool pool) {
+void cleanup(vk_context *vko, World *world, Streamer streamer, MeshPool pool) {
     destroyMeshPool(pool, vko);
     destroyWorld(world);
     destroyStreamer(streamer);
@@ -104,29 +117,34 @@ int main() {
     Streamer streamer = {0};
     createStreamer(&streamer);
 
+    // Player struct; has:
+    // Camera camera
+    // vec2 pos
+    // World allocates space on chunk map to synchronize player with streamer
+
     // for testing purposes, will create a single chunk with chunkHandle 0
-    int handle = 0;
+    ChunkPool *chunkPool = &(world.chunkPool);
+    ChunkMap *chunkMap = &(world.chunkMap);
+    int num = 0;
     for (int y = -RENDER_DISTANCE; y <= RENDER_DISTANCE; y++) {
         for (int x = -RENDER_DISTANCE; x <= RENDER_DISTANCE; x++) {
-            printf("creating chunk at %d, %d\n", x * CHUNK_BLOCK_WIDTH, y * CHUNK_BLOCK_WIDTH);
-            // note: there is no "chunk coordinate space" - everything is in block coordinate space, block scales, etc
-            createChunk(&world, (vec2) {(float) (x * CHUNK_BLOCK_WIDTH), (float) (y * CHUNK_BLOCK_WIDTH)});
-            // check chunk blocks
-            Chunk chunk = world.chunks[handle];
-            handle++;
-            streamer.activeHandles[handle] = chunk.chunkHandle; // this should not go past the max
+            ChunkHandle handle = createChunk(chunkPool, (vec2) {(float) (x * CHUNK_BLOCK_WIDTH), (float) (y * CHUNK_BLOCK_WIDTH)});
+            chunk_map_put(chunkMap, x, y, handle);
+            streamer.activeHandles[handle] = handle; // this should not go past the max
+            num++;
         }
     }
 
-    init_renderer(&vko); // needs to be initialized for chunk meshing
+    // todo: create player handler
 
-    for (int i = 0; i < handle; i++) {
+    init_renderer(&vko); // needs to be initialized for chunk meshing
+    for (int i = 0; i < num; i++) {
         mesh_alloc(&meshPool, i);
-        meshChunk(i, &world, &meshPool, &vko);
+        meshChunk(i, &(world.chunkPool), &meshPool, &vko);
     }
 
     mainLoop(&vko, &streamer, &world, &meshPool);
-    cleanup(&vko, world, streamer, meshPool);
+    cleanup(&vko, &world, streamer, meshPool);
     
     return 0;
 }

@@ -1,23 +1,5 @@
 #include "world.h"
 
-void createChunk(World *world, vec2 pos) {
-    Chunk chunk = {0};
-    glm_vec2_copy(pos, chunk.pos);
-    chunk.dirty = 1; // always dirty
-    chunk.chunkHandle = world->chunkCount;
-
-    chunk.blocks = malloc(MAX_BLOCKS_PER_CHUNK * sizeof(BlockType));
-
-    // add block data
-    for (int i = 0; i < MAX_BLOCKS_PER_CHUNK; i++) {
-        // row major
-        chunk.blocks[i] = SMOOTH_STONE;
-    }
-
-    world->chunks[chunk.chunkHandle] = chunk;
-    world->chunkCount++;
-}
-
 void createWorld(World *world) {
     Camera cam = {
         .pos   = {0.0f, 2.0f, 10.0f},
@@ -33,10 +15,17 @@ void createWorld(World *world) {
 
     world->cam = cam;
 
-    world->chunks = malloc(sizeof(Chunk) * MAX_LOADED_CHUNKS);
-    world->chunkCount = 0;
+    // allocate space for chunk map and chunk pool
+    ChunkMap map = {0};
+    ChunkPool pool = {0};
+
+    chunk_map_init(&map, MAX_LOADED_CHUNKS);
+
+    world->chunkMap = map;
+    world->chunkPool = pool;
 }
 
-void destroyWorld(World world) {
-    free(world.chunks);
+void destroyWorld(World *world) {
+    chunk_map_destroy(&(world->chunkMap));
+    chunk_pool_destroy(&(world->chunkPool));
 }

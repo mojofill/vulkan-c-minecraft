@@ -282,10 +282,24 @@ CMakeFiles/vk_app.dir/src/world/chunk_map.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/vk_app.dir/src/world/chunk_map.c.s"
 	/usr/local/bin/gcc-15 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.c -o CMakeFiles/vk_app.dir/src/world/chunk_map.c.s
 
+CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o: CMakeFiles/vk_app.dir/flags.make
+CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o: /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.c
+CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o: CMakeFiles/vk_app.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o"
+	/usr/local/bin/gcc-15 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o -MF CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o.d -o CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.c
+
+CMakeFiles/vk_app.dir/src/world/chunk_pool.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/vk_app.dir/src/world/chunk_pool.c.i"
+	/usr/local/bin/gcc-15 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.c > CMakeFiles/vk_app.dir/src/world/chunk_pool.c.i
+
+CMakeFiles/vk_app.dir/src/world/chunk_pool.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/vk_app.dir/src/world/chunk_pool.c.s"
+	/usr/local/bin/gcc-15 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.c -o CMakeFiles/vk_app.dir/src/world/chunk_pool.c.s
+
 CMakeFiles/vk_app.dir/src/world/block.c.o: CMakeFiles/vk_app.dir/flags.make
 CMakeFiles/vk_app.dir/src/world/block.c.o: /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.c
 CMakeFiles/vk_app.dir/src/world/block.c.o: CMakeFiles/vk_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/vk_app.dir/src/world/block.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/vk_app.dir/src/world/block.c.o"
 	/usr/local/bin/gcc-15 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vk_app.dir/src/world/block.c.o -MF CMakeFiles/vk_app.dir/src/world/block.c.o.d -o CMakeFiles/vk_app.dir/src/world/block.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.c
 
 CMakeFiles/vk_app.dir/src/world/block.c.i: cmake_force
@@ -299,7 +313,7 @@ CMakeFiles/vk_app.dir/src/world/block.c.s: cmake_force
 CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: CMakeFiles/vk_app.dir/flags.make
 CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.c
 CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: CMakeFiles/vk_app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/vk_app.dir/src/streamer/streamer.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/vk_app.dir/src/streamer/streamer.c.o"
 	/usr/local/bin/gcc-15 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/vk_app.dir/src/streamer/streamer.c.o -MF CMakeFiles/vk_app.dir/src/streamer/streamer.c.o.d -o CMakeFiles/vk_app.dir/src/streamer/streamer.c.o -c /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.c
 
 CMakeFiles/vk_app.dir/src/streamer/streamer.c.i: cmake_force
@@ -327,6 +341,7 @@ vk_app_OBJECTS = \
 "CMakeFiles/vk_app.dir/src/world/world.c.o" \
 "CMakeFiles/vk_app.dir/src/world/chunk.c.o" \
 "CMakeFiles/vk_app.dir/src/world/chunk_map.c.o" \
+"CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o" \
 "CMakeFiles/vk_app.dir/src/world/block.c.o" \
 "CMakeFiles/vk_app.dir/src/streamer/streamer.c.o"
 
@@ -348,13 +363,14 @@ vk_app: CMakeFiles/vk_app.dir/src/world/camera.c.o
 vk_app: CMakeFiles/vk_app.dir/src/world/world.c.o
 vk_app: CMakeFiles/vk_app.dir/src/world/chunk.c.o
 vk_app: CMakeFiles/vk_app.dir/src/world/chunk_map.c.o
+vk_app: CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o
 vk_app: CMakeFiles/vk_app.dir/src/world/block.c.o
 vk_app: CMakeFiles/vk_app.dir/src/streamer/streamer.c.o
 vk_app: CMakeFiles/vk_app.dir/build.make
 vk_app: /usr/local/lib/libvulkan.dylib
 vk_app: /usr/local/lib/libglfw.3.4.dylib
 vk_app: CMakeFiles/vk_app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking C executable vk_app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking C executable vk_app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vk_app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -59,7 +59,7 @@ void emitFaceCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **pM
     else /* (dir == BACK)*/y--;
 
     // neighboring block out of chunk, emit this face
-    if (x < 0 || x >= CHUNK_BLOCK_WIDTH || y < 0 || y >= CHUNK_BLOCK_WIDTH || z < 0 || z >= CHUNK_BLOCK_WIDTH) {
+    if (x < 0 || x >= CHUNK_BLOCK_WIDTH || y < 0 || y >= CHUNK_BLOCK_WIDTH || z < 0 || z >= CHUNK_BLOCK_HEIGHT) {
         emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx);
         return;
     }
@@ -70,7 +70,6 @@ void emitFaceCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **pM
     int i = chunk_mesh_xyz_to_block_index(x, y, z);
     BlockType block = chunk.blocks[i];
     if (block == AIR) {
-        printf("emitting face %d\n", *idx);
         emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx);
     }
 }
@@ -84,15 +83,6 @@ void writeChunkMeshToMappedPointer(Chunk chunk, Vertex **pMappedData) {
     int idx = 0;
     chunk_mesh_foreach(x, y, z) {
         vec3 blockPos = {(float) x, (float) y, (float) z};
-
-        // vec3 blockPos = {chunk.pos[0] + ((float) x), chunk.pos[1] + ((float) y), (float) z};
-        // for (int i = 0; i < CUBE_SIZE; i++) {
-        //     Vertex v = cube_vertices[i];
-        //     glm_vec3_add(v.pos, blockPos, v.pos);
-        //     (*pMappedData)[idx] = v;
-        //     idx++;
-        // }
-        
         for (int dir = 0; dir < 6; dir++) {
             emitFaceCheck(chunk, blockPos, dir, pMappedData, &idx);
         }

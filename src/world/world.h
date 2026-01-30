@@ -3,17 +3,16 @@
 
 #include "camera.h"
 #include "chunk.h"
-
-#define MAX_LOADED_CHUNKS UINT32_MAX
+#include "chunk_map.h"
+#include "chunk_pool.h"
 
 typedef struct World {
     Camera cam;
-    Chunk *chunks;
-    int chunkCount;
+    ChunkMap chunkMap;
+    ChunkPool chunkPool;
 } World;
 
-void createChunk(World *world, vec2 pos);
 void createWorld(World *world);
-void destroyWorld(World world);
+void destroyWorld(World *world);
 
 #endif

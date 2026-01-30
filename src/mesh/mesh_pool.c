@@ -92,23 +92,22 @@ static void genChunkMeshVkBuffers(Chunk chunk, ChunkMesh *mesh, vk_context *vko)
 
 // creates chunks
 // all handles should have already been allocated
-void meshChunk(ChunkHandle handle, World *world, MeshPool *pool, vk_context *vko) {
-    int slot = pool->handleToSlot[handle];
-    Chunk chunk = world->chunks[handle];
+void meshChunk(ChunkHandle handle, ChunkPool *chunkPool, MeshPool *meshPool, vk_context *vko) {
+    int slot = meshPool->handleToSlot[handle];
+    Chunk chunk = chunkPool->chunks[handle];
     
     if (slot == MESH_SLOT_INVALID) {
         fprintf(stderr, "Failed to allocate handle before calling meshChunk.\n");
         exit(1);
     }
-    ChunkMesh *mesh = &pool->meshes[slot];
+    ChunkMesh *mesh = &meshPool->meshes[slot];
 
     genChunkMeshVkBuffers(chunk, mesh, vko);
 
     chunk.dirty = 0; // after remeshing mark not dirty
-    printf("meshing chunk %d\n", chunk.chunkHandle);
     
     // update arrays
-    world->chunks[handle] = chunk;
+    chunkPool->chunks[handle] = chunk;
 }
 
 void destroyMeshPool(MeshPool meshPool, vk_context *vko) {

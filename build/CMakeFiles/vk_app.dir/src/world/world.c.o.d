@@ -164,4 +164,6 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h \
  /usr/local/include/GLFW/glfw3.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h

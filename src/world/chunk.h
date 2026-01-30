@@ -5,31 +5,40 @@
 #include <cglm/cglm.h>
 #include "block.h"
 
-#define RENDER_DISTANCE 1
+#define RENDER_DISTANCE 2
 #define NUM_VISIBLE_CHUNKS ((2 * RENDER_DISTANCE + 1) * (2 * RENDER_DISTANCE + 1) + 1)
 // CHUNK_BLOCK_WIDTH number of blocks on width of chunk
-#define CHUNK_BLOCK_WIDTH 5
-#define CHUNK_BLOCK_HEIGHT 5
+#define CHUNK_BLOCK_WIDTH 16
+#define CHUNK_BLOCK_HEIGHT 16
 #define MAX_BLOCKS_PER_CHUNK (CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_HEIGHT)
+
+#define MAX_LOADED_CHUNKS 1024
 
 typedef uint32_t ChunkHandle;
 #define CHUNK_HANDLE_INVALID UINT32_MAX
+
+#define chunk_mesh_foreach(x, y, z) \
+    for (int z = 0; z < CHUNK_BLOCK_HEIGHT; z++) \
+        for (int y = 0; y < CHUNK_BLOCK_WIDTH; y++) \
+            for (int x = 0; x < CHUNK_BLOCK_WIDTH; x++)
+
+#define chunk_mesh_xyz_to_block_index(x, y, z) \
+    (((z) * CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_WIDTH) + \
+     ((y) * CHUNK_BLOCK_WIDTH) + \
+     (x))
 
 // chunk handle invariants
 // 1. each chunk has unique handle
 // 2. once chunk is instantiated, handle remains binded with it until termination
 
-// note: there is no "chunk coordinate space" - everything is in block coordinate space, block scales, etc
+// note: chunk has its own coordinate system
+// ie chunk (0,0) is first chunk with CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_HEIGHT blocks
 typedef struct Chunk {
     vec2 pos;
     int dirty;
     ChunkHandle chunkHandle;
     BlockType *blocks; // size = MAX_BLOCKS_PER_CHUNK
 } Chunk;
-
-typedef struct ChunkMap {
-    
-} ChunkMap;
 
 void destroyChunk(Chunk **chunk);
 

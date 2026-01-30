@@ -18,18 +18,78 @@ CMakeFiles/vk_app.dir/src/main.c.o: /Users/henryzhang/Documents/vulkan-projects/
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/alloca.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_mcontext.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/eflags.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/signal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/libkern/_OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/libkern/i386/_OSByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/boolean.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/clock_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/dyld_kernel.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/exception_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/host_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/host_notify.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/host_special_ports.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/_structs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/boolean.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/exception.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/fp_reg.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/kern_return.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/processor_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/thread_state.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/thread_status.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/vm_param.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/vm_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/kern_return.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/kmod.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/mach_time.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/mach_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/mach_voucher_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/_structs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/boolean.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/exception.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/kern_return.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/processor_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/thread_state.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/thread_status.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/vm_param.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/vm_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/memory_object_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/message.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/policy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/port.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/processor_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/std_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/task_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/task_inspect.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/task_policy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/task_special_ports.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/thread_info.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/thread_policy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/thread_special_ports.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/thread_status.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/time_value.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_attributes.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_behavior.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_inherit.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_page_size.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_prot.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_purgable.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_region.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_statistics.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_sync.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach_debug/ipc_info.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/_mcontext.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/_types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/signal.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_malloc.h \
@@ -52,12 +112,15 @@ CMakeFiles/vk_app.dir/src/main.c.o: /Users/henryzhang/Documents/vulkan-projects/
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ct_rune_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_dev_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_errno_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_fsid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_fsobj_id_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_id_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int16_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int32_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int64_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int8_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_intptr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_mach_port_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_mode_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_null.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_off_t.h \
@@ -77,6 +140,7 @@ CMakeFiles/vk_app.dir/src/main.c.o: /Users/henryzhang/Documents/vulkan-projects/
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ucontext.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uid_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uintptr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uuid_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_va_list.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_wchar_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/appleapiopts.h \
@@ -168,6 +232,8 @@ CMakeFiles/vk_app.dir/src/main.c.o: /Users/henryzhang/Documents/vulkan-projects/
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -553,6 +619,8 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: /Users/henryzhang/Documents/vulkan
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -939,6 +1007,8 @@ CMakeFiles/vk_app.dir/src/renderer/commands.c.o: /Users/henryzhang/Documents/vul
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -1715,6 +1785,8 @@ CMakeFiles/vk_app.dir/src/renderer/renderer.c.o: /Users/henryzhang/Documents/vul
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -2201,6 +2273,8 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: /Users/henryzhang/Documents/vul
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -2561,7 +2635,331 @@ CMakeFiles/vk_app.dir/src/world/chunk.c.o: /Users/henryzhang/Documents/vulkan-pr
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h
 
-CMakeFiles/vk_app.dir/src/world/chunk_map.c.o: /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.c
+CMakeFiles/vk_app.dir/src/world/chunk_map.c.o: /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.c \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/Availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityInternal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityInternalLegacy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityVersions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_ctermid.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint16_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint32_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint64_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint8_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uintmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/alloca.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_mcontext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/libkern/_OSByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/libkern/i386/_OSByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/_structs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/_structs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/_mcontext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_malloc.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_malloc_type.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_ptrcheck.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_common.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdint.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdlib.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_posix_availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_attr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_symbol_aliasing.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ct_rune_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_dev_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_errno_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_id_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int16_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int32_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int64_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int8_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_intptr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_mode_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_null.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_off_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_pid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rune_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_seek_set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigaltstack.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigset_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_size_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ssize_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_timeval.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int16_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int32_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int64_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int8_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ucontext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uintptr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_va_list.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_wchar_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/appleapiopts.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/cdefs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/resource.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/wait.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/aabb2d.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-mat.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-post.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-pre.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/bezier.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/box.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/cam.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/cglm.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/plane.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/ortho_rh_no.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/persp.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/persp_rh_no.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/project_no.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/view_rh.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/view_rh_no.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/color.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/curve.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ease.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/euler.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/frustum.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/handed/euler_to_quat_rh.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/io.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat2x3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat2x4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat3x2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat3x4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4x2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4x3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/noise.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/plane.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/project.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/quat.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ray.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/intrin.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/intrin.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/affine.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/quat.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/x86.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/sphere.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/util.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec2-ext.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3-ext.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/float.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/mm_malloc.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/mmintrin.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/mwaitintrin.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/pmmintrin.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdalign.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdarg.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdbool.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h
+
+CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o: /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.c \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/Availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityInternal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityInternalLegacy.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityVersions.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_ctermid.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_intmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint16_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint32_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint64_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint8_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uintmax_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/alloca.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_mcontext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/libkern/_OSByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/libkern/i386/_OSByteOrder.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/_structs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/_structs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/_mcontext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_malloc.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_malloc_type.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_ptrcheck.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_common.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdint.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdlib.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_endian.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_posix_availability.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_attr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_symbol_aliasing.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ct_rune_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_dev_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_errno_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_id_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int16_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int32_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int64_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int8_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_intptr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_mode_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_null.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_off_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_pid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rune_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_seek_set.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigaltstack.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigset_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_size_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ssize_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_timeval.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int16_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int32_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int64_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int8_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ucontext.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uid_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uintptr_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_va_list.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_wchar_t.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/appleapiopts.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/cdefs.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/resource.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/signal.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/stdio.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/wait.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/aabb2d.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-mat.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-post.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-pre.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/bezier.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/box.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/cam.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/cglm.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/plane.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/ortho_rh_no.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/persp.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/persp_rh_no.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/project_no.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/view_rh.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/view_rh_no.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/color.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/curve.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ease.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/euler.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/frustum.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/handed/euler_to_quat_rh.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/io.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat2x3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat2x4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat3x2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat3x4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4x2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4x3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/noise.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/plane.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/project.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/quat.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ray.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/intrin.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/intrin.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/affine.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/quat.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/x86.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/sphere.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/types.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/util.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec2-ext.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec2.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3-ext.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/float.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/mm_malloc.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/mmintrin.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/mwaitintrin.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/pmmintrin.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdalign.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdarg.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdbool.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stddef.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h \
+  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h
 
 CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/Availability.h \
@@ -2711,6 +3109,8 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -2737,14 +3137,6 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/swapchain.c:
 
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/limits.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/limits.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/limits.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_limits.h:
-
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.c:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image_impl.c:
@@ -2761,61 +3153,65 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/graphics_pipeline.c:
 
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.c:
+
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/commands.c:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.c:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-post.h:
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.c:
 
-/usr/local/include/vk_video/vulkan_video_codec_h264std_encode.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/noise.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/project.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.c:
-
-/usr/local/include/vulkan/vulkan_macos.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/endian.h:
-
-/usr/local/include/vulkan/vulkan_core.h:
-
-/usr/local/include/vk_video/vulkan_video_codec_vp9std_decode.h:
+/usr/local/include/vk_video/vulkan_video_codecs_common.h:
 
 /usr/local/include/vk_video/vulkan_video_codec_vp9std.h:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat2.h:
+/usr/local/include/vk_video/vulkan_video_codec_h265std_decode.h:
 
-/usr/local/include/vk_video/vulkan_video_codec_h265std_encode.h:
+/usr/local/include/vk_video/vulkan_video_codec_h264std_decode.h:
 
-/usr/local/include/vk_video/vulkan_video_codec_h265std.h:
+/usr/local/include/vk_video/vulkan_video_codec_av1std_encode.h:
 
-/usr/local/include/vk_video/vulkan_video_codec_h264std.h:
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.h:
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h:
 
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdarg.h:
+/usr/local/include/vulkan/vk_platform.h:
+
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdbool.h:
+
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdalign.h:
 
 /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/mwaitintrin.h:
 
 /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/mmintrin.h:
 
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h:
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/mm_malloc.h:
+
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/float.h:
+
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h:
 
 /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.c:
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/pmmintrin.h:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h:
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h:
 
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdbool.h:
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h:
 
-/usr/local/include/vulkan/vk_platform.h:
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/swapchain.h:
+
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdarg.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/graphics_pipeline.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.h:
 
@@ -2823,19 +3219,13 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/commands.h:
 
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/xmmintrin.h:
-
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_timeval.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/appleapiopts.h:
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h:
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3-ext.h:
 
@@ -2843,27 +3233,19 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec2-ext.h:
 
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h:
-
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/util.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ssize_t.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/aabb2d.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/types.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/quat.h:
-
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat2.h:
-
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdalign.h:
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/x86.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat4.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/thread_policy.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat2.h:
+
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ray.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/boolean.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/quat.h:
 
@@ -2875,35 +3257,425 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat3.h:
 
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/float.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat2x4.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_timespec.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/signal.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/renderer.h:
-
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/intrin.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/alloca.h:
 
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_inherit.h:
+
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec4.h:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/io.h:
-
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/handed/euler_to_quat_rh.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/frustum.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/euler.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/curve.h:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/graphics_pipeline.h:
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/view_rh_no.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/project_no.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.c:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.c:
+
+/usr/local/include/vk_video/vulkan_video_codec_h264std_encode.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/project.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-post.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/noise.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/box.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/plane.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-mat.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/wait.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/errno.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/cdefs.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uuid_t.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/cglm.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uintptr_t.h:
+
+/usr/local/include/vulkan/vulkan.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int8_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ucontext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int64_t.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec3.h:
+
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/syslimits.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int32_t.h:
+
+/usr/local/include/vk_video/vulkan_video_codec_av1std.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int16_t.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/types.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/aabb2d.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ssize_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/processor_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigset_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_seek_set.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_off_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_intptr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/std_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_strings.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int8_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_wchar_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int32_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int64_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/mach_voucher_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int16_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_errno_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdlib.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_id_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_fsobj_id_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/memory_object_types.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_dev_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_size_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/vm_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ct_rune_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/thread_status.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_behavior.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_symbol_aliasing.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/persp.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_posix_availability.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_endian.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdint.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/task_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_stdio.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_fsid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/string.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_ptrcheck.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_null.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_va_list.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/types.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/ortho_rh_no.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/signal.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/_types.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat2x4.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_mach_port_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/mach_time.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/stdio.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_attributes.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/appleapiopts.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/endian.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_malloc_type.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/time_value.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_timespec.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/renderer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/signal.h:
+
+/usr/local/include/vk_video/vulkan_video_codec_h265std.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach_debug/ipc_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_statistics.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/message.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/task_inspect.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/processor_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_purgable.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/thread_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/port.h:
+
+/usr/local/include/vk_video/vulkan_video_codec_vp9std_decode.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/policy.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint64_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_sync.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/fp_reg.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/vm_param.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec2.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/_mcontext.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/thread_status.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.c:
+
+/usr/local/include/GLFW/glfw3.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/thread_state.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/view_rh.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/processor_info.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_common.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_prot.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/task_policy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/_structs.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/persp_rh_no.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/signal.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/bezier.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/vm_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/boolean.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_pid_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rsize_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityInternalLegacy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/kmod.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_timeval.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/thread_special_ports.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uintmax_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/assert.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigaltstack.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/kern_return.h:
+
+/usr/local/include/vk_video/vulkan_video_codec_av1std_decode.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-pre.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/dyld_kernel.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/exception.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint8_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/_structs.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ease.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/host_info.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/host_special_ports.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_malloc.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/libkern/i386/_OSByteOrder.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/host_notify.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/resource.h:
+
+/usr/local/include/vk_video/vulkan_video_codec_h264std.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/exception_types.h:
+
+/usr/local/include/vulkan/vulkan_macos.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_page_size.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/io.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/limits.h:
+
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/emmintrin.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/kern_return.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/clock_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_intmax_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/boolean.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/frustum.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4x3.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_region.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/vm_param.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/quat.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/vm_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/thread_state.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rune_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/time.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_ctermid.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_limits.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_string.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/errno.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat3.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat3x2.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/strings.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityVersions.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_mcontext.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.c:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/exception.h:
+
+/usr/local/include/vulkan/vulkan_core.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/endian.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/sphere.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/cam.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/kern_return.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/thread_status.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/main.c:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_stdio.h:
+
+/usr/local/include/vk_video/vulkan_video_codec_h265std_encode.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat2.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/eflags.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/limits.h:
+
+/usr/local/include/vulkan/vulkan_beta.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint16_t.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityInternal.h:
+
+/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/mach_types.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint32_t.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/affine.h:
 
@@ -2911,258 +3683,14 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/color.h:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/view_rh_no.h:
+/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/limits.h:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/project_no.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/task_special_ports.h:
 
-/usr/local/include/vk_video/vulkan_video_codecs_common.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/limits.h:
 
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.c:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/sphere.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/cam.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/box.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/bezier.h:
-
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/pmmintrin.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/cdefs.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/plane.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/sse2/mat3.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat3x2.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityVersions.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/strings.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint64_t.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_intmax_t.h:
-
-/usr/local/include/vk_video/vulkan_video_codec_av1std_decode.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-pre.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdlib.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_errno_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_id_t.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/persp_rh_no.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/signal.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int32_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int64_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_wchar_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/types.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_va_list.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/cglm.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uintptr_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_string.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int16_t.h:
-
-/usr/local/include/vk_video/vulkan_video_codec_av1std.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_uid_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ucontext.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec3.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int64_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigset_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/_mcontext.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ivec2.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_types.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/assert.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_sigaltstack.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rsize_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityInternalLegacy.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_pid_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_null.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.c:
-
-/usr/local/include/GLFW/glfw3.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/wait.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_intptr_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int8_t.h:
-
-/usr/local/include/vulkan/vulkan.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int16_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_types.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/persp.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine-mat.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_posix_availability.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_ptrcheck.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/string.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_int8_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_strings.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_symbol_aliasing.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdint.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_common.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4x3.h:
-
-/usr/local/include/vk_video/vulkan_video_codec_h265std_decode.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/view_rh.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_malloc_type.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_seek_set.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_size_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_ct_rune_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/libkern/i386/_OSByteOrder.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/malloc/_malloc.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/clipspace/ortho_rh_no.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/signal.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/simd/x86.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/_types.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/ease.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/types.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/stdio.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/time.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_ctermid.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_rune_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint8_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/i386/_structs.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/limits.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint16_t.h:
-
-/usr/local/include/vulkan/vulkan_beta.h:
+/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/libkern/_OSByteOrder.h:
 
 /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/mat4.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/Availability.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/libkern/_OSByteOrder.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_pthread/_pthread_attr_t.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/common.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_dev_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/errno.h:
-
-/usr/local/include/vk_video/vulkan_video_codec_h264std_decode.h:
-
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/mm_malloc.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/errno.h:
-
-/usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/syslimits.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_u_int32_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/i386/_mcontext.h:
-
-/usr/local/include/vk_video/vulkan_video_codec_av1std_encode.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/resource.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/machine/endian.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uintmax_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/machine/_structs.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/secure/_stdio.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/AvailabilityInternal.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.c:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_types/_uint32_t.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_off_t.h:
-
-/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/main.c:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/_stdio.h:
-
-/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_endian.h:

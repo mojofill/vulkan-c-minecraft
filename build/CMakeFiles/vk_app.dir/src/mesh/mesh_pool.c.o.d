@@ -166,6 +166,8 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: \
  /usr/local/include/GLFW/glfw3.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/stb_image.h \

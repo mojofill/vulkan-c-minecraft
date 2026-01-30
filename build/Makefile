@@ -513,6 +513,30 @@ src/world/chunk_map.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vk_app.dir/build.make CMakeFiles/vk_app.dir/src/world/chunk_map.c.s
 .PHONY : src/world/chunk_map.c.s
 
+src/world/chunk_pool.o: src/world/chunk_pool.c.o
+.PHONY : src/world/chunk_pool.o
+
+# target to build an object file
+src/world/chunk_pool.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vk_app.dir/build.make CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o
+.PHONY : src/world/chunk_pool.c.o
+
+src/world/chunk_pool.i: src/world/chunk_pool.c.i
+.PHONY : src/world/chunk_pool.i
+
+# target to preprocess a source file
+src/world/chunk_pool.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vk_app.dir/build.make CMakeFiles/vk_app.dir/src/world/chunk_pool.c.i
+.PHONY : src/world/chunk_pool.c.i
+
+src/world/chunk_pool.s: src/world/chunk_pool.c.s
+.PHONY : src/world/chunk_pool.s
+
+# target to generate assembly for a file
+src/world/chunk_pool.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vk_app.dir/build.make CMakeFiles/vk_app.dir/src/world/chunk_pool.c.s
+.PHONY : src/world/chunk_pool.c.s
+
 src/world/world.o: src/world/world.c.o
 .PHONY : src/world/world.o
 
@@ -594,6 +618,9 @@ help:
 	@echo "... src/world/chunk_map.o"
 	@echo "... src/world/chunk_map.i"
 	@echo "... src/world/chunk_map.s"
+	@echo "... src/world/chunk_pool.o"
+	@echo "... src/world/chunk_pool.i"
+	@echo "... src/world/chunk_pool.s"
 	@echo "... src/world/world.o"
 	@echo "... src/world/world.i"
 	@echo "... src/world/world.s"

@@ -1,6 +1,8 @@
 #include "streamer.h"
 #include <stdio.h>
 
+// need to add abstraction for adding handles to streamer
+
 void createStreamer(Streamer *streamer) {
     streamer->size = NUM_VISIBLE_CHUNKS;
     streamer->activeHandles = malloc(sizeof(ChunkHandle) * streamer->size);

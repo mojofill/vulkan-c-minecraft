@@ -51,9 +51,17 @@ void createGraphicsPipeline(vk_context *vko) {
     rasterizer.depthClampEnable = VK_FALSE;
     rasterizer.rasterizerDiscardEnable = VK_FALSE;
     rasterizer.polygonMode = VK_POLYGON_MODE_FILL;
+
+    // uncomment this line for polygon mode
+    // rasterizer.polygonMode = VK_POLYGON_MODE_LINE;
+
     rasterizer.lineWidth = 1.0f;
+    
     rasterizer.cullMode = VK_CULL_MODE_BACK_BIT;
+    
+    // uncommet this line for no culling
     // rasterizer.cullMode = VK_CULL_MODE_NONE;
+
     rasterizer.frontFace = VK_FRONT_FACE_CLOCKWISE;
     rasterizer.depthBiasEnable = VK_FALSE;
 

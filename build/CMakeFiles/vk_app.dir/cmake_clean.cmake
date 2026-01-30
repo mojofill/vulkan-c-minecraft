@@ -31,6 +31,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/vk_app.dir/src/world/chunk.c.o.d"
   "CMakeFiles/vk_app.dir/src/world/chunk_map.c.o"
   "CMakeFiles/vk_app.dir/src/world/chunk_map.c.o.d"
+  "CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o"
+  "CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o.d"
   "CMakeFiles/vk_app.dir/src/world/world.c.o"
   "CMakeFiles/vk_app.dir/src/world/world.c.o.d"
   "vk_app"

@@ -1,6 +1,6 @@
-CMakeFiles/vk_app.dir/src/world/chunk_map.c.o: \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.c \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o: \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.c \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
  /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include/stdint.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/stdint.h \

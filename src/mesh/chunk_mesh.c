@@ -31,11 +31,15 @@ void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **
     vec3 worldBlockPos;
     
     glm_vec3_copy(localBlockPos, local);
+
+    vec2 scaledChunkPos;
+    scaledChunkPos[0] = (float) chunk.pos[0] * CHUNK_BLOCK_WIDTH;
+    scaledChunkPos[1] = (float) chunk.pos[1] * CHUNK_BLOCK_WIDTH;
     
     // get rid of annoying warning
     #pragma GCC diagnostic push
     #pragma GCC diagnostic ignored "-Wstringop-overflow"
-        glm_vec3_add(local, chunk.pos, worldBlockPos);
+        glm_vec3_add(local, scaledChunkPos, worldBlockPos);
     #pragma GCC diagnostic pop
 
     for (int i = 0; i < 4; i++) {
@@ -79,7 +83,7 @@ void writeChunkMeshToMappedPointer(Chunk chunk, Vertex **pMappedData) {
     //     if block at x-1, y is air then
     //         emitFace(LEFT)
     //     ...repeat for all 6 directions
-    
+
     int idx = 0;
     chunk_mesh_foreach(x, y, z) {
         vec3 blockPos = {(float) x, (float) y, (float) z};

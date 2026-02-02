@@ -13,6 +13,7 @@ typedef struct Camera {
     vec3 dir;
     float pitch;
     float yaw;
+    ivec2 chunkPos;
 } Camera;
 
 void camera_move(Camera *cam, vec3 dir, float dt);

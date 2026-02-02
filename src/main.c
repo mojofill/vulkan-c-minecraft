@@ -3,6 +3,7 @@
 #include "world/world.h"
 #include "streamer/streamer.h"
 #include "mach/mach_time.h"
+#include <math.h>
 
 void processInput(GLFWwindow *window, Camera *cam) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -21,6 +22,11 @@ void updateCameraUniforms(vk_context *vko, uint32_t currentImage, Camera cam) {
 
     vec3 forward;
     glm_vec3_add(cam.pos, cam.dir, forward);
+
+    float x = cam.pos[0];
+    float y = cam.pos[1];
+    float z = cam.pos[2];
+    // printf("camera pos: %f, %f, %f\n", cam.pos[0], cam.pos[1], cam.pos[2]); // try to guess which chunk im in
 
     glm_lookat(cam.pos, forward, (vec3){0.0f, 0.0f, 1.0f}, ubo.view);
 
@@ -56,6 +62,88 @@ void synchronizeStreamerAndMeshPoolWithRenderer(World *world, Streamer *streamer
     }
 }
 
+void synchronizePlayerWithChunks(World *world, MeshPool *meshPool, Streamer *streamer) {
+    ChunkMap *map = &(world->chunkMap);
+    ChunkPool *chunkPool = &(world->chunkPool);
+    Camera *cam = &(world->cam);
+
+    int cx = (int) (floor(cam->pos[0] / (float) CHUNK_BLOCK_WIDTH));
+    int cy = (int) (floor(cam->pos[1] / (float) CHUNK_BLOCK_WIDTH));
+
+    // need to fix chunk border detection, currently too far away
+
+    // player moved chunks
+    if (cx != cam->chunkPos[0] || cy != cam->chunkPos[1]) {
+        cam->chunkPos[0] = cx;
+        cam->chunkPos[1] = cy;
+
+        ChunkHandle newHandles[NUM_VISIBLE_CHUNKS]; // newHandles
+        int idx = 0;
+        for (int y = cy - RENDER_DISTANCE; y <= cy + RENDER_DISTANCE; y++) {
+            for (int x = cx - RENDER_DISTANCE; x <= cx + RENDER_DISTANCE; x++) {
+                ChunkHandle handle = chunk_map_get(map, x, y);
+                if (handle == CHUNK_HANDLE_INVALID) {
+                    handle = createChunk(chunkPool, (ivec2) {x, y});
+                    chunk_map_put(map, x, y, handle);
+                }
+                newHandles[idx] = handle;
+                chunkPool->chunks[handle].dirty = 1; // need to set new chunks to dirty
+                idx++;
+            }
+        }
+
+        // newHandles = new handles this frame that need to be rendered
+        // streamer.activeHandles = old handles that need to be updated
+
+        // for each oldHandle in streamer.activeHandles do
+        //     for each newHandle in newHandles do
+        //         if (oldHandle == newHandle) then
+        //             oldHandle is in newHandles
+        //             newHandles[new handle index] = CHUNK_HANDLE_INVALID; 
+        //             can get rid of this one in newHandles because its actually old
+        //             break
+        //     if oldHandle is not in newHandles then
+        //         slotsFree.push(oldHandle slot in activeHandles)
+        //
+        // for each handle in newHandles do
+        //     if handle is not invalid then
+        //         mesh_alloc(pool, handle)
+        //         streamer.activeHandles[next available slot] = handle
+
+        int slotsFree[NUM_VISIBLE_CHUNKS];
+        int size = 0;
+        
+        for (int i = 0; i < NUM_VISIBLE_CHUNKS; i++) {
+            ChunkHandle oldHandle = streamer->activeHandles[i];
+            int oldIsInNew = 0;
+            for (int j = 0; j < NUM_VISIBLE_CHUNKS; j++) {
+                ChunkHandle newHandle = newHandles[j];
+                if (oldHandle == newHandle) {
+                    oldIsInNew = 1;
+                    newHandles[j] = CHUNK_HANDLE_INVALID;
+                    break;
+                }
+            }
+
+            if (!oldIsInNew) {
+                slotsFree[size] = i;
+                size++;
+            }
+        }
+
+        idx = 0;
+        for (int i = 0; i < NUM_VISIBLE_CHUNKS; i++) {
+            ChunkHandle handle = newHandles[i];
+            if (handle != CHUNK_HANDLE_INVALID) {
+                mesh_alloc(meshPool, handle);
+                int slot = slotsFree[idx];
+                streamer->activeHandles[slot] = handle;
+                idx++;
+            }
+        }
+    }
+}
+
 // unless implementing multi threading, must synchronize all cpu/gpu data here
 void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *pool) {
     uint32_t currentFrame = 0;
@@ -82,7 +170,10 @@ void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *pool)
 
         // check synchronizeStreamerAndMeshPoolWithRenderer for description of streamer + mesh pool synchronization with renderer
 
-        // todo: need to create a player in order to synchronize player with streamer + mesh pool
+        // these might need to put in a separate thread
+        
+        // 1. synchronizer player with streamer
+        synchronizePlayerWithChunks(world, pool, streamer);
 
         // 2. synchronize streamer + mesh pool with renderer
         synchronizeStreamerAndMeshPoolWithRenderer(world, streamer, pool, vko);
@@ -112,7 +203,7 @@ int main() {
     createWorld(&world);
 
     MeshPool meshPool = {0};
-    createMeshPool(&meshPool, NUM_VISIBLE_CHUNKS);
+    createMeshPool(&meshPool);
 
     Streamer streamer = {0};
     createStreamer(&streamer);
@@ -122,13 +213,12 @@ int main() {
     // vec2 pos
     // World allocates space on chunk map to synchronize player with streamer
 
-    // for testing purposes, will create a single chunk with chunkHandle 0
     ChunkPool *chunkPool = &(world.chunkPool);
     ChunkMap *chunkMap = &(world.chunkMap);
     int num = 0;
     for (int y = -RENDER_DISTANCE; y <= RENDER_DISTANCE; y++) {
         for (int x = -RENDER_DISTANCE; x <= RENDER_DISTANCE; x++) {
-            ChunkHandle handle = createChunk(chunkPool, (vec2) {(float) (x * CHUNK_BLOCK_WIDTH), (float) (y * CHUNK_BLOCK_WIDTH)});
+            ChunkHandle handle = createChunk(chunkPool, (ivec2) {x, y});
             chunk_map_put(chunkMap, x, y, handle);
             streamer.activeHandles[handle] = handle; // this should not go past the max
             num++;

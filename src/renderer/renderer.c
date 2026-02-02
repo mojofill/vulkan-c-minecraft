@@ -38,6 +38,7 @@ static void initWindow(vk_context *vko) {
 
     glfwSetWindowUserPointer(vko->window, vko); // yoo interesting. glfw itself holds a special pointer just for me
     glfwSetFramebufferSizeCallback(vko->window, framebufferResizeCallback);
+    glfwSetWindowPos(vko->window, 50, 0);
     glfwMaximizeWindow(vko->window);
 }
 

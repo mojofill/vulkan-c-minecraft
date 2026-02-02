@@ -10,7 +10,7 @@ typedef struct {
 
 ChunkHandle chunk_alloc(ChunkPool *pool);
 void chunk_free(ChunkPool *pool, ChunkHandle handle);
-ChunkHandle createChunk(ChunkPool *pool, vec2 pos);
+ChunkHandle createChunk(ChunkPool *pool, ivec2 pos);
 void chunk_pool_destroy(ChunkPool *pool);
 
 #endif

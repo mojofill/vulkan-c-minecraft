@@ -80,9 +80,16 @@ void recordCommands(vk_context *vko, uint32_t currentFrame, Streamer streamer, M
             if (handle == CHUNK_HANDLE_INVALID) continue;
 
             MeshHandle slot = pool.handleToSlot[handle];
+            if (slot == MESH_SLOT_INVALID) {
+                fprintf(stderr, "streamer has chunk handle pointing to an invalid slot\n");
+                exit(1);
+            }
             ChunkMesh *mesh = &pool.meshes[slot];
             
-            if (mesh->vertexBuffer == VK_NULL_HANDLE) continue;
+            if (mesh->vertexBuffer == VK_NULL_HANDLE) {
+                fprintf(stderr, "chunk in streamer does not have an associated mesh\n");
+                exit(1);
+            }
             
             vkCmdBindVertexBuffers(vko->commandBuffers[i], 0, 1, &mesh->vertexBuffer, (VkDeviceSize[]){0});
             vkCmdBindDescriptorSets(vko->commandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, vko->pipelineLayout, 0, 1, &vko->descriptorSets[currentFrame], 0, NULL);

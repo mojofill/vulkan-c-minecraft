@@ -1,5 +1,6 @@
 #include "chunk_pool.h"
 
+// -- WARNING: I SHOULD NEVER CALL THIS MYSELF. ONLY CALL chunkCreate
 ChunkHandle chunk_alloc(ChunkPool *pool) {
     for (uint32_t i = 0; i < MAX_LOADED_CHUNKS; i++) {
         if (!pool->used[i]) {
@@ -22,9 +23,9 @@ void chunk_free(ChunkPool *pool, ChunkHandle handle) {
 }
 
 // adds chunk to pool, returns unique handle
-ChunkHandle createChunk(ChunkPool *pool, vec2 pos) {
+ChunkHandle createChunk(ChunkPool *pool, ivec2 pos) {
     Chunk chunk = {0};
-    glm_vec2_copy(pos, chunk.pos);
+    glm_ivec2_copy(pos, chunk.pos);
     chunk.dirty = 1; // always dirty
     chunk.chunkHandle = chunk_alloc(pool);
 

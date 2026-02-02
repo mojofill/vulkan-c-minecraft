@@ -20,18 +20,20 @@
 
 typedef uint32_t MeshHandle;
 #define MESH_SLOT_INVALID UINT32_MAX
+#define MESH_SLOT_OFF 0
+#define MESH_SLOT_ON 1
 
 typedef struct MeshPool {
     ChunkMesh *meshes; // size = capacity
     uint32_t capacity;
 
-    ChunkHandle *handleToSlot; // size = NUM_VISIBLE_CHUNKS
+    MeshHandle *handleToSlot; // size = NUM_VISIBLE_CHUNKS
     uint32_t *slotsUsed; // size = capacity
 
     uint32_t count;
 } MeshPool;
 
-void createMeshPool(MeshPool *outMeshPool, uint32_t capacity);
+void createMeshPool(MeshPool *outMeshPool);
 void destroyMeshPool(MeshPool meshPool, vk_context *vko);
 void mesh_alloc(MeshPool *pool, ChunkHandle handle);
 void mesh_free(MeshPool *pool, ChunkHandle handle);

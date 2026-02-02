@@ -1,27 +1,26 @@
 #include "mesh_pool.h"
 
-void createMeshPool(MeshPool *outMeshPool, uint32_t capacity) {
-    outMeshPool->capacity = capacity;
-    outMeshPool->meshes = malloc(sizeof(ChunkMesh) * capacity);
-    outMeshPool->handleToSlot = malloc(sizeof(ChunkHandle) * NUM_VISIBLE_CHUNKS);
-    outMeshPool->slotsUsed = malloc(sizeof(ChunkHandle) * capacity);
+void createMeshPool(MeshPool *outMeshPool) {
+    outMeshPool->meshes = malloc(sizeof(ChunkMesh) * MAX_LOADED_CHUNKS);
+    outMeshPool->handleToSlot = malloc(sizeof(MeshHandle) * MAX_LOADED_CHUNKS);
+    outMeshPool->slotsUsed = malloc(sizeof(int) * MAX_LOADED_CHUNKS);
     outMeshPool->count = 0;
     
-    for (uint32_t i = 0; i < capacity; i++) {
+    for (uint32_t i = 0; i < MAX_LOADED_CHUNKS; i++) {
         ChunkMesh mesh = {0};
         outMeshPool->meshes[i] = mesh;
         outMeshPool->slotsUsed[i] = 0;
     }
 
-    for (int i = 0; i < NUM_VISIBLE_CHUNKS; i++) {
-        outMeshPool->handleToSlot[i] = CHUNK_HANDLE_INVALID;
+    for (int i = 0; i < MAX_LOADED_CHUNKS; i++) {
+        outMeshPool->handleToSlot[i] = MESH_SLOT_INVALID;
     }
 }
 
 void mesh_alloc(MeshPool *pool, ChunkHandle handle) {
     // 1. find a free slot
     MeshHandle slot = -1;
-    for (uint32_t i = 0; i < pool->capacity; i++) {
+    for (uint32_t i = 0; i < MAX_LOADED_CHUNKS; i++) {
         if (pool->slotsUsed[i] == 0) {
             slot = i;
             break;
@@ -29,7 +28,7 @@ void mesh_alloc(MeshPool *pool, ChunkHandle handle) {
     }
 
     if (slot == -1) {
-        fprintf(stderr, "failed to find an available slot");
+        fprintf(stderr, "failed to find an available slot\n");
         exit(1);
     }
 
@@ -56,6 +55,8 @@ void mesh_free(MeshPool *pool, ChunkHandle handle) {
         fprintf(stderr, "fatal: count is less than 0\n");
         exit(1);
     }
+    printf("(IN mesh_free): \n");
+    for (int i = 0; i < 15; i++) printf("%d ", pool->handleToSlot[i]); printf("\n");
 }
 
 // handle -> slot -> return slot == 0 (free)

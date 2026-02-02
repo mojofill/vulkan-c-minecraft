@@ -4,7 +4,7 @@ void createWorld(World *world) {
     Camera cam = {
         .pos   = {0.0f, 2.0f, 10.0f},
         .pitch = -GLM_PI_4f,        // looking level
-        .yaw   = 0    // look towards -Y axis
+        .yaw   = M_PI_2
     };
 
     // Build initial dir from yaw+pitch
@@ -12,6 +12,9 @@ void createWorld(World *world) {
     cam.dir[1] = cosf(cam.pitch) * sinf(cam.yaw);
     cam.dir[2] = sinf(cam.pitch);
     glm_normalize(cam.dir);
+
+    ivec2 chunkPos = {0, 0};
+    glm_ivec2_copy(chunkPos, cam.chunkPos);
 
     world->cam = cam;
 

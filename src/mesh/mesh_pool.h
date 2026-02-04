@@ -38,6 +38,6 @@ void destroyMeshPool(MeshPool meshPool, vk_context *vko);
 void mesh_alloc(MeshPool *pool, ChunkHandle handle);
 void mesh_free(MeshPool *pool, ChunkHandle handle);
 int meshPoolIsHandleUsed(MeshPool pool, ChunkHandle handle);
-void meshChunk(ChunkHandle handle, ChunkPool *chunkPool, MeshPool *meshPool, vk_context *vko);
+void meshChunk(ChunkHandle handle, ChunkMap *chunkMap, ChunkPool *chunkPool, MeshPool *meshPool, vk_context *vko, VkCommandBuffer cpyCmd);
 
 #endif

@@ -31,7 +31,7 @@ void createGraphicsPipeline(vk_context *vko) {
     vertexInputInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
     vertexInputInfo.vertexBindingDescriptionCount = 1;
     vertexInputInfo.pVertexBindingDescriptions = &vko->bindingDesc;
-    vertexInputInfo.vertexAttributeDescriptionCount = 3;
+    vertexInputInfo.vertexAttributeDescriptionCount = 4;
     vertexInputInfo.pVertexAttributeDescriptions = vko->attrDescs;
 
     // input assembly = describes how to assemble vertices (triangles, lines, points, etc)

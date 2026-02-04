@@ -25,6 +25,11 @@ void setVertexAttributeDescriptions(vk_context *vko) {
     vko->attrDescs[2].location = 2;
     vko->attrDescs[2].format = VK_FORMAT_R32G32_SFLOAT;
     vko->attrDescs[2].offset = offsetof(Vertex, texCoord);
+
+    vko->attrDescs[3].binding = 0;
+    vko->attrDescs[3].location = 3;
+    vko->attrDescs[3].format = VK_FORMAT_R8_UNORM;
+    vko->attrDescs[3].offset = offsetof(Vertex, light);
 }
 
 uint32_t findMemoryType(vk_context *vko, uint32_t typeFilter, VkMemoryPropertyFlags properties) {
@@ -152,6 +157,7 @@ void createIndexBuffer(vk_context *vko) {
     createBuffer(vko, bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_INDEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, &vko->indexBuffer, &vko->indexBufferMemory);
 
     copyBuffer(vko, stagingBuffer, vko->indexBuffer, bufferSize);
+    vkQueueWaitIdle(vko->graphicsQueue);
 
     vkDestroyBuffer(vko->device, stagingBuffer, NULL);
     vkFreeMemory(vko->device, stagingBufferMemory, NULL);

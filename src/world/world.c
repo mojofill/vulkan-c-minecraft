@@ -2,7 +2,7 @@
 
 void createWorld(World *world) {
     Camera cam = {
-        .pos   = {0.0f, 2.0f, 10.0f},
+        .pos   = {0.0f, 2.0f, 50.0f},
         .pitch = -GLM_PI_4f,        // looking level
         .yaw   = M_PI_2
     };
@@ -21,6 +21,7 @@ void createWorld(World *world) {
     // allocate space for chunk map and chunk pool
     ChunkMap map = {0};
     ChunkPool pool = {0};
+    pool.count = 0;
 
     chunk_map_init(&map, MAX_LOADED_CHUNKS);
 

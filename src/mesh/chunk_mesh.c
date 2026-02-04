@@ -42,18 +42,31 @@ void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **
         glm_vec3_add(local, scaledChunkPos, worldBlockPos);
     #pragma GCC diagnostic pop
 
+    // 1.0f/16.0f
+    float blockUVSize = 0.0625;  // size of one block in UV space
+    int col = 3;
+    int row = 0;
+
+    float uOffset = col * blockUVSize;
+    float vOffset = row * blockUVSize;
+
     for (int i = 0; i < 4; i++) {
         Vertex v = cube_vertices[at + i];
+        v.light = faceLight[dir];
         glm_vec3_add(v.pos, worldBlockPos, v.pos);
+        v.texCoord[0] = v.texCoord[0] * blockUVSize + uOffset;
+        v.texCoord[1] = v.texCoord[1] * blockUVSize + vOffset;
         (*pMappedData)[*idx] = v;
         (*idx)++;
     }
 }
 
-void emitFaceCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx) {
+void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx) {
     int x = (int) localBlockPos[0];
     int y = (int) localBlockPos[1];
     int z = (int) localBlockPos[2];
+
+    if (chunk.blocks[chunk_mesh_xyz_to_block_index(x,y,z)] == AIR) return;
 
     if      (dir == LEFT)  x--;
     else if (dir == RIGHT) x++;
@@ -62,10 +75,49 @@ void emitFaceCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **pM
     else if (dir == FRONT) y++;
     else /* (dir == BACK)*/y--;
 
-    // neighboring block out of chunk, emit this face
+    // neighboring block out of chunk, check face on neighboring chunk
     if (x < 0 || x >= CHUNK_BLOCK_WIDTH || y < 0 || y >= CHUNK_BLOCK_WIDTH || z < 0 || z >= CHUNK_BLOCK_HEIGHT) {
-        emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx);
-        return;
+        if (z < 0) return; // will not be rendering anything below
+        if (z >= CHUNK_BLOCK_HEIGHT) {
+            emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx); // always render top of chunk
+            return;
+        }
+        
+        int cx = chunk.pos[0];
+        int cy = chunk.pos[1];
+
+        if (x < 0) {
+            x = CHUNK_BLOCK_WIDTH - 1;
+            cx--;
+        }
+        else if (x >= CHUNK_BLOCK_WIDTH) {
+            x = 0;
+            cx++;
+        }
+        
+        if (y < 0) {
+            y = CHUNK_BLOCK_WIDTH - 1;
+            cy--;
+        }
+        else if (y >= CHUNK_BLOCK_WIDTH) {
+            y = 0;
+            cy++;
+        }
+        
+        ChunkHandle neighborHandle = chunk_map_get(map, cx, cy);
+
+        if (neighborHandle == CHUNK_HANDLE_INVALID) {
+            emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx);
+            return;
+        }
+
+        Chunk neighborChunk = pool->chunks[neighborHandle];
+
+        int neighbor_block_idx = chunk_mesh_xyz_to_block_index(x, y, z);
+        BlockType neighbor_block_type = neighborChunk.blocks[neighbor_block_idx];
+
+        if (neighbor_block_type == AIR) emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx);
+        else return;
     }
 
     // if neighboring block is not air, do not emit this face
@@ -78,17 +130,13 @@ void emitFaceCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **pM
     }
 }
 
-void writeChunkMeshToMappedPointer(Chunk chunk, Vertex **pMappedData) {
-    // for x, y in square with width CHUNK_BLOCK_WIDTH do
-    //     if block at x-1, y is air then
-    //         emitFace(LEFT)
-    //     ...repeat for all 6 directions
-
+void writeChunkMeshToMappedPointer(Chunk chunk, ChunkMap *map, ChunkPool *chunkPool, Vertex **pMappedData) {
     int idx = 0;
     chunk_mesh_foreach(x, y, z) {
         vec3 blockPos = {(float) x, (float) y, (float) z};
+
         for (int dir = 0; dir < 6; dir++) {
-            emitFaceCheck(chunk, blockPos, dir, pMappedData, &idx);
+            emitFaceCheck(chunk, map, chunkPool, blockPos, dir, pMappedData, &idx);
         }
     }
 }

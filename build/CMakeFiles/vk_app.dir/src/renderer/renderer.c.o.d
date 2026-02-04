@@ -205,11 +205,9 @@ CMakeFiles/vk_app.dir/src/renderer/renderer.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/streamer/streamer.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/depth_buffer.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/time.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_clock_t.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_time_t.h \
- /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/sys/_types/_timespec.h
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/image.h

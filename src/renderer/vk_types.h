@@ -20,8 +20,6 @@ typedef struct UniformBufferObject {
 } UniformBufferObject;
 
 typedef struct vk_context {
-    uint64_t start_time;
-
     VkDebugUtilsMessengerEXT debugMessenger;
 
     // physical + logical devices
@@ -50,7 +48,7 @@ typedef struct vk_context {
     uint32_t indexCount;
     int vertexCount;
     VkVertexInputBindingDescription bindingDesc; // for now this is good enough. in the future with more vertices i need a better system
-    VkVertexInputAttributeDescription attrDescs[3]; // for now only two attributes
+    VkVertexInputAttributeDescription attrDescs[4]; // for now only two attributes
 
     // render pass + graphics pipeline
     VkRenderPass renderPass;

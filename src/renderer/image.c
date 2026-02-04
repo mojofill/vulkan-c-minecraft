@@ -68,8 +68,9 @@ void createTextureImageView(vk_context *vko) {
 void createTextureSampler(vk_context *vko) {
     VkSamplerCreateInfo samplerInfo = {0};
     samplerInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
-    samplerInfo.magFilter = VK_FILTER_LINEAR; // undersampling: linear interpolation
-    samplerInfo.minFilter = VK_FILTER_LINEAR; // oversampling: anisotropic. same filter - VK_FILTER_LINEAR
+    // VK_FILTER_NEAREST for minecraft
+    samplerInfo.magFilter = VK_FILTER_NEAREST; // undersampling: linear interpolation
+    samplerInfo.minFilter = VK_FILTER_NEAREST; // oversampling: anisotropic. same filter - VK_FILTER_LINEAR
     samplerInfo.addressModeU = VK_SAMPLER_ADDRESS_MODE_REPEAT; // texel coordinates: uvw, corresponds to xyz, convention for texel space coordiantes
     samplerInfo.addressModeV = VK_SAMPLER_ADDRESS_MODE_REPEAT; // address mode = what do to when sampling outside of original texture image
     samplerInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_REPEAT; // simple repeat = same orientation repetition

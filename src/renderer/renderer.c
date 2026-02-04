@@ -1,22 +1,4 @@
 #include "renderer.h"
-#include <time.h>
-#include <stdint.h>
-
-uint64_t time_ms() {
-    // static LARGE_INTEGER freq;
-    // static int initialized = 0;
-
-    // if (!initialized) {
-    //     QueryPerformanceFrequency(&freq);
-    //     initialized = 1;
-    // }
-
-    // LARGE_INTEGER counter;
-    // QueryPerformanceCounter(&counter);
-
-    // return (uint64_t)((counter.QuadPart * 1000ULL) / freq.QuadPart);
-    return 0;
-}
 
 static void framebufferResizeCallback(GLFWwindow *window, int width, int height) {
     vk_context *vko = glfwGetWindowUserPointer(window);
@@ -40,6 +22,9 @@ static void initWindow(vk_context *vko) {
     glfwSetFramebufferSizeCallback(vko->window, framebufferResizeCallback);
     glfwSetWindowPos(vko->window, 50, 0);
     glfwMaximizeWindow(vko->window);
+
+    // first person camera controls
+    glfwSetInputMode(vko->window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }
 
 static void createInstance(vk_context *vko) {
@@ -90,7 +75,6 @@ static void createInstance(vk_context *vko) {
 
     // initializations
     vko->framebufferResized = 0;
-    vko->start_time = time_ms();
 }
 
 static void createSurface(vk_context *vko) {
@@ -408,7 +392,7 @@ static void initVulkan(vk_context *vko) {
     createImageViews(vko); // image view = how render pipeline accesses swapchain images
 
     createCommandPool(vko); // because of staging to vertex buffer copy command, must create command pool before creating vertex buffer context
-    createTextureImage(vko, "./src/assets/smooth_stone.png");
+    createTextureImage(vko, "./src/assets/texture_atlas.png");
     createTextureImageView(vko);
     createTextureSampler(vko);
     // create depth buffers

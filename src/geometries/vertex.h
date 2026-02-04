@@ -9,7 +9,18 @@ typedef struct Vertex {
     vec3 pos;
     vec3 color;
     vec2 texCoord;
+    uint8_t light;
+    uint8_t _pad[3];
 } Vertex;
+
+static uint8_t faceLight[6] = {
+    120, // bottom
+    100, // top
+    255, // left
+    120, // right
+    100, // back
+    120  // front
+};
 
 // number of vertices in cube_vertices[]
 #define CUBE_SIZE 24

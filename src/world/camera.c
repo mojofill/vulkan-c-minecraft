@@ -6,30 +6,32 @@ void camera_move(Camera *cam, vec3 dir, float dt) {
     glm_vec3_add(cam->pos, scaledDir, cam->pos);
 }
 
-void camera_process_inputs(Camera *cam, GLFWwindow *window)
-{
-    // --- UPDATE ROTATION (yaw + pitch) ---
-    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-        cam->yaw -= rotSpeed;
+void camera_process_inputs(Camera *cam, GLFWwindow *window) {
+    double xpos;
+    double ypos;
+    glfwGetCursorPos(window, &xpos, &ypos);
+    
+    float xoffset = -(float)(xpos - cam->lastX);
+    float yoffset = (float)(cam->lastY - ypos);
 
-    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-        cam->yaw += rotSpeed;
+    cam->lastX = xpos;
+    cam->lastY = ypos;
 
-    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-        cam->pitch += rotSpeed;
+    xoffset *= sensitivity;
+    yoffset *= sensitivity;
 
-    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-        cam->pitch -= rotSpeed;
+    // Update camera yaw and pitch
+    cam->yaw += xoffset;
+    cam->pitch += yoffset;
 
-    // Clamp pitch to (-89°, +89°)
+    // Clamp pitch
     float limit = GLM_PI_2 - 0.001f;
     cam->pitch = glm_clamp(cam->pitch, -limit, limit);
 
-    // --- REBUILD dir FROM yaw + pitch ---
+    // Recalculate direction
     cam->dir[0] = cosf(cam->pitch) * cosf(cam->yaw);
     cam->dir[1] = cosf(cam->pitch) * sinf(cam->yaw);
     cam->dir[2] = sinf(cam->pitch);
-
     glm_normalize(cam->dir);
 
     // Build flat forward (for WASD move)

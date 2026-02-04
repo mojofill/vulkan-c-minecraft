@@ -47,7 +47,7 @@ void recordCommands(vk_context *vko, uint32_t currentFrame, Streamer streamer, M
         renderPassInfoCmd.renderArea.extent = vko->surfaceCapabilities.currentExtent;
 
         VkClearValue clearColors[2] = {{0}, {0}};
-        clearColors[0].color = (VkClearColorValue) {0.0f, 0.7f, 0.75f, 1.0f};
+        clearColors[0].color = (VkClearColorValue) {0.53f, 0.81f, 0.92f, 1.0f};
         clearColors[1].depthStencil = (VkClearDepthStencilValue) {1.0f, 0};
     
         renderPassInfoCmd.clearValueCount = 2;

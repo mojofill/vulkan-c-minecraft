@@ -5,7 +5,8 @@
 #include "renderer/buffer.h"
 #include <stdint.h>
 #include <cglm/cglm.h>
-#include "world/chunk.h"
+#include "world/chunk_map.h"
+#include "world/chunk_pool.h"
 
 // for now, each chunk has own buffers. in future need to have chunk buffer allocator, each chunk mesh has subranges and offsets
 typedef struct ChunkMesh {
@@ -17,6 +18,6 @@ typedef struct ChunkMesh {
     Vertex *mappedData;
 } ChunkMesh;
 
-void writeChunkMeshToMappedPointer(Chunk chunk, Vertex **pMappedData);
+void writeChunkMeshToMappedPointer(Chunk chunk, ChunkMap *map, ChunkPool *chunkPool, Vertex **pMappedData);
 
 #endif

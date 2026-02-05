@@ -1,6 +1,11 @@
 #include "chunk_pool.h"
 #define STB_PERLIN_IMPLEMENTATION
 #include "stb_perlin.h"
+#include <stdlib.h>
+
+float randf() {
+    return rand() / (float) RAND_MAX;
+}
 
 // -- WARNING: I SHOULD NEVER CALL THIS MYSELF. ONLY CALL chunkCreate
 ChunkHandle chunk_alloc(ChunkPool *pool) {
@@ -81,12 +86,16 @@ ChunkHandle createChunk(ChunkPool *pool, ivec2 pos) {
             height -= 5; // plains
 
         BlockType type;
-    
-        if (z > height - 30) type = AIR; // air
+        
+        if (z > height - 25) type = AIR; // air
         else {
-            type = SMOOTH_STONE;
+            type = (int) (randf() * 10.0f) + 1;
+            if (16 <= z && z <= 18) type = WHITE_WOOL;
             chunk.num_blocks++;
         }
+
+        // type = SMOOTH_STONE;
+        // chunk.num_blocks++;
 
         int i = chunk_mesh_xyz_to_block_index(x, y, z);
         chunk.blocks[i] = type;

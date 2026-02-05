@@ -75,13 +75,14 @@ void synchronizePlayerWithChunks(World *world, MeshPool *meshPool, Streamer *str
 
         ChunkHandle newHandles[NUM_VISIBLE_CHUNKS]; // newHandles
         int idx = 0;
-        for (int y = cy - RENDER_DISTANCE; y <= cy + RENDER_DISTANCE; y++) {
-            for (int x = cx - RENDER_DISTANCE; x <= cx + RENDER_DISTANCE; x++) {
+        for (int y = cy - RENDER_DISTANCE - 1; y <= cy + RENDER_DISTANCE + 1; y++) {
+            for (int x = cx - RENDER_DISTANCE - 1; x <= cx + RENDER_DISTANCE + 1; x++) {
                 ChunkHandle handle = chunk_map_get(map, x, y);
                 if (handle == CHUNK_HANDLE_INVALID) {
                     handle = createChunk(chunkPool, (ivec2) {x, y});
                     chunk_map_put(map, x, y, handle);
                 }
+                if (y == cy - RENDER_DISTANCE - 1 || y == cy + RENDER_DISTANCE + 1 || x == cx + RENDER_DISTANCE + 1 || x == cx - RENDER_DISTANCE - 1) continue;
                 newHandles[idx] = handle;
                 idx++;
             }
@@ -92,6 +93,13 @@ void synchronizePlayerWithChunks(World *world, MeshPool *meshPool, Streamer *str
         
         for (int i = 0; i < NUM_VISIBLE_CHUNKS; i++) {
             ChunkHandle oldHandle = streamer->activeHandles[i];
+
+            if (oldHandle == CHUNK_HANDLE_INVALID) {
+                slotsFree[size] = i;
+                size++;
+                continue;
+            }
+
             int oldIsInNew = 0;
             for (int j = 0; j < NUM_VISIBLE_CHUNKS; j++) {
                 ChunkHandle newHandle = newHandles[j];
@@ -102,6 +110,7 @@ void synchronizePlayerWithChunks(World *world, MeshPool *meshPool, Streamer *str
                 }
             }
 
+            // this chunk is actually new, free this slot in streamer for new chunks
             if (!oldIsInNew) {
                 slotsFree[size] = i;
                 size++;
@@ -140,7 +149,7 @@ void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *meshP
         processInput(vko->window, cam);
         updateCameraUniforms(vko, currentFrame, *cam);
         
-        // synchronizePlayerWithChunks(world, meshPool, streamer);
+        synchronizePlayerWithChunks(world, meshPool, streamer);
         synchronizeStreamerAndMeshPoolWithRenderer(world, streamer, meshPool, vko);
         
         drawFrame(vko, &currentFrame, *streamer, *meshPool);
@@ -176,11 +185,13 @@ int main() {
     ChunkPool *chunkPool = &(world.chunkPool);
     ChunkMap *chunkMap = &(world.chunkMap);
     int num = 0;
-    for (int y = -RENDER_DISTANCE; y <= RENDER_DISTANCE; y++) {
-        for (int x = -RENDER_DISTANCE; x <= RENDER_DISTANCE; x++) {
+    // negative = large cliff (for this height map)
+    // positive = small
+    for (int y = -RENDER_DISTANCE; y < RENDER_DISTANCE; y++) {
+        for (int x = -RENDER_DISTANCE; x < RENDER_DISTANCE; x++) {
             ChunkHandle handle = createChunk(chunkPool, (ivec2) {x, y});
             chunk_map_put(chunkMap, x, y, handle);
-            streamer.activeHandles[handle] = handle; // this should not go past the max
+            streamer.activeHandles[num] = handle; // this should not go past the max
             num++;
         }
     }

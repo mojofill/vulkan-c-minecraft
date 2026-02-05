@@ -5,11 +5,17 @@
 
 typedef enum BlockType {
     AIR,
+    GRASS, // has special properties, because side is different texture
     SMOOTH_STONE,
+    DIRT,
+    OAK_PLANK,
+    OAK_LOG_SIDE,
     COBBLE_STONE,
-    WOOD
+    WHITE_WOOL,
+    SAND,
+    GRAVEL
 } BlockType;
 
-void blockToUVCoord(BlockType type, ivec2 uv);
+void blockTypeToAtlasCoord(BlockType type, int *u, int *v);
 
 #endif

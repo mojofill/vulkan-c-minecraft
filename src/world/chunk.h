@@ -5,11 +5,11 @@
 #include <cglm/cglm.h>
 #include "block.h"
 
-#define RENDER_DISTANCE 2
+#define RENDER_DISTANCE 5
 #define NUM_VISIBLE_CHUNKS ((2 * RENDER_DISTANCE + 1) * (2 * RENDER_DISTANCE + 1))
 // CHUNK_BLOCK_WIDTH number of blocks on width of chunk
 #define CHUNK_BLOCK_WIDTH 16
-#define CHUNK_BLOCK_HEIGHT 32
+#define CHUNK_BLOCK_HEIGHT 40
 #define MAX_BLOCKS_PER_CHUNK (CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_HEIGHT)
 
 #define MAX_LOADED_CHUNKS 4096

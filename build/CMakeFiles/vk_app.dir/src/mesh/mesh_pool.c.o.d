@@ -204,6 +204,7 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/mach_time.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/mach_types.h \
  /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/mach/host_info.h \

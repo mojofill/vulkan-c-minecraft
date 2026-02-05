@@ -83,4 +83,8 @@ static const uint32_t cube_indices[CUBE_INDEX_COUNT] = {
 
 #define INDICES_PER_CUBE 36
 
+// 1.0f/16.0f
+// size of one block in UV space
+#define blockUVSize 0.0625
+
 #endif

@@ -1,9 +1,5 @@
 #include "chunk_mesh.h"
 
-typedef enum Direction {
-    LEFT, RIGHT, UP, DOWN, FRONT, BACK
-} Direction;
-
 // takes direction and turns them into the correct face index
 // will be local, no scaling, such that i is first corner vertex, i+3 is last
 // NOTE, THIS HAS TO BE THE *SAME* AS cube_vertices IN VERTEX.H
@@ -42,10 +38,16 @@ void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **
         glm_vec3_add(local, scaledChunkPos, worldBlockPos);
     #pragma GCC diagnostic pop
 
-    // 1.0f/16.0f
-    float blockUVSize = 0.0625;  // size of one block in UV space
-    int col = 3;
-    int row = 0;
+    int col;
+    int row;
+
+    int x = (int) localBlockPos[0];
+    int y = (int) localBlockPos[1];
+    int z = (int) localBlockPos[2];
+
+    BlockType type = chunk.blocks[chunk_mesh_xyz_to_block_index(x,y,z)];
+
+    blockTypeToAtlasCoord(type, &col, &row);
 
     float uOffset = col * blockUVSize;
     float vOffset = row * blockUVSize;
@@ -61,12 +63,14 @@ void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **
     }
 }
 
-void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx) {
+void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx, int *res) {
     int x = (int) localBlockPos[0];
     int y = (int) localBlockPos[1];
     int z = (int) localBlockPos[2];
 
-    if (chunk.blocks[chunk_mesh_xyz_to_block_index(x,y,z)] == AIR) return;
+    BlockType type = chunk.blocks[chunk_mesh_xyz_to_block_index(x,y,z)];
+
+    if (type == AIR) return;
 
     if      (dir == LEFT)  x--;
     else if (dir == RIGHT) x++;
@@ -107,22 +111,29 @@ void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBloc
         ChunkHandle neighborHandle = chunk_map_get(map, cx, cy);
 
         if (neighborHandle == CHUNK_HANDLE_INVALID) {
-            emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx);
+            *res = 1; // must let function caller know that the job is not done, they gotta emit the faces of other chunks
+            // i would preferrably do that in here, but that data is restricted from this file scope
             return;
         }
 
+        // else neighbor exists
         Chunk neighborChunk = pool->chunks[neighborHandle];
 
         int neighbor_block_idx = chunk_mesh_xyz_to_block_index(x, y, z);
         BlockType neighbor_block_type = neighborChunk.blocks[neighbor_block_idx];
 
-        if (neighbor_block_type == AIR) emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx);
-        else return;
+        if (neighbor_block_type == AIR) {
+            emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx);
+        }
+        else {
+            // remesh the neighbor's chunk, unless it becomes too expensive
+            // will handle this outside, in genChunkMeshVkBuffers
+        }
+
+        return;
     }
 
-    // if neighboring block is not air, do not emit this face
-    // else emit face
-
+    // if reach here, block is inside chunk, can render
     int i = chunk_mesh_xyz_to_block_index(x, y, z);
     BlockType block = chunk.blocks[i];
     if (block == AIR) {
@@ -130,13 +141,12 @@ void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBloc
     }
 }
 
-void writeChunkMeshToMappedPointer(Chunk chunk, ChunkMap *map, ChunkPool *chunkPool, Vertex **pMappedData) {
-    int idx = 0;
+void writeChunkMeshToMappedPointer(Chunk chunk, ChunkMap *map, ChunkPool *chunkPool, Vertex **pMappedData, uint32_t *pMeshFaceCount, int *res) {
     chunk_mesh_foreach(x, y, z) {
         vec3 blockPos = {(float) x, (float) y, (float) z};
 
         for (int dir = 0; dir < 6; dir++) {
-            emitFaceCheck(chunk, map, chunkPool, blockPos, dir, pMappedData, &idx);
+            emitFaceCheck(chunk, map, chunkPool, blockPos, dir, pMappedData, pMeshFaceCount, res);
         }
     }
 }

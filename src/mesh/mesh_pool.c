@@ -12,6 +12,7 @@ void createMeshPool(MeshPool *outMeshPool) {
         mesh.mappedData = NULL;
         mesh.stagingBuffer = VK_NULL_HANDLE;
         mesh.vertexBuffer = VK_NULL_HANDLE;
+        mesh.faceCount = 0;
         outMeshPool->meshes[i] = mesh;
         outMeshPool->slotsUsed[i] = 0;
     }
@@ -70,14 +71,15 @@ int meshPoolIsHandleUsed(MeshPool pool, ChunkHandle handle) {
     return slot != MESH_SLOT_INVALID || pool.slotsUsed[slot] == 0;
 }
 
-static void genChunkMeshVkBuffers(Chunk chunk, ChunkMap *chunkMap, ChunkPool *chunkPool, MeshPool **meshPool, vk_context *vko, VkCommandBuffer cpyCmd) {
+static void genChunkMeshVkBuffers(Chunk chunk, ChunkMap *chunkMap, ChunkPool *chunkPool, MeshPool *meshPool, vk_context *vko, VkCommandBuffer cpyCmd) {
     VkDeviceSize          size = (VkDeviceSize) (sizeof(cube_vertices) * MAX_BLOCKS_PER_CHUNK);
     VkBufferUsageFlags    usage;
     VkMemoryPropertyFlags properties;
 
-    int slot = (*meshPool)->handleToSlot[chunk.chunkHandle];
-    ChunkMesh *mesh = &((*meshPool)->meshes[slot]);
+    int slot = meshPool->handleToSlot[chunk.chunkHandle];
+    ChunkMesh *mesh = &(meshPool->meshes[slot]);
 
+    // creating new chunk buffer - need to get rid of vertex meshing next to it
     if (mesh->vertexBuffer == VK_NULL_HANDLE) { // need to create transfer and vertex buffers
         usage = VK_BUFFER_USAGE_TRANSFER_SRC_BIT;
         properties = VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT;
@@ -93,8 +95,8 @@ static void genChunkMeshVkBuffers(Chunk chunk, ChunkMap *chunkMap, ChunkPool *ch
 
     // upload block data to mapped pointer
     // for now just add chunk position onto cube vertices
-
-    writeChunkMeshToMappedPointer(chunk, chunkMap, chunkPool, &mesh->mappedData);
+    int res;
+    writeChunkMeshToMappedPointer(chunk, chunkMap, chunkPool, &mesh->mappedData, &mesh->faceCount, &res);
 
     VkDeviceSize cpySize = (VkDeviceSize) (sizeof(cube_vertices) * chunk.num_blocks);
 
@@ -109,19 +111,16 @@ static void genChunkMeshVkBuffers(Chunk chunk, ChunkMap *chunkMap, ChunkPool *ch
 // all handles should have already been allocated
 void meshChunk(ChunkHandle handle, ChunkMap *chunkMap, ChunkPool *chunkPool, MeshPool *meshPool, vk_context *vko, VkCommandBuffer cpyCmd) {
     int slot = meshPool->handleToSlot[handle];
-    Chunk chunk = chunkPool->chunks[handle];
+    Chunk *chunk = &(chunkPool->chunks[handle]);
     
     if (slot == MESH_SLOT_INVALID) {
         fprintf(stderr, "Failed to allocate handle before calling meshChunk.\n");
         exit(1);
     }
     
-    genChunkMeshVkBuffers(chunk, chunkMap, chunkPool, &meshPool, vko, cpyCmd);
+    genChunkMeshVkBuffers(*chunk, chunkMap, chunkPool, meshPool, vko, cpyCmd);
 
-    chunk.dirty = 0; // after remeshing mark not dirty
-    
-    // update arrays
-    chunkPool->chunks[handle] = chunk;
+    chunk->dirty = 0; // after remeshing mark not dirty
 }
 
 void destroyMeshPool(MeshPool meshPool, vk_context *vko) {

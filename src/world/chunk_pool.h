@@ -3,7 +3,7 @@
 
 #include "chunk.h"
 
-typedef struct {
+typedef struct ChunkPool {
     Chunk chunks[MAX_LOADED_CHUNKS]; // access chunk data through ChunkHandle
     uint8_t used[MAX_LOADED_CHUNKS];
     uint32_t count;

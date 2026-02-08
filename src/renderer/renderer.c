@@ -1,4 +1,5 @@
 #include "renderer.h"
+#include <mach/mach_time.h>
 
 static void framebufferResizeCallback(GLFWwindow *window, int width, int height) {
     vk_context *vko = glfwGetWindowUserPointer(window);
@@ -481,8 +482,7 @@ void drawFrame(vk_context *vko, uint32_t *currentFrame, Streamer streamer, MeshP
     }
 
     *currentFrame = (*currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
-
-    // Optional: wait for queue idle (simpler for learning)
+    
     vkQueueWaitIdle(vko->graphicsQueue);
 }
 

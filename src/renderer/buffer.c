@@ -1,4 +1,5 @@
 #include "buffer.h"
+#include <mach/mach_time.h>
 
 void setVertexBindingDescription(vk_context *vko) {
     vko->bindingDesc = (VkVertexInputBindingDescription) {0};
@@ -53,6 +54,11 @@ void createBuffer(vk_context *vko, VkDeviceSize size, VkBufferUsageFlags usage, 
     bufferInfo.usage = usage;
     bufferInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
 
+    if (pBuffer == NULL) {
+        printf("bad buffer pointer\n");
+        exit(1);
+    }
+
     if (vkCreateBuffer(vko->device, &bufferInfo, NULL, pBuffer) != VK_SUCCESS) {
         fprintf(stderr, "Failed to create vertex buffer\n");
         exit(1);
@@ -96,6 +102,9 @@ VkCommandBuffer beginSingleTimeCommands(vk_context *vko) {
 }
 
 void endSingleTimeCommands(vk_context *vko, VkCommandBuffer commandBuffer) {
+    mach_timebase_info_data_t sTimebaseInfo;
+    mach_timebase_info(&sTimebaseInfo);
+    
     vkEndCommandBuffer(commandBuffer); // end recording
 
     // must submit command
@@ -105,9 +114,15 @@ void endSingleTimeCommands(vk_context *vko, VkCommandBuffer commandBuffer) {
     submitInfo.pCommandBuffers = &commandBuffer;
 
     vkQueueSubmit(vko->graphicsQueue, 1, &submitInfo, VK_NULL_HANDLE);
-    vkQueueWaitIdle(vko->graphicsQueue);
+    uint64_t start_time = mach_absolute_time();
+    vkQueueWaitIdle(vko->graphicsQueue); // BAD! do not do this.
+    uint64_t end_time = mach_absolute_time();
+    uint64_t elapsed_nano = (end_time - start_time) * sTimebaseInfo.numer / sTimebaseInfo.denom;
+    double elapsed_ms = (double)elapsed_nano * 1e-6;
+    // printf("(queue wait single time cmd) elapsed ms: %f\n", elapsed_ms);
 
     // one time use, thus immediately free buffer
+
     vkFreeCommandBuffers(vko->device, vko->commandPool, 1, &commandBuffer);
 }
 

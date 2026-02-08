@@ -24,8 +24,8 @@ typedef enum Direction {
     LEFT, RIGHT, UP, DOWN, FRONT, BACK
 } Direction;
 
-void writeChunkMeshToMappedPointer(Chunk chunk, ChunkMap *map, ChunkPool *chunkPool, Vertex **pMappedData, uint32_t *pMeshFaceCount, int *res);
+uint32_t writeChunkMeshToMappedPointer(Chunk chunk, ChunkMap *map, ChunkPool *chunkPool, Vertex **pMappedData, uint32_t *pMeshFaceCount, int *res);
 void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx);
-void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx, int *res);
+int emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx, int *res);
 
 #endif

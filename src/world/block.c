@@ -30,5 +30,11 @@ void blockTypeToAtlasCoord(BlockType type, int *u, int *v) {
         case GRAVEL:
             *u = 9;
             break;
+        case SNOW:
+            *u = 11;
+            break;
+        case WATER: // technically its blue wool lol
+            *u = 12;
+            break;
     }
 }

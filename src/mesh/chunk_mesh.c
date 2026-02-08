@@ -63,14 +63,14 @@ void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **
     }
 }
 
-void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx, int *res) {
+int emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx, int *res) {
     int x = (int) localBlockPos[0];
     int y = (int) localBlockPos[1];
     int z = (int) localBlockPos[2];
 
     BlockType type = chunk.blocks[chunk_mesh_xyz_to_block_index(x,y,z)];
 
-    if (type == AIR) return;
+    if (type == AIR) return 0; // not rendering air block
 
     if      (dir == LEFT)  x--;
     else if (dir == RIGHT) x++;
@@ -81,10 +81,10 @@ void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBloc
 
     // neighboring block out of chunk, check face on neighboring chunk
     if (x < 0 || x >= CHUNK_BLOCK_WIDTH || y < 0 || y >= CHUNK_BLOCK_WIDTH || z < 0 || z >= CHUNK_BLOCK_HEIGHT) {
-        if (z < 0) return; // will not be rendering anything below
+        if (z < 0) return 0; // will not be rendering anything below
         if (z >= CHUNK_BLOCK_HEIGHT) {
             emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx); // always render top of chunk
-            return;
+            return 1;
         }
         
         int cx = chunk.pos[0];
@@ -113,7 +113,7 @@ void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBloc
         if (neighborHandle == CHUNK_HANDLE_INVALID) {
             *res = 1; // must let function caller know that the job is not done, they gotta emit the faces of other chunks
             // i would preferrably do that in here, but that data is restricted from this file scope
-            return;
+            return 1;
         }
 
         // else neighbor exists
@@ -124,13 +124,12 @@ void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBloc
 
         if (neighbor_block_type == AIR) {
             emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx);
+            return 1;
         }
         else {
-            // remesh the neighbor's chunk, unless it becomes too expensive
-            // will handle this outside, in genChunkMeshVkBuffers
+            // do not render face, because neighbor block face is solid
+            return 0;
         }
-
-        return;
     }
 
     // if reach here, block is inside chunk, can render
@@ -138,15 +137,21 @@ void emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBloc
     BlockType block = chunk.blocks[i];
     if (block == AIR) {
         emitFaceNoCheck(chunk, localBlockPos, dir, pMappedData, idx);
+        return 1;
+    } else { // chunk block neighbor is solid, do not render
+        return 0;
     }
 }
 
-void writeChunkMeshToMappedPointer(Chunk chunk, ChunkMap *map, ChunkPool *chunkPool, Vertex **pMappedData, uint32_t *pMeshFaceCount, int *res) {
+// note: will also COUNT how many faces to render
+uint32_t writeChunkMeshToMappedPointer(Chunk chunk, ChunkMap *map, ChunkPool *chunkPool, Vertex **pMappedData, uint32_t *pMeshFaceCount, int *res) {
+    uint32_t sum = 0;
     chunk_mesh_foreach(x, y, z) {
         vec3 blockPos = {(float) x, (float) y, (float) z};
 
         for (int dir = 0; dir < 6; dir++) {
-            emitFaceCheck(chunk, map, chunkPool, blockPos, dir, pMappedData, pMeshFaceCount, res);
+            sum += emitFaceCheck(chunk, map, chunkPool, blockPos, dir, pMappedData, pMeshFaceCount, res);
         }
     }
+    return sum; // need this to see how many faces to render
 }

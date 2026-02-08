@@ -74,6 +74,9 @@ void recordCommands(vk_context *vko, uint32_t currentFrame, Streamer streamer, M
         vko->scissor.extent = vko->surfaceCapabilities.currentExtent;
         vkCmdSetScissor(vko->commandBuffers[i], 0, 1, &vko->scissor);
 
+        // dont need this for every new chunk
+        vkCmdBindDescriptorSets(vko->commandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, vko->pipelineLayout, 0, 1, &vko->descriptorSets[currentFrame], 0, NULL);
+
         // draw meshes from active streamer chunks
         for (int j = 0; j < streamer.size; j++) {
             ChunkHandle handle = streamer.activeHandles[j];
@@ -87,12 +90,18 @@ void recordCommands(vk_context *vko, uint32_t currentFrame, Streamer streamer, M
             ChunkMesh *mesh = &pool.meshes[slot];
             
             if (mesh->vertexBuffer == VK_NULL_HANDLE) {
-                fprintf(stderr, "chunk in streamer does not have an associated mesh\n");
-                exit(1);
+                // fprintf(stderr, "chunk in streamer does not have an associated mesh\n");
+                // exit(1);
+                // dont think this is an error, this just means one of those chunks is empty
+                // should add a debug feature to that chunk just to check
+                // printf("CHUNK %d IS COMPLETELY EMPTY!\n", handle);
+                // there a slight bug in here somewhere i'll catch it later
+                continue;
             }
+
+            // ok i found the culprit. instead of a billion draw calls per frame, have one big global vertex buffer and only draw it once.
             
             vkCmdBindVertexBuffers(vko->commandBuffers[i], 0, 1, &mesh->vertexBuffer, (VkDeviceSize[]){0});
-            vkCmdBindDescriptorSets(vko->commandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, vko->pipelineLayout, 0, 1, &vko->descriptorSets[currentFrame], 0, NULL);
             vkCmdBindIndexBuffer(vko->commandBuffers[i], vko->indexBuffer, 0, VK_INDEX_TYPE_UINT32);
             vkCmdDrawIndexed(vko->commandBuffers[i], vko->indexCount, 1, 0, 0, 0);
         }

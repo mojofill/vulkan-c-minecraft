@@ -61,7 +61,7 @@ void mesh_free(MeshPool *pool, ChunkHandle handle) {
         exit(1);
     }
     printf("(IN mesh_free): \n");
-    for (int i = 0; i < 15; i++) printf("%d ", pool->handleToSlot[i]); printf("\n");
+    // for (int i = 0; i < 15; i++) printf("%d ", pool->handleToSlot[i]); printf("\n");
 }
 
 // handle -> slot -> return slot == 0 (free)
@@ -72,7 +72,31 @@ int meshPoolIsHandleUsed(MeshPool pool, ChunkHandle handle) {
 }
 
 static void genChunkMeshVkBuffers(Chunk chunk, ChunkMap *chunkMap, ChunkPool *chunkPool, MeshPool *meshPool, vk_context *vko, VkCommandBuffer cpyCmd) {
-    VkDeviceSize          size = (VkDeviceSize) (sizeof(cube_vertices) * MAX_BLOCKS_PER_CHUNK);
+    size_t possibleSize = (sizeof(cube_vertices) * chunk.num_surface_blocks);
+    Vertex *data = malloc(possibleSize);
+    int faceCount = 0; // need to update this later
+    int res; // this is debug stuff, i should remove this
+    int num_faces = writeChunkMeshToMappedPointer(chunk, chunkMap, chunkPool, &data, &faceCount, &res);
+
+    // printf("%d\n", num_faces, CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_WIDTH);
+
+    // 40.975155 being 128 world height, 19352 faces
+    // 71.828026 being 256 world height, 21062 faces
+
+    // now approximate how many i gotta add
+    // int num_extra = (int) ((21062 - 19352) / (float) NUM_VISIBLE_CHUNKS); // unit: faces
+    // num_faces += num_extra;
+    // see if it pushes to 71 ms
+    // damn... it still goes to 71 ms
+
+    // need to transfer temp pointer to real mapped data
+    VkDeviceSize cpySize = num_faces * FACE_SIZE;
+
+    if (cpySize == 0) return; // believe i can just skip this
+
+    // TODO: this size is WAY too big. this is the main culprit. GPU is reading/storing/retrieving too many useless vertices
+    // used to be sizeof(cube_vertices) * MAX_BLOCKS_PER_CHUNK
+    VkDeviceSize          size = cpySize;
     VkBufferUsageFlags    usage;
     VkMemoryPropertyFlags properties;
 
@@ -84,7 +108,7 @@ static void genChunkMeshVkBuffers(Chunk chunk, ChunkMap *chunkMap, ChunkPool *ch
         usage = VK_BUFFER_USAGE_TRANSFER_SRC_BIT;
         properties = VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT;
         createBuffer(vko, size, usage, properties, &mesh->stagingBuffer, &mesh->stagingBufferMemory);
-
+        
         // map staging buffer to host mapped pointer
         vkMapMemory(vko->device, mesh->stagingBufferMemory, 0, size, 0, (void**) &mesh->mappedData);
 
@@ -93,18 +117,14 @@ static void genChunkMeshVkBuffers(Chunk chunk, ChunkMap *chunkMap, ChunkPool *ch
         createBuffer(vko, size, usage, properties, &mesh->vertexBuffer, &mesh->vertexBufferMemory);
     }
 
-    // upload block data to mapped pointer
-    // for now just add chunk position onto cube vertices
-    int res;
-    writeChunkMeshToMappedPointer(chunk, chunkMap, chunkPool, &mesh->mappedData, &mesh->faceCount, &res);
-
-    VkDeviceSize cpySize = (VkDeviceSize) (sizeof(cube_vertices) * chunk.num_blocks);
-
-    if (cpySize == 0) return; // believe i can just skip this
+    memcpy(mesh->mappedData, data, cpySize);
+    mesh->faceCount = faceCount;
 
     VkBufferCopy copyRegion = {0};
     copyRegion.size = cpySize;
     vkCmdCopyBuffer(cpyCmd, mesh->stagingBuffer, mesh->vertexBuffer, 1, &copyRegion);
+
+    free(data);
 }
 
 // creates chunks

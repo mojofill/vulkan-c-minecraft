@@ -5,11 +5,14 @@
 #include <cglm/cglm.h>
 #include "block.h"
 
-#define RENDER_DISTANCE 5
+#define RENDER_DISTANCE 3
 #define NUM_VISIBLE_CHUNKS ((2 * RENDER_DISTANCE + 1) * (2 * RENDER_DISTANCE + 1))
 // CHUNK_BLOCK_WIDTH number of blocks on width of chunk
 #define CHUNK_BLOCK_WIDTH 16
-#define CHUNK_BLOCK_HEIGHT 40
+#define CHUNK_BLOCK_HEIGHT 32
+
+// 128 -> 19352 faces
+// 256 -> 21062 faces
 #define MAX_BLOCKS_PER_CHUNK (CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_WIDTH * CHUNK_BLOCK_HEIGHT)
 
 #define MAX_LOADED_CHUNKS 4096
@@ -39,6 +42,7 @@ typedef struct Chunk {
     ChunkHandle chunkHandle;
     BlockType *blocks; // size = MAX_BLOCKS_PER_CHUNK
     uint32_t num_blocks;
+    uint32_t num_surface_blocks;
 } Chunk;
 
 void destroyChunk(Chunk **chunk);

@@ -14,13 +14,15 @@ typedef struct Vertex {
 } Vertex;
 
 static uint8_t faceLight[6] = {
-    120, // bottom
-    100, // top
-    255, // left
-    120, // right
-    100, // back
-    120  // front
+    120, 
+    180, 
+    255, // top
+    120, 
+    100, 
+    120  
 };
+
+#define FACE_SIZE (4 * sizeof(Vertex))
 
 // number of vertices in cube_vertices[]
 #define CUBE_SIZE 24

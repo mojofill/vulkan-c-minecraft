@@ -2644,6 +2644,7 @@ CMakeFiles/vk_app.dir/src/world/block.c.o: /Users/henryzhang/Documents/vulkan-pr
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/stdio.h \
@@ -2967,6 +2968,7 @@ CMakeFiles/vk_app.dir/src/world/chunk.c.o: /Users/henryzhang/Documents/vulkan-pr
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /usr/local/Cellar/gcc/15.1.0/lib/gcc/current/gcc/x86_64-apple-darwin23/15/include-fixed/math.h \
@@ -3129,6 +3131,7 @@ CMakeFiles/vk_app.dir/src/world/chunk_map.c.o: /Users/henryzhang/Documents/vulka
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
@@ -3292,6 +3295,7 @@ CMakeFiles/vk_app.dir/src/world/chunk_pool.c.o: /Users/henryzhang/Documents/vulk
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
@@ -3456,6 +3460,7 @@ CMakeFiles/vk_app.dir/src/world/world.c.o: /Users/henryzhang/Documents/vulkan-pr
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec3.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4-ext.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/vec4.h \
+  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
   /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \

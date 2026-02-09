@@ -47,7 +47,7 @@ void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **
 
     BlockType type = chunk.blocks[chunk_mesh_xyz_to_block_index(x,y,z)];
 
-    blockTypeToAtlasCoord(type, &col, &row);
+    blockTypeToAtlasCoord(type, dir, &col, &row);
 
     float uOffset = col * blockUVSize;
     float vOffset = row * blockUVSize;

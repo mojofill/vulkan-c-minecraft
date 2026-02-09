@@ -166,6 +166,7 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: \
  /usr/local/include/GLFW/glfw3.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_pool.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/chunk_mesh.h \
@@ -198,7 +199,6 @@ CMakeFiles/vk_app.dir/src/mesh/mesh_pool.c.o: \
  /usr/local/include/vk_video/vulkan_video_codec_vp9std.h \
  /usr/local/include/vulkan/vulkan_macos.h \
  /usr/local/include/vulkan/vulkan_beta.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk.h \

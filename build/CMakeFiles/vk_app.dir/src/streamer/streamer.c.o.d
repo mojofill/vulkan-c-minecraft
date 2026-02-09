@@ -163,6 +163,7 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include/cglm/affine2d-post.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/block.h \
+ /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/mesh/mesh_pool.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/world.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/camera.h \
@@ -200,7 +201,6 @@ CMakeFiles/vk_app.dir/src/streamer/streamer.c.o: \
  /usr/local/include/vk_video/vulkan_video_codec_vp9std.h \
  /usr/local/include/vulkan/vulkan_macos.h \
  /usr/local/include/vulkan/vulkan_beta.h \
- /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/geometries/vertex.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/buffer.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/renderer/vk_types.h \
  /Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/world/chunk_map.h \

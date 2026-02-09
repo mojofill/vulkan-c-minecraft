@@ -41,7 +41,7 @@ static inline void rotate2D(float x, float z, float angle, float *rx, float *rz)
 
 float fbm(int wx, int wz) {
     float value = -0.2f;
-    float amplitude = 1.5f;
+    float amplitude = 1.75f;
     float frequency = 0.025f;
     float maxAmp = 0;
 
@@ -111,12 +111,13 @@ ChunkHandle createChunk(ChunkPool *pool, ivec2 pos) {
                 // type = (int) (randf() * 10.0f) + 1; 
                 if (z == 0) type = WATER;
                 else if (z == 1) type = SAND;
-                else if (z == 2) type = DIRT;
-                else if (z <= 3) type = GRASS;
+                else if (z == 2) type = GRASS;
+                // else type = GRASS;
+                else if (z <= 9) type = GRASS;
                 else if (z <= 10) type = SMOOTH_STONE;
-                else type = SNOW;
+                // else type = SNOW;
                 
-                chunk.num_blocks++; 
+                chunk.num_blocks++;
             }
             chunk.num_blocks++;
         }

@@ -2,6 +2,7 @@
 #define BLOCK_H
 
 #include "cglm/cglm.h"
+#include "geometries/vertex.h"
 
 typedef enum BlockType {
     AIR,
@@ -18,6 +19,6 @@ typedef enum BlockType {
     WATER
 } BlockType;
 
-void blockTypeToAtlasCoord(BlockType type, int *u, int *v);
+void blockTypeToAtlasCoord(BlockType type, Direction dir, int *u, int *v);
 
 #endif

@@ -1,10 +1,13 @@
 #include "block.h"
 
-void blockTypeToAtlasCoord(BlockType type, int *u, int *v) {
+void blockTypeToAtlasCoord(BlockType type, Direction dir, int *u, int *v) {
     *u = 0;
     *v = 0;
     switch (type) {
         case GRASS:
+            if (dir != UP) {
+                *u = 1;
+            }
             break;
         case SMOOTH_STONE:
             *u = 2;

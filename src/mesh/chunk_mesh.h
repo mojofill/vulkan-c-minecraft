@@ -20,10 +20,6 @@ typedef struct ChunkMesh {
     uint32_t faceCount;
 } ChunkMesh;
 
-typedef enum Direction {
-    LEFT, RIGHT, UP, DOWN, FRONT, BACK
-} Direction;
-
 uint32_t writeChunkMeshToMappedPointer(Chunk chunk, ChunkMap *map, ChunkPool *chunkPool, Vertex **pMappedData, uint32_t *pMeshFaceCount, int *res);
 void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx);
 int emitFaceCheck(Chunk chunk, ChunkMap *map, ChunkPool *pool, float *localBlockPos, Direction dir, Vertex **pMappedData, int *idx, int *res);

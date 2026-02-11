@@ -6,5 +6,5 @@ C_DEFINES = -DVK_USE_PLATFORM_MACOS_MVK
 
 C_INCLUDES = -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src -I/Users/henryzhang/Documents/vulkan-projects/vulkan-c-minecraft/src/cglm/include -isystem /usr/local/include
 
-C_FLAGS = -O3 -DNDEBUG -std=gnu11
+C_FLAGS = -g -std=gnu11
 

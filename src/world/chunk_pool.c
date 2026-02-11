@@ -7,6 +7,10 @@ float randf() {
     return rand() / (float) RAND_MAX;
 }
 
+float randf2d(float x, float y) {
+    return (rand() / (float) RAND_MAX) * (y - x) + x;
+}
+
 // -- WARNING: I SHOULD NEVER CALL THIS MYSELF. ONLY CALL chunkCreate
 ChunkHandle chunk_alloc(ChunkPool *pool) {
     for (uint32_t i = 0; i < MAX_LOADED_CHUNKS; i++) {
@@ -40,10 +44,10 @@ static inline void rotate2D(float x, float z, float angle, float *rx, float *rz)
 }
 
 float fbm(int wx, int wz) {
-    float value = -0.2f;
-    float amplitude = 1.75f;
-    float frequency = 0.025f;
-    float maxAmp = 0;
+    float value = 0.0f;
+    float amplitude = 15.50f;
+    float frequency = 0.025;
+    float maxAmp = 0.0;
 
     float x = (float)wx;
     float z = (float)wz;
@@ -82,13 +86,11 @@ ChunkHandle createChunk(ChunkPool *pool, ivec2 pos) {
     chunk.num_surface_blocks = 0;
     chunk.blocks = malloc(MAX_BLOCKS_PER_CHUNK * sizeof(BlockType));
 
-    chunk_mesh_foreach(x, y, z) {        
+    chunk_mesh_foreach(x, y, z) {
         int wx = chunk.pos[0] * CHUNK_BLOCK_WIDTH + x;
         int wy = chunk.pos[1] * CHUNK_BLOCK_WIDTH + y;
         
         float height = heightFunc(wx, wy);
-
-        // printf("height: %f\n", height);
 
         float biome = stb_perlin_noise3(
             wx * 0.001f,
@@ -112,9 +114,9 @@ ChunkHandle createChunk(ChunkPool *pool, ivec2 pos) {
                 if (z == 0) type = WATER;
                 else if (z == 1) type = SAND;
                 else if (z == 2) type = GRASS;
-                // else type = GRASS;
-                else if (z <= 9) type = GRASS;
-                else if (z <= 10) type = SMOOTH_STONE;
+                else type = GRASS;
+                // else if (z <= 9) type = GRASS;
+                // else if (z <= 10) type = SMOOTH_STONE;
                 // else type = SNOW;
                 
                 chunk.num_blocks++;
@@ -129,17 +131,40 @@ ChunkHandle createChunk(ChunkPool *pool, ivec2 pos) {
     // now see how many surface blocks are there
     for (int y = 0; y < CHUNK_BLOCK_WIDTH; y++) {
         for (int x = 0; x < CHUNK_BLOCK_WIDTH; x++) {
+            int growTree = randf() >= 0.997;
             for (int z = CHUNK_BLOCK_HEIGHT-1; z >= 0; z--) {
                 int idx = chunk_mesh_xyz_to_block_index(x,y,z);
                 BlockType type = chunk.blocks[idx];
-                if (type != AIR) {
-                    chunk.num_surface_blocks++;
-                    break;
-                }
-                if (z == 0 && type == AIR) {
+                if (z == 0 && type == AIR) { // lowest level and block is air, just fill with water
                     chunk.blocks[idx] = WATER;
                     chunk.num_surface_blocks++;
                     chunk.num_blocks++;
+                }
+                else if (type != AIR) { // not at lowest level, can spawns trees here
+                    if (type == OAK_LOG_SIDE || type == OAK_LEAVES) continue; // do not spawn on top of a tree!
+                    int tree_height = 5;
+                    if (z > 0 && z < CHUNK_BLOCK_HEIGHT - tree_height) { // need enough height for a tree
+                        if (growTree && randf() > 0.001 * z) {
+                            tree_height += randf() * 4;
+                            for (int h = 1; h < tree_height; h++) {
+                                chunk.blocks[chunk_mesh_xyz_to_block_index(x,y,z+h)] = OAK_LOG_SIDE;
+                                chunk.num_blocks++;
+                                chunk.num_surface_blocks++;
+                            }
+                            for (int leaf_z = 0; leaf_z < 2; leaf_z++) {
+                                for (int leaf_x = -2+leaf_z; leaf_x <= 2-leaf_z; leaf_x++) {
+                                    for (int leaf_y = -2+leaf_z; leaf_y <= 2-leaf_z; leaf_y++) {
+                                        if (x + leaf_x < 0 || x + leaf_x >= CHUNK_BLOCK_WIDTH || y + leaf_y < 0 || y + leaf_y >= CHUNK_BLOCK_WIDTH || z + leaf_z >= CHUNK_BLOCK_HEIGHT) continue;
+                                        chunk.blocks[chunk_mesh_xyz_to_block_index(x+leaf_x,y+leaf_y,z+tree_height+leaf_z)] = OAK_LEAVES;
+                                        chunk.num_blocks++;
+                                        chunk.num_surface_blocks++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    chunk.num_surface_blocks++; // idk why just dont remove this, else it will break
+                    break;
                 }
             }
         }

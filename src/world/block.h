@@ -15,8 +15,10 @@ typedef enum BlockType {
     WHITE_WOOL,
     SAND,
     GRAVEL,
+    SPRUCE_LOG_SIDE,
     SNOW,
-    WATER
+    WATER,
+    OAK_LEAVES
 } BlockType;
 
 void blockTypeToAtlasCoord(BlockType type, Direction dir, int *u, int *v);

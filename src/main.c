@@ -5,7 +5,7 @@
 #include "mach/mach_time.h"
 #include <math.h>
 
-static mach_timebase_info_data_t sTimebaseInfo;
+static mach_timebase_info_data_t info;
 
 void processInput(GLFWwindow *window, Camera *cam) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -146,28 +146,22 @@ void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *meshP
     cam->lastX = xpos;
     cam->lastY = ypos;
 
-    mach_timebase_info(&sTimebaseInfo);
+    mach_timebase_info(&info);
 
     while (!glfwWindowShouldClose(vko->window)) {
         glfwPollEvents();
+        // uint64_t start = mach_absolute_time();
         processInput(vko->window, cam);
         updateCameraUniforms(vko, currentFrame, *cam);
         
         synchronizePlayerWithChunks(world, meshPool, streamer);
 
-        // uint64_t start_time = mach_absolute_time();
         synchronizeStreamerAndMeshPoolWithRenderer(world, streamer, meshPool, vko);
-        // uint64_t end_time = mach_absolute_time();
-        // uint64_t elapsed_nano = (end_time - start_time) * sTimebaseInfo.numer / sTimebaseInfo.denom;
-        // double elapsed_ms = (double)elapsed_nano * 1e-6;
-        // printf("(sync mesh) elapsed ms: %f\n", elapsed_ms);
-        
-        // start_time = mach_absolute_time();
         drawFrame(vko, &currentFrame, *streamer, *meshPool);
-        // end_time = mach_absolute_time();
-        // elapsed_nano = (end_time - start_time) * sTimebaseInfo.numer / sTimebaseInfo.denom;
-        // elapsed_ms = (double)elapsed_nano * 1e-6;
-        // printf("(draw frame) elapsed ms: %f\n", elapsed_ms);
+        // uint64_t end = mach_absolute_time();
+        // float elapsed_ms = (end - start) * info.numer / info.denom * 1e-6;
+        // float fps = 1000.0f / elapsed_ms;
+        // printf("fps: %f\n", fps);
     }
 
     vkDeviceWaitIdle(vko->device);

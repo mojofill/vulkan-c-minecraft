@@ -33,11 +33,18 @@ void blockTypeToAtlasCoord(BlockType type, Direction dir, int *u, int *v) {
         case GRAVEL:
             *u = 9;
             break;
+        case SPRUCE_LOG_SIDE:
+            // if (dir == UP) *u = 10;
+            *u = 10;
+            break;
         case SNOW:
             *u = 11;
             break;
         case WATER: // technically its blue wool lol
             *u = 12;
+            break;
+        case OAK_LEAVES:
+            *u = 13;
             break;
     }
 }

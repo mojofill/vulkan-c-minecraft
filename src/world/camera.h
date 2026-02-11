@@ -5,7 +5,7 @@
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 
-#define moveSpeed 0.5f
+#define moveSpeed 3.f
 #define rotSpeed 0.025f
 #define sensitivity 0.002f
 

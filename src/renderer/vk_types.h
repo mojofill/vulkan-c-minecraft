@@ -52,10 +52,9 @@ typedef struct vk_context {
 
     // render pass + graphics pipeline
     VkRenderPass renderPass;
-    VkShaderModule vertexShaderModule;
-    VkShaderModule fragmentShaderModule;
     VkPipelineLayout pipelineLayout;
     VkPipeline graphicsPipeline;
+    VkPipeline crosshairPipeline;
     VkFramebuffer *swapchainFramebuffers;
 
     // desciptors (uniforms)
@@ -97,6 +96,13 @@ typedef struct vk_context {
     // this is an insane idea but hear me out
     void *worldPointer;
     void *meshPoolPointer;
+
+    int currBlockType;
+
+    VkBuffer crosshairVertexBuffer;
+    VkDeviceMemory crosshairMemory;
+    VkVertexInputBindingDescription crosshairBindingDesc; // for now this is good enough. in the future with more vertices i need a better system
+    VkVertexInputAttributeDescription crosshairAttrDesc;
 } vk_context;
 
 #endif

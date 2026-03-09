@@ -106,6 +106,17 @@ void recordCommands(vk_context *vko, uint32_t currentFrame, Streamer streamer, M
             vkCmdDrawIndexed(vko->commandBuffers[i], vko->indexCount, 1, 0, 0, 0);
         }
 
+        // draw crosshair
+        vkCmdBindPipeline(vko->commandBuffers[i], VK_PIPELINE_BIND_POINT_GRAPHICS, vko->crosshairPipeline);
+        if (vko->crosshairVertexBuffer == VK_NULL_HANDLE) {
+            fprintf(stderr, "fuck bruh\n");
+            exit(1);
+        }
+        vkCmdBindVertexBuffers(vko->commandBuffers[i], 0, 1, &vko->crosshairVertexBuffer, (VkDeviceSize[]){0});
+        vkCmdDraw(vko->commandBuffers[i], 2, 1, 0, 0);
+        vkCmdDraw(vko->commandBuffers[i], 2, 1, 2, 0); // vertical
+        // vkCmdDraw(vko->commandBuffers[i], 3, 1, 0, 0);
+
         vkCmdEndRenderPass(vko->commandBuffers[i]);
         vkEndCommandBuffer(vko->commandBuffers[i]);
     }

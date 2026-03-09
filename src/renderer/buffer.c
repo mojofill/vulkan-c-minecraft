@@ -27,6 +27,20 @@ void setVertexAttributeDescriptions(vk_context *vko) {
     vko->attrDescs[2].offset = offsetof(Vertex, light);
 }
 
+void setCrosshairBindingDescription(vk_context *vko) {
+    vko->crosshairBindingDesc = (VkVertexInputBindingDescription) {0};
+    vko->crosshairBindingDesc.binding = 0;
+    vko->crosshairBindingDesc.stride = 2 * sizeof(float);
+    vko->crosshairBindingDesc.inputRate = VK_VERTEX_INPUT_RATE_VERTEX;
+}
+
+void setCrosshairAttributeDescription(vk_context *vko) {
+    vko->crosshairAttrDesc.binding = 0;
+    vko->crosshairAttrDesc.location = 0;
+    vko->crosshairAttrDesc.format = VK_FORMAT_R32G32_SFLOAT;
+    vko->crosshairAttrDesc.offset = 0;
+}
+
 uint32_t findMemoryType(vk_context *vko, uint32_t typeFilter, VkMemoryPropertyFlags properties) {
     VkPhysicalDeviceMemoryProperties memProperties;
     vkGetPhysicalDeviceMemoryProperties(vko->physicalDevice, &memProperties);
@@ -169,6 +183,8 @@ void createVertexBufferContext(vk_context *vko) {
     setVertexBindingDescription(vko);
     setVertexAttributeDescriptions(vko);
     createIndexBuffer(vko);
+    setCrosshairBindingDescription(vko); // whatever bro just add it here
+    setCrosshairAttributeDescription(vko);
 }
 
 void copyBufferToImage(vk_context *vko, VkBuffer srcBuffer, VkImage image, uint32_t width, uint32_t height) {

@@ -452,6 +452,7 @@ static void initVulkan(vk_context *vko) {
     createDescriptorPool(vko);
     createDescriptorSets(vko); // binds memory to descriptors
     createGraphicsPipeline(vko);
+    createCrosshairPipeline(vko);
     createFramebuffers(vko);
     createCommandBuffers(vko);
 
@@ -557,6 +558,7 @@ void cleanupRenderer(vk_context *vko) {
     vkDestroyCommandPool(vko->device, vko->commandPool, NULL);
     vkDestroyPipeline(vko->device, vko->graphicsPipeline, NULL);
     vkDestroyPipelineLayout(vko->device, vko->pipelineLayout, NULL);
+    vkDestroyPipeline(vko->device, vko->crosshairPipeline, NULL);
     vkDestroyRenderPass(vko->device, vko->renderPass, NULL);
     cleanupSwapchain(vko);
     vkDestroySurfaceKHR(vko->instance, vko->surface, NULL);

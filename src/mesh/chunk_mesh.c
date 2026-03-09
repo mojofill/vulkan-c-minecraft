@@ -53,7 +53,7 @@ void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **
     float uOffset = col * blockUVSize;
     float vOffset = row * blockUVSize;
 
-    float f = 0.05f / (float) ATLAS_SIZE;
+    float f = 0.25f / (float) ATLAS_SIZE;
     float halfTexel = type == WATER ? f : 0.0f;
 
     float u0 = uOffset + halfTexel;

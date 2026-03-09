@@ -6,6 +6,9 @@ echo Compiling shaders...
 glslc src\shaders\shader.vert -o src\spvs\vert.spv
 glslc src\shaders\shader.frag -o src\spvs\frag.spv
 
+glslc src\shaders\crosshair.vert -o src\spvs\crosshair_vert.spv
+glslc src\shaders\crosshair.frag -o src\spvs\crosshair_frag.spv
+
 echo Configuring CMake...
 cmake -S . -B build ^
   -G "MinGW Makefiles" ^

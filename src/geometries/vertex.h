@@ -93,4 +93,11 @@ static const uint32_t cube_indices[CUBE_INDEX_COUNT] = {
 
 #define ATLAS_SIZE 16
 
+static float crosshairVertices[] = {
+   -0.01f,  0.0f,
+    0.01f,  0.0f,
+    0.0f, -0.015f,
+    0.0f,  0.015f
+};
+
 #endif

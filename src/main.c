@@ -14,6 +14,37 @@ void processInput(GLFWwindow *window, Camera *cam) {
     }
 
     camera_process_inputs(cam, window);
+    vk_context *vko = glfwGetWindowUserPointer(window);
+    if (glfwGetKey(window, GLFW_KEY_1)) {
+        vko->currBlockType = OAK_PLANK;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_2)) {
+        vko->currBlockType = DIRT;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_3)) {
+        vko->currBlockType = COBBLE_STONE;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_4)) {
+        vko->currBlockType = WHITE_WOOL;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_5)) {
+        vko->currBlockType = OAK_LOG_SIDE;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_6)) {
+        vko->currBlockType = OAK_LEAVES;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_7)) {
+        vko->currBlockType = WATER;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_8)) {
+        vko->currBlockType = GRAVEL;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_9)) {
+        vko->currBlockType = SNOW;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_0)) {
+        vko->currBlockType = SAND;
+    }
 }
 
 void updateCameraUniforms(vk_context *vko, uint32_t currentImage, Camera cam) {
@@ -84,58 +115,56 @@ void mouseButtonCallback(GLFWwindow *window, int button, int action, int mods) {
     if (action == GLFW_PRESS) {
         // cast a ray out from camera dir
         vk_context *vko = glfwGetWindowUserPointer(window);
-        // shit i need to somehow avoid circular includes
-        // wait a fucking second...
+        // craziest idea since 9/11
         World *world = vko->worldPointer;
         MeshPool *meshPool = vko->meshPoolPointer;
-        int px = INT32_MAX;
-        int py = INT32_MAX;
-        int pz = INT32_MAX;
-        if (world != NULL) {
-            // for testing purposes, lets just add a single block under the camera
-            Camera *cam = &world->cam;
-            ChunkHandle chunkHandle = chunk_map_get(&world->chunkMap, cam->chunkPos[0], cam->chunkPos[1]);
-            // arbitrarily set player reach to 50 "units" (wtf even are the units in this game)
-            for (double t = 0; t < 50; t += 0.25) {
-                double xt = floor(cam->pos[0] + cam->dir[0] * t);
-                double yt = floor(cam->pos[1] + cam->dir[1] * t);
-                double zt = floor(cam->pos[2] + cam->dir[2] * t);
+        double px = INFINITY;
+        double py = INFINITY;
+        double pz = INFINITY;
+        // for testing purposes, lets just add a single block under the camera
+        Camera *cam = &world->cam;
+        ChunkHandle chunkHandle = chunk_map_get(&world->chunkMap, cam->chunkPos[0], cam->chunkPos[1]);
+        // arbitrarily set player reach to 50 "units" (wtf even are the units in this game)
+        for (double t = 0; t < 1000; t += 0.25) {
+            double xt = cam->pos[0] + cam->dir[0] * t;
+            double yt = cam->pos[1] + cam->dir[1] * t;
+            double zt = cam->pos[2] + cam->dir[2] * t;
 
-                int cx = (int) floor(xt / (float) CHUNK_BLOCK_WIDTH);
-                int cy = (int) floor(yt / (float) CHUNK_BLOCK_WIDTH);
+            int cx = (int) floor(xt / (float) CHUNK_BLOCK_WIDTH);
+            int cy = (int) floor(yt / (float) CHUNK_BLOCK_WIDTH);
 
-                ChunkHandle chunkHandle = chunk_map_get(&world->chunkMap, cx, cy);
-                Chunk chunk = world->chunkPool.chunks[chunkHandle];
+            ChunkHandle chunkHandle = chunk_map_get(&world->chunkMap, cx, cy);
+            if (chunkHandle == CHUNK_HANDLE_INVALID) break;
+            Chunk chunk = world->chunkPool.chunks[chunkHandle];
+            
+            int lx = (int) round(xt - cx * CHUNK_BLOCK_WIDTH);
+            int ly = (int) round(yt - cy * CHUNK_BLOCK_WIDTH);
+            int lz = (int) round(zt);
 
-                int ixt = (int) xt;
-                int iyt = (int) yt;
-                int izt = (int) zt;
-                
-                int lx = ixt - cx * CHUNK_BLOCK_WIDTH;
-                int ly = iyt - cy * CHUNK_BLOCK_WIDTH;
-                int lz = izt;
+            BlockType type = chunk.blocks[chunk_mesh_xyz_to_block_index(lx, ly, lz)];
 
-                BlockType type = chunk.blocks[chunk_mesh_xyz_to_block_index(lx, ly, lz)];
+            if (type == AIR) {
+                px = xt;
+                py = yt;
+                pz = zt;
+            }
+            else {
+                int ixt = (int) round(xt);
+                int iyt = (int) round(yt);
+                int izt = (int) round(zt);
 
-                if (type == AIR) {
-                    px = ixt;
-                    py = iyt;
-                    pz = izt;
+                if (button == GLFW_MOUSE_BUTTON_RIGHT) {
+                    if (px == INFINITY || py == INFINITY || pz == INFINITY) {
+                        // block too close to player. needs to be at least one block or more apart
+                        break;
+                    }
+                    // right click, thus add block at prev_block_pos
+                    worldPutBlock(vko, world, meshPool, (int) round(px), (int) round(py), (int) round(pz), vko->currBlockType); // oak plank for now
                 }
                 else {
-                    if (button == GLFW_MOUSE_BUTTON_RIGHT) {
-                        if (px == INT32_MAX || py == INT32_MAX || pz == INT32_MAX) {
-                            // block too close to player. needs to be at least one block or more apart
-                            break;
-                        }
-                        // right click, thus add block at prev_block_pos
-                        worldPutBlock(vko, world, meshPool, px, py, pz, OAK_PLANK); // oak plank for now
-                    }
-                    else {
-                        worldPutBlock(vko, world, meshPool, ixt, iyt, izt, AIR);
-                    }
-                    break;
+                    worldPutBlock(vko, world, meshPool, ixt, iyt, izt, AIR);
                 }
+                break;
             }
         }
     }
@@ -236,7 +265,7 @@ void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *meshP
         processInput(vko->window, cam);
         updateCameraUniforms(vko, currentFrame, *cam);
         
-        // synchronizePlayerWithChunks(world, meshPool, streamer);
+        synchronizePlayerWithChunks(world, meshPool, streamer);
 
         synchronizeStreamerAndMeshPoolWithRenderer(world, streamer, meshPool, vko);
         drawFrame(vko, &currentFrame, *streamer, *meshPool);
@@ -249,11 +278,56 @@ void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *meshP
     vkDeviceWaitIdle(vko->device);
 }
 
+void destroyCrosshairStuff(vk_context *vko) {
+    vkDestroyBuffer(vko->device, vko->crosshairVertexBuffer, NULL);
+    vkFreeMemory(vko->device, vko->crosshairMemory, NULL);
+}
+
 void cleanup(vk_context *vko, World *world, Streamer streamer, MeshPool pool) {
     destroyMeshPool(pool, vko);
+    destroyCrosshairStuff(vko);
     destroyWorld(world);
     destroyStreamer(streamer);
     cleanupRenderer(vko);
+}
+
+void createCrosshairBuffer(vk_context *vko) {
+    // staging
+    VkBufferUsageFlagBits usage = VK_BUFFER_USAGE_TRANSFER_SRC_BIT;
+    VkMemoryPropertyFlagBits properties = VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT;
+    
+    size_t capacity = sizeof(crosshairVertices);
+    
+    VkBuffer stagingBuffer;
+    VkDeviceMemory stagingBufferMemory;
+    createBuffer(vko, capacity, usage, properties, &stagingBuffer, &stagingBufferMemory);
+
+    // push data onto it now
+    void *data;
+    vkMapMemory(vko->device, stagingBufferMemory, 0, capacity, 0, &data);
+
+    // upload crosshair vertices onto staging buffer
+    memcpy(data, crosshairVertices, capacity);
+    
+    // crosshair vertex buffer
+    usage = VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT;
+    properties = VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT;
+    createBuffer(vko, capacity, usage, properties, &vko->crosshairVertexBuffer, &vko->crosshairMemory);
+
+    VkCommandBuffer cpyCmd = beginSingleTimeCommands(vko);
+
+    VkBufferCopy copyRegion = {0};
+    copyRegion.size = capacity;
+    vkCmdCopyBuffer(cpyCmd, stagingBuffer, vko->crosshairVertexBuffer, 1, &copyRegion);
+
+    endSingleTimeCommands(vko, cpyCmd);
+
+    // check data
+    printf("%f, %f\n", ((float*)data)[6], ((float*)data)[7]);
+
+    vkUnmapMemory(vko->device, stagingBufferMemory);
+    vkDestroyBuffer(vko->device, stagingBuffer, NULL);
+    vkFreeMemory(vko->device, stagingBufferMemory, NULL);
 }
 
 int main() {    
@@ -298,8 +372,13 @@ int main() {
     vko.worldPointer = &world;
     vko.meshPoolPointer = &meshPool;
 
+    vko.currBlockType = OAK_PLANK;
+
     // set up mouse input
     glfwSetMouseButtonCallback(vko.window, mouseButtonCallback);
+
+    // set up crosshair vertex stuff
+    createCrosshairBuffer(&vko);
 
     mainLoop(&vko, &streamer, &world, &meshPool);
     cleanup(&vko, &world, streamer, meshPool);

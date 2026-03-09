@@ -1,19 +1,32 @@
 #include "graphics_pipeline.h"
 
-void createGraphicsPipeline(vk_context *vko) {
-    vko->vertexShaderModule = load_shader(vko->device, "./src/spvs/vert.spv");
-    vko->fragmentShaderModule = load_shader(vko->device, "./src/spvs/frag.spv");
+void createPipeline(
+    vk_context *vko,
+    const char *vert_path,
+    const char *frag_path,
+    VkPrimitiveTopology topology,
+    VkVertexInputBindingDescription *bindingDescs,
+    int bindingDescriptionCount,
+    VkVertexInputAttributeDescription *attrDescs,
+    int attrDesciptionCount,
+    int depthTestEnable,
+    int depthWriteEnable,
+    VkCullModeFlagBits cullMode,
+    VkPipeline *destPipeline
+) {
+    VkShaderModule vertexShaderModule = load_shader(vko->device, vert_path);
+    VkShaderModule fragmentShaderModule = load_shader(vko->device, frag_path);
 
     // pipeline shader stage setup
     VkPipelineShaderStageCreateInfo vertStage = {0};
     vertStage.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
     vertStage.stage = VK_SHADER_STAGE_VERTEX_BIT;
-    vertStage.module = vko->vertexShaderModule;
+    vertStage.module = vertexShaderModule;
     vertStage.pName = "main"; // needs to be main - this is the void main() thing in the shader
 
     VkPipelineShaderStageCreateInfo fragStage = {0};
     fragStage.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
-    fragStage.module = vko->fragmentShaderModule;
+    fragStage.module = fragmentShaderModule;
     fragStage.stage = VK_SHADER_STAGE_FRAGMENT_BIT;
     fragStage.pName = "main";
 
@@ -29,15 +42,15 @@ void createGraphicsPipeline(vk_context *vko) {
     // HERE is where i put the vertex buffer information. this is important. thus vertex buffers must be made BEFORE graphics pipeline
     VkPipelineVertexInputStateCreateInfo vertexInputInfo = {0};
     vertexInputInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
-    vertexInputInfo.vertexBindingDescriptionCount = 1;
-    vertexInputInfo.pVertexBindingDescriptions = &vko->bindingDesc;
-    vertexInputInfo.vertexAttributeDescriptionCount = 3;
-    vertexInputInfo.pVertexAttributeDescriptions = vko->attrDescs;
+    vertexInputInfo.vertexBindingDescriptionCount = bindingDescriptionCount;
+    vertexInputInfo.pVertexBindingDescriptions = bindingDescs;
+    vertexInputInfo.vertexAttributeDescriptionCount = attrDesciptionCount;
+    vertexInputInfo.pVertexAttributeDescriptions = attrDescs;
 
     // input assembly = describes how to assemble vertices (triangles, lines, points, etc)
     VkPipelineInputAssemblyStateCreateInfo inputAssembly = {0};
     inputAssembly.sType = VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO;
-    inputAssembly.topology = VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST;
+    inputAssembly.topology = topology;
     inputAssembly.primitiveRestartEnable = VK_FALSE;
 
     VkPipelineViewportStateCreateInfo viewportState = {0};
@@ -57,7 +70,7 @@ void createGraphicsPipeline(vk_context *vko) {
 
     rasterizer.lineWidth = 1.0f;
     
-    rasterizer.cullMode = VK_CULL_MODE_BACK_BIT;
+    rasterizer.cullMode = cullMode;
     
     // uncommet this line for no culling
     // rasterizer.cullMode = VK_CULL_MODE_NONE;
@@ -68,8 +81,8 @@ void createGraphicsPipeline(vk_context *vko) {
     // depth buffering
     VkPipelineDepthStencilStateCreateInfo depthStencil = {0};
     depthStencil.sType = VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
-    depthStencil.depthTestEnable = VK_TRUE;
-    depthStencil.depthWriteEnable = VK_TRUE;
+    depthStencil.depthTestEnable = depthTestEnable;
+    depthStencil.depthWriteEnable = depthWriteEnable;
     depthStencil.depthCompareOp = VK_COMPARE_OP_LESS;
     depthStencil.depthBoundsTestEnable = VK_FALSE;
     depthStencil.minDepthBounds = 0.0f; // Optional
@@ -105,7 +118,8 @@ void createGraphicsPipeline(vk_context *vko) {
     pipelineLayoutInfo.pSetLayouts = &vko->descriptorSetLayout;
     pipelineLayoutInfo.pushConstantRangeCount = 0;
 
-    vkCreatePipelineLayout(vko->device, &pipelineLayoutInfo, NULL, &vko->pipelineLayout);
+    // should create an independent layout for each layout, but this works for now
+    if (vko->pipelineLayout == NULL) vkCreatePipelineLayout(vko->device, &pipelineLayoutInfo, NULL, &vko->pipelineLayout);
 
     // now finally, put everything together into a graphics pipeline object
     VkGraphicsPipelineCreateInfo pipelineInfo = {0};
@@ -125,16 +139,16 @@ void createGraphicsPipeline(vk_context *vko) {
     pipelineInfo.subpass = 0; // ??? i think this is an index? this means it targets subpass 0
     // subpasses are only for render passes aye man these will make sense in the future. think subpasses either read or write to attachments in the swapchain
 
-    if (vkCreateGraphicsPipelines(vko->device, VK_NULL_HANDLE, 1, &pipelineInfo, NULL, &vko->graphicsPipeline) != VK_SUCCESS) {
+    if (vkCreateGraphicsPipelines(vko->device, VK_NULL_HANDLE, 1, &pipelineInfo, NULL, destPipeline) != VK_SUCCESS) {
         fprintf(stderr, "Failed to create graphics pipeline\n");
-        VkResult res = vkCreateGraphicsPipelines(vko->device, VK_NULL_HANDLE, 1, &pipelineInfo, NULL, &vko->graphicsPipeline);
+        VkResult res = vkCreateGraphicsPipelines(vko->device, VK_NULL_HANDLE, 1, &pipelineInfo, NULL, destPipeline);
         printf("pipeline result = %d\n", res);
         exit(1);
     }
 
     // after finished, dont need shader modules anymore
-    vkDestroyShaderModule(vko->device, vko->vertexShaderModule, NULL);
-    vkDestroyShaderModule(vko->device, vko->fragmentShaderModule, NULL);
+    vkDestroyShaderModule(vko->device, vertexShaderModule, NULL);
+    vkDestroyShaderModule(vko->device, fragmentShaderModule, NULL);
 }
 
 static VkShaderModule load_shader(VkDevice device, const char* path) {
@@ -170,4 +184,12 @@ static VkShaderModule load_shader(VkDevice device, const char* path) {
 
     free(buffer);
     return shaderModule;
+}
+
+void createGraphicsPipeline(vk_context *vko) {
+    createPipeline(vko, "./src/spvs/vert.spv", "./src/spvs/frag.spv", VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST, &vko->bindingDesc, 1, vko->attrDescs, 3, VK_TRUE, VK_TRUE, VK_CULL_MODE_BACK_BIT, &vko->graphicsPipeline);
+}
+
+void createCrosshairPipeline(vk_context *vko) {
+    createPipeline(vko, "./src/spvs/crosshair_vert.spv", "./src/spvs/crosshair_frag.spv", VK_PRIMITIVE_TOPOLOGY_LINE_LIST, &vko->crosshairBindingDesc, 1, &vko->crosshairAttrDesc, 1, VK_FALSE, VK_FALSE, VK_CULL_MODE_NONE, &vko->crosshairPipeline);
 }

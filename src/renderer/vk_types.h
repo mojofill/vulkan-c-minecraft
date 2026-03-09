@@ -93,6 +93,10 @@ typedef struct vk_context {
     VkImage depthImage; // only need one, because only one draw operation at a time. do not need for all MAX_FRAMES_IN_FLIGHT
     VkDeviceMemory depthImageMemory;
     VkImageView depthImageView;
+
+    // this is an insane idea but hear me out
+    void *worldPointer;
+    void *meshPoolPointer;
 } vk_context;
 
 #endif

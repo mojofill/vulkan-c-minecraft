@@ -28,9 +28,10 @@ void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **
     
     glm_vec3_copy(localBlockPos, local);
 
-    vec2 scaledChunkPos;
+    vec3 scaledChunkPos;
     scaledChunkPos[0] = (float) chunk.pos[0] * CHUNK_BLOCK_WIDTH;
     scaledChunkPos[1] = (float) chunk.pos[1] * CHUNK_BLOCK_WIDTH;
+    scaledChunkPos[2] = 0.0f;
     
     // get rid of annoying warning
     #pragma GCC diagnostic push
@@ -52,12 +53,20 @@ void emitFaceNoCheck(Chunk chunk, float *localBlockPos, Direction dir, Vertex **
     float uOffset = col * blockUVSize;
     float vOffset = row * blockUVSize;
 
+    float f = 0.05f / (float) ATLAS_SIZE;
+    float halfTexel = type == WATER ? f : 0.0f;
+
+    float u0 = uOffset + halfTexel;
+    float u1 = uOffset + blockUVSize - halfTexel;
+    float v0 = vOffset + halfTexel;
+    float v1 = vOffset + blockUVSize - halfTexel;
+
     for (int i = 0; i < 4; i++) {
         Vertex v = cube_vertices[at + i];
         v.light = faceLight[dir];
         glm_vec3_add(v.pos, worldBlockPos, v.pos);
-        v.texCoord[0] = v.texCoord[0] * blockUVSize + uOffset;
-        v.texCoord[1] = v.texCoord[1] * blockUVSize + vOffset;
+        v.texCoord[0] = v.texCoord[0] * (u1 - u0) + u0;
+        v.texCoord[1] = v.texCoord[1] * (v1 - v0) + v0;
         (*pMappedData)[*idx] = v;
         (*idx)++;
     }

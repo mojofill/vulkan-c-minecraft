@@ -1,5 +1,4 @@
 #include "mesh_pool.h"
-#include "mach/mach_time.h"
 
 void createMeshPool(MeshPool *outMeshPool) {
     outMeshPool->meshes = malloc(sizeof(ChunkMesh) * MAX_LOADED_CHUNKS);
@@ -94,10 +93,12 @@ static void genChunkMeshVkBuffers(Chunk chunk, ChunkMap *chunkMap, ChunkPool *ch
 
     if (cpySize == 0) return; // believe i can just skip this
 
-    // TODO: this size is WAY too big. this is the main culprit. GPU is reading/storing/retrieving too many useless vertices
-    // used to be sizeof(cube_vertices) * MAX_BLOCKS_PER_CHUNK
-    VkDeviceSize          size = cpySize;
-    VkBufferUsageFlags    usage;
+    // round size up to biggest power of 2 that is just greater than cpySize
+    VkDeviceSize capacity = 1;
+    while (capacity < cpySize) {
+        capacity *= 2;
+    }
+    VkBufferUsageFlags usage;
     VkMemoryPropertyFlags properties;
 
     int slot = meshPool->handleToSlot[chunk.chunkHandle];
@@ -107,14 +108,17 @@ static void genChunkMeshVkBuffers(Chunk chunk, ChunkMap *chunkMap, ChunkPool *ch
     if (mesh->vertexBuffer == VK_NULL_HANDLE) { // need to create transfer and vertex buffers
         usage = VK_BUFFER_USAGE_TRANSFER_SRC_BIT;
         properties = VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT;
-        createBuffer(vko, size, usage, properties, &mesh->stagingBuffer, &mesh->stagingBufferMemory);
+        createBuffer(vko, capacity, usage, properties, &mesh->stagingBuffer, &mesh->stagingBufferMemory);
         
         // map staging buffer to host mapped pointer
-        vkMapMemory(vko->device, mesh->stagingBufferMemory, 0, size, 0, (void**) &mesh->mappedData);
+        // staging buffer should have full capacity
+        vkMapMemory(vko->device, mesh->stagingBufferMemory, 0, capacity, 0, (void**) &mesh->mappedData);
 
         usage = VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT;
         properties = VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT;
-        createBuffer(vko, size, usage, properties, &mesh->vertexBuffer, &mesh->vertexBufferMemory);
+        createBuffer(vko, capacity, usage, properties, &mesh->vertexBuffer, &mesh->vertexBufferMemory);
+
+        mesh->capacitySize = capacity;
     }
 
     memcpy(mesh->mappedData, data, cpySize);
@@ -141,6 +145,75 @@ void meshChunk(ChunkHandle handle, ChunkMap *chunkMap, ChunkPool *chunkPool, Mes
     genChunkMeshVkBuffers(*chunk, chunkMap, chunkPool, meshPool, vko, cpyCmd);
 
     chunk->dirty = 0; // after remeshing mark not dirty
+}
+
+// if block already exists at that spot, will just replace with new block
+// this is a blocking command. will fully interact with gpu buffer and update entirely in one call
+void meshPutBlock(vk_context *vko, ChunkMap *chunkMap, ChunkPool *chunkPool, MeshPool *meshPool, ChunkHandle chunkHandle, int local_x, int local_y, int local_z, int type) {
+    int slot = meshPool->handleToSlot[chunkHandle];
+    ChunkMesh *mesh = &meshPool->meshes[slot];
+
+    if (mesh->vertexBuffer == VK_NULL_HANDLE) {
+        fprintf(stderr, "mesh vertex buffer is null. this should not happen\n");
+        exit(1);
+    }
+
+    // first need to see vertex buffer size vs capacity
+
+    Chunk chunk = chunkPool->chunks[chunkHandle];
+
+    VkCommandBuffer cpyCmd = beginSingleTimeCommands(vko);
+
+    // count how many solid blocks there are
+    int solids = 0;
+    chunk_mesh_foreach(x, y, z) {
+        if (z == CHUNK_BLOCK_HEIGHT - 1) continue; // for now, just say the top layer will never be shown
+        int at = chunk_mesh_xyz_to_block_index(x,y,z);
+        int above = chunk_mesh_xyz_to_block_index(x,y,z+1);
+        if (chunk.blocks[at] != AIR && chunk.blocks[above] == AIR) solids++;
+    }
+
+    size_t possibleSize = (sizeof(cube_vertices) * solids);
+    Vertex *data = malloc(possibleSize);
+    int faceCount = 0; // need to update this later
+    int res; // this is debug stuff, i should remove this
+    int num_faces = writeChunkMeshToMappedPointer(chunk, chunkMap, chunkPool, &data, &faceCount, &res);
+
+    VkDeviceSize cpySize = num_faces * FACE_SIZE;
+
+    // update mesh state
+    mesh->faceCount = num_faces;
+    if (mesh->capacitySize < cpySize) {
+        // double size of mesh capacity
+        mesh->capacitySize *= 2;
+        
+        // reallocate space for in staging and vertex buffer
+        vkDestroyBuffer(vko->device, mesh->stagingBuffer, NULL);
+        vkDestroyBuffer(vko->device, mesh->vertexBuffer, NULL);
+        vkFreeMemory(vko->device, mesh->stagingBufferMemory, NULL);
+        vkFreeMemory(vko->device, mesh->vertexBufferMemory, NULL);
+
+        VkBufferUsageFlags usage = VK_BUFFER_USAGE_TRANSFER_SRC_BIT;
+        VkMemoryPropertyFlags properties = VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT | VK_MEMORY_PROPERTY_HOST_COHERENT_BIT;
+        createBuffer(vko, mesh->capacitySize, usage, properties, &mesh->stagingBuffer, &mesh->stagingBufferMemory);
+        
+        // map staging buffer to host mapped pointer
+        // staging buffer should have full capacity
+        vkMapMemory(vko->device, mesh->stagingBufferMemory, 0, mesh->capacitySize, 0, (void**) &mesh->mappedData);
+
+        usage = VK_BUFFER_USAGE_TRANSFER_DST_BIT | VK_BUFFER_USAGE_VERTEX_BUFFER_BIT;
+        properties = VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT;
+        createBuffer(vko, mesh->capacitySize, usage, properties, &mesh->vertexBuffer, &mesh->vertexBufferMemory);
+    }
+
+    // finally, copy data from test pointer to staging buffer pointer
+    memcpy(mesh->mappedData, data, cpySize);
+
+    VkBufferCopy copyRegion = {0};
+    copyRegion.size = cpySize;
+    vkCmdCopyBuffer(cpyCmd, mesh->stagingBuffer, mesh->vertexBuffer, 1, &copyRegion);
+
+    endSingleTimeCommands(vko, cpyCmd);
 }
 
 void destroyMeshPool(MeshPool meshPool, vk_context *vko) {

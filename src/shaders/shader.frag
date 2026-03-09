@@ -8,22 +8,23 @@ layout(binding = 1) uniform sampler2D texSampler;
 
 layout(location = 0) out vec4 outColor;
 
-const vec3 fogColor = vec3(0.7, 0.8, 1.0); // sky color
-const float fogStart = 100.0;
-const float fogEnd   = 110.0;
+// (VkClearColorValue) {0.53f, 0.81f, 0.92f, 1.0f};
+const vec3 fogColor = vec3(0.53, 0.81, 0.92); // sky color
+const float fogStart = 150.0;
+const float fogEnd   = 170.0;
 
 void main() {
     outColor = light * texture(texSampler, fragTexCoord);
 
     // uncomment this code for some simple fogging
-    vec3 blockColor = texture(texSampler, fragTexCoord).rgb;
-    blockColor *= light;
+    // vec3 blockColor = texture(texSampler, fragTexCoord).rgb;
+    // blockColor *= light;
 
-    float fogFactor = clamp(
-        (fragDepth - fogStart) / (fogEnd - fogStart),
-        0.0, 1.0
-    );
+    // float fogFactor = clamp(
+    //     (fragDepth - fogStart) / (fogEnd - fogStart),
+    //     0.0, 1.0
+    // );
 
-    vec3 finalColor = mix(blockColor, fogColor, fogFactor);
-    outColor = vec4(finalColor, 1.0);
+    // vec3 finalColor = mix(blockColor, fogColor, fogFactor);
+    // outColor = vec4(finalColor, 1.0);
 }

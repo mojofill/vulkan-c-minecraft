@@ -73,7 +73,7 @@ float fbm(int wx, int wz) {
 float heightFunc(int wx, int wz) {
     float n = fbm(wx, wz);
     n = (n + 1.0f) * 0.5f;
-    return 20.0f + n * 40.0f;
+    return 10.0f + n * 60.0f;
 }
 
 // adds chunk to pool, returns unique handle
@@ -114,10 +114,10 @@ ChunkHandle createChunk(ChunkPool *pool, ivec2 pos) {
                 if (z == 0) type = WATER;
                 else if (z == 1) type = SAND;
                 else if (z == 2) type = GRASS;
-                else type = GRASS;
-                // else if (z <= 9) type = GRASS;
-                // else if (z <= 10) type = SMOOTH_STONE;
-                // else type = SNOW;
+                // else type = GRASS;
+                else if (z <= 9) type = GRASS;
+                else if (z <= 16) type = SMOOTH_STONE;
+                else type = SNOW;
                 
                 chunk.num_blocks++;
             }

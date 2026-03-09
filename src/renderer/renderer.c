@@ -1,5 +1,5 @@
 #include "renderer.h"
-#include <mach/mach_time.h>
+// #include <mach/mach_time.h>
 
 static void framebufferResizeCallback(GLFWwindow *window, int width, int height) {
     vk_context *vko = glfwGetWindowUserPointer(window);
@@ -46,7 +46,10 @@ static void createInstance(vk_context *vko) {
     const char** glfwExtensions;
     glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
 
-    uint32_t extensionCount = glfwExtensionCount + 1;
+    uint32_t extensionCount = glfwExtensionCount;
+    #ifdef __APPLE__
+        extensionCount++;
+    #endif
     const char **extensions = malloc(sizeof(char*) * extensionCount);
 
     for (uint32_t i = 0; i < glfwExtensionCount; i++) {
@@ -57,13 +60,40 @@ static void createInstance(vk_context *vko) {
         extensions[glfwExtensionCount] = VK_KHR_PORTABILITY_ENUMERATION_EXTENSION_NAME;
     #endif
 
-    const char* layers[] = {"VK_LAYER_KHRONOS_validation"};
-    
     createInfo.enabledExtensionCount = extensionCount;
     createInfo.ppEnabledExtensionNames = extensions;
-    createInfo.enabledLayerCount = 1;
+    
     // validation layers 
-    createInfo.ppEnabledLayerNames = layers;
+
+    const char* layers[] = {"VK_LAYER_KHRONOS_validation"};
+    uint32_t layerCount = 0;
+    vkEnumerateInstanceLayerProperties(&layerCount, NULL);
+
+    VkLayerProperties* availableLayers =
+        malloc(sizeof(VkLayerProperties) * layerCount);
+
+    vkEnumerateInstanceLayerProperties(&layerCount, availableLayers);
+
+    int validationLayerFound = 0;
+
+    for (uint32_t i = 0; i < layerCount; i++) {
+        if (strcmp(availableLayers[i].layerName,
+                "VK_LAYER_KHRONOS_validation") == 0) {
+            validationLayerFound = 1;
+            break;
+        }
+    }
+
+    if (validationLayerFound) {
+        createInfo.enabledLayerCount = 1;
+        createInfo.ppEnabledLayerNames = layers;
+    } else {
+        createInfo.enabledLayerCount = 0;
+        createInfo.ppEnabledLayerNames = NULL;
+    }
+
+    free(availableLayers);
+
     #ifdef __APPLE__
         createInfo.flags = VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR;
     #endif
@@ -124,7 +154,18 @@ static void findQueueFamilies(vk_context *vko) {
 }
 
 static void createLogicalDevice(vk_context *vko) {
-    const char* deviceExtensions[] = { VK_KHR_SWAPCHAIN_EXTENSION_NAME, VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME }; // must add swapchain extension
+    uint32_t extensionCount = 1;
+
+    #ifdef __APPLE__
+        extensionCount = 2;
+    #endif
+
+    const char* deviceExtensions[2];
+    deviceExtensions[0] = VK_KHR_SWAPCHAIN_EXTENSION_NAME;
+
+    #ifdef __APPLE__
+        deviceExtensions[1] = VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME;
+    #endif
 
     // create device queue
     float queuePriority = 1.0f;
@@ -150,7 +191,7 @@ static void createLogicalDevice(vk_context *vko) {
     deviceCreateInfo.pNext = &v12Features;
     deviceCreateInfo.queueCreateInfoCount = 1;
     deviceCreateInfo.pQueueCreateInfos = queueCreateInfos;
-    deviceCreateInfo.enabledExtensionCount = 2;
+    deviceCreateInfo.enabledExtensionCount = extensionCount;
     deviceCreateInfo.ppEnabledExtensionNames = deviceExtensions;
     deviceCreateInfo.pEnabledFeatures = &deviceFeatures;
 

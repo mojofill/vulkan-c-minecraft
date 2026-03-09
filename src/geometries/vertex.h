@@ -91,4 +91,6 @@ static const uint32_t cube_indices[CUBE_INDEX_COUNT] = {
 // size of one block in UV space
 #define blockUVSize 0.0625
 
+#define ATLAS_SIZE 16
+
 #endif

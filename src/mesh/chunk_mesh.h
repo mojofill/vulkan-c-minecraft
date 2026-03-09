@@ -16,8 +16,13 @@ typedef struct ChunkMesh {
 
     VkBuffer stagingBuffer;
     VkDeviceMemory stagingBufferMemory;
+
+    VkDeviceSize capacitySize; // same for both vertex buffer and staging buffer
+
     Vertex *mappedData;
     uint32_t faceCount;
+
+    // size = faceCount * FACE_SIZE
 } ChunkMesh;
 
 uint32_t writeChunkMeshToMappedPointer(Chunk chunk, ChunkMap *map, ChunkPool *chunkPool, Vertex **pMappedData, uint32_t *pMeshFaceCount, int *res);

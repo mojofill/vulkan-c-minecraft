@@ -39,5 +39,6 @@ void mesh_alloc(MeshPool *pool, ChunkHandle handle);
 void mesh_free(MeshPool *pool, ChunkHandle handle);
 int meshPoolIsHandleUsed(MeshPool pool, ChunkHandle handle);
 void meshChunk(ChunkHandle handle, ChunkMap *chunkMap, ChunkPool *chunkPool, MeshPool *meshPool, vk_context *vko, VkCommandBuffer cpyCmd);
+void meshPutBlock(vk_context *vko, ChunkMap *chunkMap, ChunkPool *chunkPool, MeshPool *meshPool, ChunkHandle chunkHandle, int local_x, int local_y, int local_z, int type);
 
 #endif

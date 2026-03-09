@@ -2,10 +2,10 @@
 #include "mesh/mesh_pool.h"
 #include "world/world.h"
 #include "streamer/streamer.h"
-#include "mach/mach_time.h"
+// #include "mach/mach_time.h"
 #include <math.h>
 
-static mach_timebase_info_data_t info;
+// static mach_timebase_info_data_t info;
 
 void processInput(GLFWwindow *window, Camera *cam) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
@@ -32,7 +32,7 @@ void updateCameraUniforms(vk_context *vko, uint32_t currentImage, Camera cam) {
 
     float width = (float) vko->surfaceCapabilities.currentExtent.width;
     float height = (float) vko->surfaceCapabilities.currentExtent.height;
-    glm_perspective(GLM_PI_4, width / height, 0.1f, 500.0f, ubo.proj);
+    glm_perspective(GLM_PI_4, width / height, 0.1f, 10000.0f, ubo.proj);
 
     ubo.proj[1][1] *= -1; // flip image upside down bc vulkan and opengl y axes are flipped
     memcpy(vko->cameraUniformBufferMapped[currentImage], &ubo, sizeof(ubo));
@@ -57,6 +57,88 @@ void synchronizeStreamerAndMeshPoolWithRenderer(World *world, Streamer *streamer
     }
 
     endSingleTimeCommands(vko, cpyCmd);
+}
+
+void worldPutBlock(vk_context *vko, World *world, MeshPool *meshPool, int x, int y, int z, int type) {
+    int cx = (int) floor(x / (float) CHUNK_BLOCK_WIDTH);
+    int cy = (int) floor(y / (float) CHUNK_BLOCK_WIDTH);
+    
+    ChunkHandle chunkHandle = chunk_map_get(&world->chunkMap, cx, cy);
+    if (chunkHandle == CHUNK_HANDLE_INVALID) {
+        printf("attempting to add block onto invalid chunk\n");
+        exit(1);
+    }
+
+    Chunk *chunk = &world->chunkPool.chunks[chunkHandle];
+
+    // pass in local coordinates
+    int local_x = x - cx * CHUNK_BLOCK_WIDTH;
+    int local_y = y - cy * CHUNK_BLOCK_WIDTH;
+
+    // cpu mem needs to be fully correct before any mesh tampering, because mesh looks at cpu mem for block info
+    chunkPutBlock(chunk, local_x, local_y, z, type);
+    meshPutBlock(vko, &world->chunkMap, &world->chunkPool, meshPool, chunkHandle, local_x, local_y, z, type);
+}
+
+void mouseButtonCallback(GLFWwindow *window, int button, int action, int mods) {
+    if (action == GLFW_PRESS) {
+        // cast a ray out from camera dir
+        vk_context *vko = glfwGetWindowUserPointer(window);
+        // shit i need to somehow avoid circular includes
+        // wait a fucking second...
+        World *world = vko->worldPointer;
+        MeshPool *meshPool = vko->meshPoolPointer;
+        int px = INT32_MAX;
+        int py = INT32_MAX;
+        int pz = INT32_MAX;
+        if (world != NULL) {
+            // for testing purposes, lets just add a single block under the camera
+            Camera *cam = &world->cam;
+            ChunkHandle chunkHandle = chunk_map_get(&world->chunkMap, cam->chunkPos[0], cam->chunkPos[1]);
+            // arbitrarily set player reach to 50 "units" (wtf even are the units in this game)
+            for (double t = 0; t < 50; t += 0.25) {
+                double xt = floor(cam->pos[0] + cam->dir[0] * t);
+                double yt = floor(cam->pos[1] + cam->dir[1] * t);
+                double zt = floor(cam->pos[2] + cam->dir[2] * t);
+
+                int cx = (int) floor(xt / (float) CHUNK_BLOCK_WIDTH);
+                int cy = (int) floor(yt / (float) CHUNK_BLOCK_WIDTH);
+
+                ChunkHandle chunkHandle = chunk_map_get(&world->chunkMap, cx, cy);
+                Chunk chunk = world->chunkPool.chunks[chunkHandle];
+
+                int ixt = (int) xt;
+                int iyt = (int) yt;
+                int izt = (int) zt;
+                
+                int lx = ixt - cx * CHUNK_BLOCK_WIDTH;
+                int ly = iyt - cy * CHUNK_BLOCK_WIDTH;
+                int lz = izt;
+
+                BlockType type = chunk.blocks[chunk_mesh_xyz_to_block_index(lx, ly, lz)];
+
+                if (type == AIR) {
+                    px = ixt;
+                    py = iyt;
+                    pz = izt;
+                }
+                else {
+                    if (button == GLFW_MOUSE_BUTTON_RIGHT) {
+                        if (px == INT32_MAX || py == INT32_MAX || pz == INT32_MAX) {
+                            // block too close to player. needs to be at least one block or more apart
+                            break;
+                        }
+                        // right click, thus add block at prev_block_pos
+                        worldPutBlock(vko, world, meshPool, px, py, pz, OAK_PLANK); // oak plank for now
+                    }
+                    else {
+                        worldPutBlock(vko, world, meshPool, ixt, iyt, izt, AIR);
+                    }
+                    break;
+                }
+            }
+        }
+    }
 }
 
 void synchronizePlayerWithChunks(World *world, MeshPool *meshPool, Streamer *streamer) {
@@ -146,7 +228,7 @@ void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *meshP
     cam->lastX = xpos;
     cam->lastY = ypos;
 
-    mach_timebase_info(&info);
+    // mach_timebase_info(&info);
 
     while (!glfwWindowShouldClose(vko->window)) {
         glfwPollEvents();
@@ -154,7 +236,7 @@ void mainLoop(vk_context *vko, Streamer *streamer, World *world, MeshPool *meshP
         processInput(vko->window, cam);
         updateCameraUniforms(vko, currentFrame, *cam);
         
-        synchronizePlayerWithChunks(world, meshPool, streamer);
+        // synchronizePlayerWithChunks(world, meshPool, streamer);
 
         synchronizeStreamerAndMeshPoolWithRenderer(world, streamer, meshPool, vko);
         drawFrame(vko, &currentFrame, *streamer, *meshPool);
@@ -211,6 +293,13 @@ int main() {
     for (int i = 0; i < num; i++) {
         mesh_alloc(&meshPool, i);
     }
+
+    // need to add world reference to vko
+    vko.worldPointer = &world;
+    vko.meshPoolPointer = &meshPool;
+
+    // set up mouse input
+    glfwSetMouseButtonCallback(vko.window, mouseButtonCallback);
 
     mainLoop(&vko, &streamer, &world, &meshPool);
     cleanup(&vko, &world, streamer, meshPool);

@@ -1,5 +1,5 @@
 #include "buffer.h"
-#include <mach/mach_time.h>
+// #include <mach/mach_time.h>
 
 void setVertexBindingDescription(vk_context *vko) {
     vko->bindingDesc = (VkVertexInputBindingDescription) {0};
@@ -95,10 +95,7 @@ VkCommandBuffer beginSingleTimeCommands(vk_context *vko) {
     return commandBuffer;
 }
 
-void endSingleTimeCommands(vk_context *vko, VkCommandBuffer commandBuffer) {
-    mach_timebase_info_data_t sTimebaseInfo;
-    mach_timebase_info(&sTimebaseInfo);
-    
+void endSingleTimeCommands(vk_context *vko, VkCommandBuffer commandBuffer) {    
     vkEndCommandBuffer(commandBuffer); // end recording
 
     // must submit command
@@ -108,11 +105,7 @@ void endSingleTimeCommands(vk_context *vko, VkCommandBuffer commandBuffer) {
     submitInfo.pCommandBuffers = &commandBuffer;
 
     vkQueueSubmit(vko->graphicsQueue, 1, &submitInfo, VK_NULL_HANDLE);
-    uint64_t start_time = mach_absolute_time();
     vkQueueWaitIdle(vko->graphicsQueue); // BAD! do not do this.
-    uint64_t end_time = mach_absolute_time();
-    uint64_t elapsed_nano = (end_time - start_time) * sTimebaseInfo.numer / sTimebaseInfo.denom;
-    double elapsed_ms = (double)elapsed_nano * 1e-6;
     // printf("(queue wait single time cmd) elapsed ms: %f\n", elapsed_ms);
 
     // one time use, thus immediately free buffer
